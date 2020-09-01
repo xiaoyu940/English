@@ -1,0 +1,62 @@
+The simplest notion of architecture we will use is that architecture is an abstract description of the entities of a system and the relationship between those entities. In systems built by
+humans, this architecture can be represented as a set of decisions.
+The premise of this text is that our systems are more likely to be successful if we are careful
+about identifying and making the decisions that establish the architecture of a system. This text is
+an attempt to encode experience and analysis about early system decisions and to recognize that
+these choices share common themes. Over the past 30 years, analysis and computational effort
+have opened a broad tradespace of options, and in many areas, that tradespace grew faster than
+our ability to understand it. The field of system architecture grew out of practitioners’ attempts
+to capture expert wisdom from past designs and to structure a broader understanding of potential
+future designs.
+The market context in which our products and systems compete does not offer any comfort.
+Consider Boeing’s decision to “bet the company” on the development of the 787 aircraft and the
+associated composite technology. Boeing is half of a global duopoly for large passenger aircraft,
+yet in its core business, rather than spreading risk across many small programs, the firm turns
+on a single product’s emergent success or failure. The global market for mobile devices is larger
+and more competitive still. Although it can be argued that the product risk is more diversified
+(that is, an individual product development investment is a smaller fraction of firm revenues) in
+the mobile sector, witness the declines of former giants BlackBerry and Ericsson. To capture
+market share, systems must innovate on the product offering, incorporate novel technologies,
+and address multiple markets. To compete on tight margins, they must be designed to optimize
+manufacturing cost, delivered through multi-tiered supply chains. We will argue that good architectural decisions made by firms can create competitive advantage in difficult markets, but bad
+decisions can hobble large developments from the outset.
+Figure 1.1 Complexsystems:theheavy-liftshipmVBlue Marlin transporting
+the36,000metrictondrillingplatformSSVVictoria. (Source: dockwise/rex
+Features/associatedpress)18 part1 • SyStemthInkIng
+Every system built by humans has an architecture. Products such as mobile phone software,
+cars, and semiconductor capital equipment are defined by a few key decisions that are made
+early in each program’s lifecycle. For example, early decisions in automotive development, such
+as the mounting of the engine, drive a host of downstream decisions. Choosing to mount an
+engine transversely in a car has implications for the modularization of the engine, gearbox, and
+drivetrain, as well as for the suspension and the passenger compartment. The architecture of a
+system conveys a great deal about how the product is organized.
+In the design of complex systems, many of these early architectural decisions are made
+without full knowledge of the system’s eventual scope. These early decisions have enormous
+impact on the eventual design. They constrain the envelope of performance, they restrict potential manufacturing sites, they make it possible or impossible for suppliers to capture after-market
+revenue share, and so forth. As an example of gathering downstream information for upstream
+consumption, the width of John Deere’s crop sprayers is constrained to be less than the column
+separation at the manufacturing site. In this case the width constraint is obvious to the development team and was not uncertain or hidden, but it is one of the main variables in the productivity
+equation for a crop sprayer.
+The central assertion of this text is that these early decisions can be analyzed and treated.
+Despite uncertainty around scope, even without knowing the detailed design of components, the
+architecture of the system merits scrutiny. Architecting a system is a soft process, a composite
+of science and art; we harbor no fantasies that this can or should be a linear process that results
+in an optimal solution. Rather, we wrote this text to bring together what we’ve learned about the
+core ideas and practices that compose system architecture. Our central assertion is that structured
+creativity is better than unstructured creativity.
+This focus on decisions enables system architects to directly trade the choices for each
+decision, rather than the underlying designs they represent, thus encouraging broader concept
+evaluation. At the same time, this decision language enables system architects to order decisions
+according to their leverage on the system performance, in recognition that system architectures
+are rarely chosen in one fell swoop; rather, they are iteratively defined by a series of choices.
+The failed National Polar-Orbiting Environmental Satellite System (NPOESS) is an exemplar
+of architectural decisions handicapping a system. NPOESS1 was created in 1994 from the merger
+of two existing operational weather satellite programs, one civilian (weather prediction) and one
+military (weather and cloud cover imagery). The rationale for the merger was not ill-founded; these
+two systems collecting related data presented a $1.3 billion cost consolidation opportunity. [9]
+Early in the merged program, a decision was made to include the superset of instruments capability
+from both historical programs. For example, the VIIRS (Visible Infrared Image Radiometer Suite)
+instrument was expected to combine the capabilities of three historical instruments.
+The assumption underlying the program was that the functional complexity of the merged program would scale linearly with the sum of the two historical programs. This might have held, had
+the program derived needs and concepts from the heritage instruments. However, a second decision
+to list new functions independent of the system concept trapped the architectural performance in an
