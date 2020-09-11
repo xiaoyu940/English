@@ -1,0 +1,1001 @@
+Architecture of Complex Systems
+
+In June 1962, NASA made the decision to use a dedicated capsule to descend to the surface of the Moon from lunar orbit, rather than to descend to the surface with the Command/Service Module used to bring astronauts to lunar orbit.
+1962年6月，NASA决定使用一个专用的太空舱从月球轨道下降到月球表面，而不是用指令/服务舱将宇航员带到月球轨道下降到月球表面。
+This decision implied that the dedicated capsule, later named the Lunar Module, would have to rendezvous in lunar orbit with their ride home and support a crew transfer between vehicles.
+这一决定意味着，这个后来被命名为登月舱的专用太空舱将不得不在月球轨道上会合，以完成宇航员在飞船之间的转移。
+This decision was made in the first year of the Apollo program, seven years before the maneuver would be executed in lunar orbit.
+这个决定是在阿波罗计划的第一年做出的，比在月球轨道上执行这一操作早了7年。
+It was made before the majority of program staff was hired and before the design contracts were awarded.
+它是在大部分项目人员被雇佣之前，在设计合同被授予之前做出的。
+Yet the decision was formative;
+然而，这个决定是形成的;
+it eliminated many possible designs and gave the design teams a starting point.
+它消除了许多可能的设计，并为设计团队提供了一个起点。
+It guided the work of hundreds of thousands of engineers and an investment that in 1968 exceeded 4% of federal outlays.
+它指导了数十万工程师的工作，1968年的投资超过了联邦支出的4%。
+We conceive, design, implement, and operate complex and sometimes unprecedented systems.
+我们构思、设计、实施和操作复杂的、有时是前所未有的系统。
+The largest container ship today carries 18,000 containers, up from 480 containers in 1950.
+目前，最大的集装箱船可以装载18000个集装箱，而1950年只有480个集装箱。
+[1], [2] Cars built today routinely have 70 processors scattered through the vehicle, connected by as many as five separate buses running at 1 Mbit/s [3] a far cry from early electronics buses used to communicate fuel injection at a mere 160 bit/s.
+今天制造的[1]，[2]汽车通常有70个处理器分散在车辆上，由5个独立的总线连接，以1 Mbit/s的[3]速度运行，这与早期用于160 bit/s燃油喷射通信的电子总线相去甚远。
+Oil platforms costing $200 to 800 million [4] are developed and produced almost routinely;
+成本在2亿至8亿[4]美元的石油平台几乎是常规开发和生产;
+39 were delivered between 2003 and 2009.
+其中39架在2003年至2009年间交付。
+[5] These systems are not merely large and complex.
+这些系统不仅仅是庞大和复杂。
+They are sometimes configurable for each customer and are often very costly to deliver.
+它们有时可以针对每个客户进行配置，交付的成本通常非常高。
+Customers of consumer products expect unprecedented levels of customization and configurability.
+消费类产品的客户期望前所未有的定制和可配置性。
+For example, BMW calculated that it offered 1.5 billion potential configurations to its customers in 2004.
+例如，根据宝马的计算，它在2004年向客户提供了15亿个潜在配置。
+[6] Some complex systems are very costly to deliver.
+有些复杂系统的交付成本非常高。
+Norm Augustine points out that the unit cost of a fighter aircraft rose exponentially from 1910 through 1980, predicting that in 2053 the entire U.S. defense budget would procure exactly one aircraft.
+Norm Augustine指出，一架战斗机的单位成本从1910年到1980年呈指数级增长，预计到2053年，整个美国国防预算只会购买一架飞机。
+[7] Interestingly, Augustine s prediction has held up well for 30 years: In 2010 an F-22 raptor cost $160 million, or $350 million if the development costs are included.
+[7]有趣的是，奥古斯丁的预测已经持续了30年:2010年，一架F-22猛禽战机的成本为1.6亿美元，如果把开发成本算在内，则为3.5亿美元。
+
+
+The Advantages of Good Architecture 
+
+Do these complex systems meet stakeholder needs and deliver value?
+这些复杂的系统满足涉众的需求并交付价值吗?
+Do they integrate easily, evolve flexibly, and operate simply and reliably?
+它们是否易于集成、灵活演化、操作简单可靠?
+Well architected systems do
+架构良好的系统可以做到这一点
+
+
+The simplest notion of architecture we will use is that architecture is an abstract description of the entities of a system and the relationship between those entities.
+我们将使用的架构最简单的概念是，架构是对系统实体和这些实体之间关系的抽象描述。
+In systems built by humans, this architecture can be represented as a set of decisions.  
+在人工构建的系统中，该体系结构可以表示为一组决策。
+The premise of this text is that our systems are more likely to be successful if we are careful about identifying and making the decisions that establish the architecture of a system.
+本文的前提是，如果我们小心地识别和制定建立系统架构的决策，那么我们的系统更有可能成功。
+This text is an attempt to encode experience and analysis about early system decisions and to recognize that these choices share common themes.
+本文试图对早期系统决策的经验和分析进行编码，并认识到这些选择具有共同的主题。
+Over the past 30 years, analysis and computational effort have opened a broad tradespace of options, and in many areas, that tradespace grew faster than our ability to understand it.
+在过去的30年里，分析和计算的努力已经打开了一个广阔的贸易空间的选择，并且在许多领域，贸易空间的增长比我们理解它的能力更快。
+The field of system architecture grew out of practitioners attempts to capture expert wisdom from past designs and to structure a broader understanding of potential future designs.
+系统架构领域的从业者试图从过去的设计中获取专家的智慧，并构建对潜在的未来设计的更广泛的理解。
+The market context in which our products and systems compete does not offer any comfort.
+我们的产品和系统竞争的市场环境不能提供任何安慰。
+Consider Boeing s decision to bet the company on the development of the 787 aircraft and the associated composite technology.
+以波音公司(Boeing)押注于787飞机及其相关复合技术的开发为例。
+Boeing is half of a global duopoly for large passenger aircraft, yet in its core business, rather than spreading risk across many small programs, the firm turns on a single product s emergent success or failure.
+波音公司是全球大型客机双头垄断企业的一半，但在其核心业务中，该公司没有将风险分散到许多小项目中，而是依靠单一产品的突发成功或失败。
+The global market for mobile devices is larger and more competitive still.
+全球移动设备市场规模更大，竞争更激烈。
+Although it can be argued that the product risk is more diversified (that is, an individual product development investment is a smaller fraction of firm revenues) in the mobile sector, witness the declines of former giants BlackBerry and Ericsson.
+尽管可以认为手机行业的产品风险更多样化(即单个产品开发投资占公司收入的比例更小)，但前巨头黑莓(BlackBerry)和爱立信(Ericsson)的下滑就证明了这一点。
+To capture market share, systems must innovate on the product offering, incorporate novel technologies, and address multiple markets.
+为了占领市场份额，系统必须在产品提供上进行创新，结合新技术，并针对多个市场。
+To compete on tight margins, they must be designed to optimize manufacturing cost, delivered through multi-tiered supply chains.
+为了在有限的利润空间中竞争，它们的设计必须优化制造成本，并通过多层供应链进行交付。
+We will argue that good architectural decisions made by firms can create competitive advantage in difficult markets, but bad decisions can hobble large developments from the outset.
+我们会说，公司做出的好的架构决策可以在困难的市场中创造竞争优势，但是糟糕的决策可以从一开始就阻碍大的发展。
+
+Every system built by humans has an architecture.
+人类建造的每一个系统都有一个架构。
+Products such as mobile phone software, cars, and semiconductor capital equipment are defined by a few key decisions that are made early in each program s lifecycle.
+产品如移动电话软件、汽车和半导体资本设备是由在每个程序生命周期早期做出的一些关键决策来定义的。
+For example, early decisions in automotive development, such as the mounting of the engine, drive a host of downstream decisions.
+例如，汽车开发中的早期决策，例如发动机的安装，驱动了一系列下游决策。
+Choosing to mount an engine transversely in a car has implications for the modularization of the engine, gearbox, and drivetrain, as well as for the suspension and the passenger compartment.
+在汽车中选择横向安装发动机意味着发动机、变速箱和传动系统的模块化，以及悬架和乘客舱。
+The architecture of a system conveys a great deal about how the product is organized.
+系统的架构传达了很多关于产品是如何组织的信息。
+In the design of complex systems, many of these early architectural decisions are made without full knowledge of the system s eventual scope.
+在复杂系统的设计中，许多早期的架构决策是在不完全了解系统的最终范围的情况下做出的。
+These early decisions have enormous impact on the eventual design.
+这些早期的决定对最终的设计有巨大的影响。
+They constrain the envelope of performance, they restrict poten tial manufacturing sites, they make it possible or impossible for suppliers to capture after-market revenue share, and so forth.
+它们限制了性能的范围，限制了潜在的生产地点，使供应商有可能或不可能获得售后市场收入份额，等等。
+As an example of gathering downstream information for upstream consumption, the width of John Deere s crop sprayers is constrained to be less than the column separation at the manufacturing site.
+作为收集下游信息以供上游消费的一个例子，John Deere的作物喷雾器的宽度被限制在小于生产现场的柱分离。
+In this case the width constraint is obvious to the develop ment team and was not uncertain or hidden, but it is one of the main variables in the productivity equation for a crop sprayer.
+在这种情况下，宽度限制对开发团队是明显的，没有不确定或隐藏，但它是作物喷雾器产量方程的主要变量之一。
+The central assertion of this text is that these early decisions can be analyzed and treated.
+本文的中心主张是，这些早期的决定可以被分析和处理。
+Despite uncertainty around scope, even without knowing the detailed design of components, the architecture of the system merits scrutiny.
+尽管范围不确定，即使不知道组件的详细设计，系统的体系结构也值得仔细审查。
+Architecting a system is a soft process, a composite of science and art;
+系统的设计是一个软过程，是科学与艺术的结合;
+we harbor no fantasies that this can or should be a linear process that results in an optimal solution.
+我们没有幻想，这可以或应该是一个线性过程，结果是一个最佳的解决方案。
+Rather, we wrote this text to bring together what we ve learned about the core ideas and practices that compose system architecture.
+相反，我们编写这篇文章是为了将我们所学到的组成系统架构的核心思想和实践结合起来。
+Our central assertion is that structured creativity is better than unstructured creativity.
+我们的核心主张是，有组织的创造力比无组织的创造力好。
+This focus on decisions enables system architects to directly trade the choices for each decision, rather than the underlying designs they represent, thus encouraging broader concept evaluation.
+这种对决策的关注使系统架构师能够直接为每个决策交换选择，而不是他们所代表的底层设计，从而鼓励更广泛的概念评估。
+At the same time, this decision language enables system architects to order decisions according to their leverage on the system performance, in recognition that system architectures are rarely chosen in one fell swoop;
+与此同时，这种决策语言使系统架构师能够根据他们对系统性能的利用来制定决策，认识到系统架构很少是一次性选择的;
+rather, they are iteratively defined by a series of choices.
+相反，它们是由一系列选择迭代定义的。
+The failed National Polar-Orbiting Environmental Satellite System (NPOESS) is an exemplar of architectural decisions handicapping a system.
+失败的国家极地轨道环境卫星系统(NPOESS)是一个妨碍系统的建筑决策的范例。
+NPOESS1 was created in 1994 from the merger of two existing operational weather satellite programs, one civilian (weather prediction) and one military (weather and cloud cover imagery).
+NPOESS1于1994年由两个现有的运行气象卫星项目合并而成，一个是民用的(天气预报)，一个军用的(天气和云层图像)。
+The rationale for the merger was not ill-founded;
+合并的理由并非毫无根据;
+these two systems collecting related data presented a $1.3 billion cost consolidation opportunity.
+这两个收集相关数据的系统提供了一个13亿美元的成本整合机会。
+[9] Early in the merged program, a decision was made to include the superset of instruments capability from both historical programs.
+在合并计划的早期，决定包括来自两个历史计划的仪器能力的超集。
+For example, the VIIRS (Visible Infrared Image Radiometer Suite) instrument was expected to combine the capabilities of three historical instruments.
+例如，预期VIIRS(可见光红外图像辐射计套件)仪器将结合三种历史仪器的能力。
+The assumption underlying the program was that the functional complexity of the merged pro gram would scale linearly with the sum of the two historical programs.
+这个程序背后的假设是，合并后的程序的功能复杂性将与两个历史程序的总和成线性比例。
+This might have held, had the program derived needs and concepts from the heritage instruments.
+如果这个项目从传统乐器中获得需求和概念，这可能是可行的。
+However, a second decision to list new functions independent of the system concept trapped the architectural performance in an
+然而，第二个决定是列出独立于系统概念的新功能，这将体系结构性能限制在了
+
+unreachable corner of its envelope.
+信封上无法触及的一角。
+For example, the VIIRS instrument was to accomplish the tasks of three instruments with less mass and volume than a single historical instrument.
+例如，VIIRS仪器要用比单个历史仪器更少的质量和体积来完成三个仪器的任务。
+A series of early architectural decisions placed NPOESS on a long and troubled development path, attempting to create detailed designs that ignored fundamental system tensions.
+一系列早期的架构决策将NPOESS置于一条漫长而麻烦的开发道路上，试图创建忽略基本系统紧张关系的详细设计。
+Further, a failure to appoint a system architect responsible for managing these trades during the early years of the program foreshadowed challenges to come.
+此外，未能任命一个系统架构师负责管理这些交易，在早期的计划预示了挑战的到来。
+The program was canceled in 2010, $8.5 billion over the original $6.5 billion estimate.
+该计划在2010年被取消，比最初预计的65亿美元多出了85亿美元。
+[10] This text is not a formula or a manual for product development.
+本文不是产品开发的公式或手册。
+Success is not assured.
+成功是没有保证的。
+Experience suggests that getting the architecture wrong will sink the ship but that getting it right merely creates a platform on which the execution of the product can either flourish or flounder.
+经验告诉我们，错误的架构会让船沉没，而正确的架构只会创建一个平台，在这个平台上，产品的执行要么蓬勃发展，要么举步维艰。
+There are many aspects of this text that are applicable to all systems, whether built by humans, evolved by society, or naturally evolved.
+这篇文章的许多方面都适用于所有系统，无论是人类建造的，社会进化的，还是自然进化的。
+The analysis of architecture can be applied to built or evolved systems.
+体系结构的分析可以应用于已构建或演化的系统。
+For example, brain researchers are trying to unfold the architecture of the brain, urban planners deal with the architecture of cities, and political and other social scientists strive to understand the architecture of government and society.
+例如，大脑研究人员正试图展开大脑的结构，城市规划者处理城市的结构，政治和其他社会科学家努力理解政府和社会的结构。
+But we will focus predominantly on built systems.
+但是我们将主要关注构建的系统。
+
+Learning Objectives 
+
+This is a text on how to think, not what to think.
+学习目标这是一篇关于如何思考的文章，而不是要思考什么。
+Our intent is to help the reader develop a way to think about and create system architecture, not to provide a set of procedures.
+我们的目的是帮助读者开发一种思考和创建系统架构的方法，而不是提供一组过程。
+Experience suggests that the best architects have a remarkably common understanding of architecture and its methods, but the content they work with and the context in which they work vary widely.
+经验表明，最好的架构师对架构及其方法有着非常普遍的理解，但是他们所使用的内容和工作的上下文却有很大的不同。
+This text aims to help system architects to structure and lead the early, conceptual phases of the system development process, and to support the process throughout its development, deployment, operation, and evolution.
+本文旨在帮助系统架构师构建和领导系统开发过程的早期概念阶段，并在整个开发、部署、操作和演进过程中支持该过程。
+To these ends, this text provides guidance to help architects:
+为此，本文为建筑师提供了指导:
+Use system thinking in a product context and a system context Analyze and critique the architecture of existing systems Identify architectural decisions, and differentiate between architectural and non-architectural decisions Create the architecture of new or improved systems,
+在产品环境和系统环境中使用系统思维分析和评价现有系统的体系结构，识别体系结构决策，并区分体系结构和非体系结构决策，创建新的或改进的系统的体系结构，
+and produce the deliverables of the architect Place the architecture in the context of value and competitive advantage for the product and the firm Drive the ambiguity from the upstream process by defining the context and boundaries of the system, interpreting needs, setting goals, and defining the externally delivered functions Create the concept for the system, consisting of internal function and form,
+和生产建筑师将建筑的可交付成果的价值和竞争优势的产品和公司驱动歧义从上游过程通过定义系统的背景和边界,口译的需求,设定目标,并定义外部传递函数创建系统的概念,组成的内部功能和形式,
+while thinking holistically and out of the box when necessary Manage the evolution of system complexity and provide for future uncertainty so that goals are met and functions are delivered, while the system remains comprehensible to all during its design, implementation, operation, and evolution Challenge and critically evaluate current modes of architecting
+虽然整体思维和必要时的管理的进化系统的复杂性,并提供未来的不确定性,以便满足目标和功能交付,而系统仍然可以理解所有在其设计、实施、操作、和发展挑战和批判性评估当前的架构模式
+
+Identify the value of architecting, analyze the existing product development process of a firm, and locate the role of architecting in the product development process Develop the guiding principles for successful architecting To accomplish these objectives, we present the principles, methods, and tools of system architecture.
+确定架构的价值，分析公司现有的产品开发过程，并定位架构在产品开发过程中的角色为成功的架构开发指导原则，以实现这些目标，我们提出了系统架构的原则、方法和工具。
+Principles are the underlying and long-enduring fundamentals that are always (or nearly always) valid.
+原则是始终(或几乎始终)有效的潜在的、持久的基本原则。
+Methods are the ways of organizing approaches and tasks to achieve a concrete end;
+方法是组织方法和任务以达到具体目的的方法;
+they should be solidly grounded on principles, and they are usually or often applicable.
+它们应该牢固地建立在原则之上，并且通常或经常适用。
+Tools are the contemporary ways to facilitate process;
+工具是促进过程的当代方式;
+they are applicable sometimes.
+它们有时是适用的。
+One of our stated goals is for readers to develop their own principles of system architecture as they progress through the text.
+我们的目标之一是让读者在阅读本文的过程中发展他们自己的系统架构原则。
+The architect should base decisions, methods, and tools on these principles.
+架构师应该根据这些原则制定决策、方法和工具。
+Principles are general rules and guidelines, intended to be enduring and seldom amended, that inform and support the way in which an organization sets about fulfilling its mission.
+原则是一般的规则和指导方针，旨在持久和很少修改，说明和支持一个组织着手履行其使命的方式。
+In their turn, principles may be just one element in a structured set of ideas that collectively define and guide the organization, from values through to actions and results.
+反过来，从价值观到行动和结果，原则可能只是一组结构化思想中的一个元素，这些思想共同定义和指导着组织。
+U.S. Air Force in establishing its Headquarters Air Force Principles for Information Management, June 29, 1998 Principles become modified in practice by facts.
+美国空军在建立其总部空军信息管理原则，1998年6月29日原则在实践中被事实修改。
+James Fenimore Cooper, The American Democrat, 1838, Ch. 29 We have scattered our own principles throughout this text, but we encourage you to develop your own principles as you reflect on your own experience.
+我们把自己的原则分散在这篇文章中，但我们鼓励你在反思自己的经历时，发展自己的原则。
+Organization of the Text This text is organized into four parts.
+正文组织本文分为四个部分。
+Part 1: System Thinking (Chapters 1 to 3) introduces the principles of system thinking and then outlines the tools for managing complexity.
+第1部分:系统思维(第1章到第3章)介绍了系统思维的原理，然后概述了管理复杂性的工具。
+These principles and tools are echoed through the remainder of the text.
+这些原则和工具在正文的其余部分得到了呼应。
+The notions are expressed in terms of running examples: an amplifier circuit, the circulatory system, a design team, and the solar system.
+这些概念是用运行的例子来表达的:一个放大器电路，循环系统，一个设计团队，和太阳系。
+Part 2: Analysis of System Architecture (Chapters 4 to 8) is focused on the analysis of  architecture.
+第2部分:系统架构的分析(第4章到第8章)着重于架构的分析。
+We provide an in-depth exploration of form in an effort to separate it from function, and then we deconstruct function.
+我们对形式进行了深入的探索，试图将其与功能分离，然后解构功能。
+We introduce the ideas of solution-neutral function and concept, and we analyze the architecture of existing simple systems.
+介绍了解决中立的功能和概念，并分析了现有简单系统的体系结构。
+Analysis can be applied to any system both to those intentionally built by humans and to those that evolve, such as organizations, cities, or the brain.
+分析可以应用于任何系统，既可以应用于人类有意构建的系统，也可以应用于那些进化的系统，比如组织、城市或大脑。
+In many sections of Part 2, we begin with very simple systems.
+在第2部分的许多部分中，我们从非常简单的系统开始。
+This is not intended as an insult to the reader s intelligence.
+这并不是要侮辱读者的智慧。
+Rather, we chose for analysis those systems that can be completely understood in their constituent parts, in order to hone the methods that we later scale up to complex systems.
+相反，我们选择分析那些在其组成部分中可以完全理解的系统，以便完善我们以后扩展到复杂系统的方法。
+Working with simple systems eliminates the concern that the
+使用简单的系统可以消除用户的顾虑
+product cannot be treated as a system because it is impossible to comprehend all of its constitu ent parts at one time.
+产品不能被视为一个系统，因为它不可能一次理解它所有的组成部分。
+Part 3: Creating System Architecture (Chapters 9 to 13) is focused on the creation of archi tecture through decision making.
+第3部分:创建系统架构(第9到13章)集中于通过决策制定创建archi结构。
+It traces the forward process of identifying needs through to choosing an architecture.
+它追溯了从识别需求到选择架构的前进过程。
+Whereas Part 2 works backwards from architecture to solution-neutral function, Part 3 deals directly with the ambiguity of the upstream process of goal setting, when no legacy architecture is available.
+而第2部分从架构向后工作到解决方案中立的功能，第3部分直接处理目标设置上游过程的不确定性，当没有遗留架构可用时。
+Part 3 is organized around three ideas: reducing ambiguity, applying creativity, and managing complexity.
+第3部分围绕着三个概念组织:减少歧义、应用创造性和管理复杂性。
+Part 4: Architecture as Decisions (Chapters 14 to 16) explores the potential of a variety of computational methods and tools to help the architect reason through decisions.
+第4部分:作为决策的架构(第14到16章)探索了各种计算方法和工具的潜力，以帮助架构师通过决策进行推理。
+Parts 1 to 3 are deliberately focused on the architect as a decision maker.
+第1部分到第3部分着重于将架构师作为决策者。
+We layer analysis and frame works on top of the domain expertise of the architect, but the architect performs the integration among the layers, weighing priorities and determining salience.
+我们在架构师的领域专业知识的基础上进行层分析和框架工作，但是架构师执行各层之间的集成，权衡优先级并确定突出性。
+Part 4 explores the idea of encoding architectural decisions as parameters in a model that attempts to capture the salient pieces of many layers or attributes.
+第4部分探讨了将架构决策编码为模型中的参数的思想，该模型试图捕获许多层或属性的突出部分。
+We will show that there are applications for which the complexity of the architecting problem may be usefully condensed in a model, but it is impor tant to remember that no model can replace the architect accordingly, we emphasize decision support.
+我们将说明，对于某些应用程序，架构问题的复杂性可以有效地压缩到一个模型中，但重要的是要记住，任何模型都不能相应地取代架构师，我们强调决策支持。
+In our experience, this decision representation serves as a useful mental model for the  tasks of architecting.
+根据我们的经验，这个决策表示可以作为架构任务的一个有用的心智模型。
+
+
+第二章
+
+2.1 Introduction System thinking is, quite simply, thinking about a question, circumstance, or problem explicitly as a system a set of interrelated entities.
+系统思维很简单，就是把一个问题、一个环境或一个问题作为一个系统，作为一组相互关联的实体。
+System thinking is not thinking systematically.
+系统思维不是系统地思考。
+The objective of this chapter is to provide an overview and introduction to systems and system thinking.
+本章的目的是提供系统和系统思维的概述和介绍。
+System thinking can be used in a number of ways: to understand the behavior or perfor mance of an existing system;
+系统思维可以用在很多方面:理解现有系统的行为或性能;
+to imagine what might be if a system were to be changed;
+想象一下，如果一种制度被改变了会是什么样子;
+to inform decisions or judgments that are of a system nature;
+为具有系统性质的决定或判断提供信息;
+and to support the design and synthesis of a system, which we call system architecture.
+并支持系统的设计和综合，我们称之为系统架构。
+System thinking sits alongside other modes of reasoning, such as critical reasoning (evalu ating the validity of claims), analytic reasoning (conducting an analysis from a set of laws or principles), and creative thinking, among others.
+系统思维与其他的推理模式，如批判性推理(评估主张的有效性)、分析性推理(根据一套法律或原则进行分析)和创造性思维等，是并行的。
+Well-prepared thinkers use all of these modes of thought (cognition) and recognize when they are using each one (meta-cognition).
+有准备的思考者会使用所有这些思维模式(认知)，并在使用每一种模式时加以识别(元认知)。
+This chapter begins by defining what a system is and exploring the property of emergence that gives systems their power (Section 2.2).
+本章首先定义了什么是系统，并探讨了赋予系统权力的涌现属性(2.2节)。
+Subsequently, we examine four tasks that aid us in system thinking: 1.
+随后，我们考察了四个帮助我们进行系统思考的任务:
+Identify the system, its form, and its function (Section 2.3) 2.
+识别系统、其形式和功能(第2.3节)
+Identify the entities of the system, their form and function, and the system boundary and context (Section 2.4) 3.
+识别系统的实体、它们的形式和功能，以及系统边界和环境(第2.4节)3。
+Identify the relationships among the entities in the system and at the boundary, as well  as their form and function (Section 2.5) 4.
+确定系统内各实体之间的关系及边界，以及它们的形式和功能(第2.5节)4。
+Identify the emergent properties of the system based on the function of the entities, and their functional interactions (Section 2.6) These tasks will be explained sequentially, but real reasoning is rarely sequential and more often iterative.
+根据实体的功能和它们的功能交互来识别系统的突现属性(第2.6节)这些任务将被顺序地解释，但真正的推理很少是顺序的，更多的是迭代的。
+As discussed in Chapter 1, methods are the ways of organizing such tasks to achieve a concrete end.
+正如第一章所讨论的，方法是组织这些任务以达到具体目的的方法。
+Methods are usually or often applicable.
+方法通常或经常适用。
+The principles on which the methods of system thinking are based are also presented in this chapter.
+本章还介绍了系统思维方法所基于的原则。
+2.2 Systems and Emergence Systems Because system thinking is reasoning about a question, circumstance, or problem explicitly as a system, our starting point for system thinking should be a discussion of systems.
+由于系统思维是以系统的形式对一个问题、环境或问题进行明确的推理，所以我们进行系统思维的出发点应该是对系统的讨论。
+Few words in the
+寥寥数语
+
+The definition has two important parts: 1.
+该定义包括两个重要部分:1。
+A system is made up of entities that interact or are interrelated.
+系统是由相互作用或相互关联的实体组成的。
+2.
+2.
+When the entities interact, there appears a function that is greater than, or other than, the functions of the individual entities.
+当这些实体相互作用时，会出现一个功能大于或不大于单个实体的功能。
+At the core of all definitions of the word system is the first property listed here: the pres nce of entities and their relationships.
+在所有单词system定义的核心是这里列出的第一个属性:实体及其关系的pres nce。
+Entities (also called parts, modules, routines, assemblies, c.) are simply the chunks that make up the whole.
+实体(也称为部件、模块、例程、程序集、c.)只是组成整体的块。
+The relationships can exist and be static (as a connection) or dynamic and interactive (as in an exchange of goods).
+这种关系可以是静态的(作为一种联系)，也可以是动态的、交互式的(如在商品交换中)。
+Based on this part of the definition, what does not qualify as a system?
+根据这部分的定义，什么不是一个系统?
+If something is niform in consistency throughout, it is not a system.
+如果某种东西始终是niform一致的，那么它就不是一个系统。
+For example, a brick (at a macroscopic vel) is not a system, because it does not contain entities.
+例如，一块砖(在一个宏观的角度)不是一个系统，因为它不包含实体。
+However, a brick wall would qualify a system, because it contains entities (many bricks and much mortar) and relationships (load xchange and geometry).
+然而，砖墙将限定一个系统，因为它包含实体(许多砖块和许多砂浆)和关系(加载xchange和几何体)。
+Likewise, if a set of entities have no relationships (say, a person in kraine and a bag of rice in Asia), they do not constitute a system.
+同样地，如果一组实体没有关系(例如，一个在乌克兰的人和一袋在亚洲的大米)，他们不能构成一个系统。
+Notice how hard one must work to define things that are not systems!
+请注意，定义非系统的东西是多么困难!
+Someone might argue at at the right scale, a brick is a system: It is made of clay, which itself is a mixture of materials, nd the materials have relationships such as sharing load and being in a geometric form (a par lelepiped).
+有些人可能会说，砖块是一个系统:它是由粘土制成的，而粘土本身就是各种材料的混合物，而且这些材料之间存在着相互关系，比如分担荷载和几何形状。
+Likewise, a person in Ukraine could spend a euro to buy Asian rice, linking these ntities into a trading system.
+同样，一个乌克兰人可以花1欧元购买亚洲大米，将这些大米连接到一个贸易系统中。
+In fact, broadly construed, almost any set of entities can be interpreted as a system, and is is why the word is so commonly used.
+事实上，从广义上讲，几乎任何一组实体都可以被解释为一个系统，这就是为什么这个词如此常用的原因。
+A closely related concept is the adjective complex, hich (in its original and primary sense) means having many entities and relationships.
+一个密切相关的概念是形容词复数，hich(在其原始和最初的意义上)意味着有许多实体和关系。
+In some nguages, the noun complex is used to mean a system, as it sometimes is in technical English s in Launch Complex 39A at the Kennedy Space Center).
+在某些语言中，复数名词用来表示一个系统，就像在技术英语中在肯尼迪航天中心发射复合体39A中一样。
+Two ideas that are often confused are the concepts system and product.
+两个经常被混淆的概念是系统和产品。
+A product is some ing that is, or has the potential to be, exchanged.
+一种产品是某种可以交换的，或者有可能被交换的。
+Thus some products are not systems (rice) nd some systems are not products (the solar system), but many of the things we build are both oducts (exchanged) and systems (many interrelated entities), so the two words have become ixed in common usage.
+因此，有些产品不是系统(大米)，有些系统不是产品(太阳系)，但我们建造的许多东西都是产品(交换的)和系统(许多相互关联的实体)，所以这两个词已经在常用的用法中被结合起来了。
+Another closely related concept is architecture, the subject of this text.
+另一个密切相关的概念是建筑学，这也是本文的主题。
+In its simplest form, rchitecture can be defined as an abstract description of the entities of a system and the relation hips between those entities.
+在其最简单的形式下，建筑可定义为对系统实体及其之间关系的抽象描述。
+[1] Clearly, the notion of a system (that exists and functions) and chitecture (the description of the system) are intimately related.
+很明显，系统的概念(存在和功能)和架构(系统的描述)是密切相关的。
+
+Emergence System thinking emphasizes the second property listed in the definition of a system: A system is a set of entities and their relationships, whose functionality is greater than the sum of the individual entities.
+涌现系统思维强调了系统定义中列出的第二个属性:系统是一组实体及其关系，其功能大于个体实体的总和。
+This emphasized phrase describes what is called emergence, and it is the power and the magic of systems.
+这个强调的短语描述了所谓的涌现，它是系统的力量和魔力。
+Emergence refers to what appears, materializes, or surfaces when a system operates.
+涌现指的是系统运行时出现的、具体化的或表面的东西。
+Obtaining the desired emergence is why we build systems.
+我们构建系统的原因是获得所需的出现。
+Understanding emergence is the goal and the art of system thinking.
+理解涌现是系统思维的目标和艺术。
+What emerges when a system comes together?
+当一个系统组合在一起时会发生什么?
+Most obviously and crucially, function emerges.
+最明显和最重要的是，功能出现了。
+Function is what a system does: its actions, outcomes, or outputs.
+功能是一个系统所做的:它的动作、结果或输出。
+In a designed system, we design so that the anticipated desirable primary function emerges (cars transport people).
+在一个设计好的系统中，我们的设计使预期的理想的主要功能出现(汽车运输人)。
+This primary function is often linked to the benefit produced by the system (we buy cars because they transport people).
+这一主要功能通常与系统产生的效益联系在一起(我们购买汽车是因为它们运送人)。
+Anticipated but undesirable outcomes may also emerge (cars burn hydrocarbons).
+预期但不受欢迎的结果也可能出现(汽车燃烧碳氢化合物)。
+Sometimes, as a system comes together, unanticipated function emerges (cars provide a sense of personal freedom).
+有时，当一个系统组合在一起时，意想不到的功能就出现了(汽车提供了一种个人自由感)。
+This is a desirable unanticipated outcome.
+这是一个意想不到的结果。
+An undesirable unanticipated function can also emerge (cars can kill people).
+一个不受欢迎的、未预料到的功能也会出现(汽车会杀人)。
+As suggested by Table 2.1, emergent function can be anticipated or unanticipated, and it can be desirable or undesirable.
+如表2.1所示，紧急函数可以是预期的或未预期的，也可以是可取的或不可取的。
+It is also clear that more than the primary desirable function can emerge from a system (cars can also keep us warm or cool, and cars can entertain people).
+很明显，一个系统能产生的不仅仅是我们想要的功能(汽车还可以让我们保持温暖或凉爽，汽车还可以娱乐人们)。
+The essential aspect of systems is that some new functions emerge.
+系统的基本方面是一些新的功能的出现。
+Consider the two elements shown in Figure 2.1: sand and a funnel-shaped glass tube.
+考虑图2.1所示的两个元素:沙子和漏斗状玻璃管。
+Sand is a natural material and has no anticipated function.
+沙子是一种天然材料，没有预期的功能。
+A funnel concentrates or channels a flow.
+漏斗浓缩或引导水流。
+However, when they are put together, a new function emerges: keeping time.
+然而，当它们放在一起时，一个新的功能就出现了:计时。
+How could we have ever expected that sand + funnel would produce a time-keeping device?
+我们怎么能期望沙子+漏斗会产生一个计时装置呢?
+And how did two mechanical elements, sand and shaped glass, produce an informational system that keeps track of the abstraction called time ?
+沙子和造型玻璃这两个机械元素是如何产生一个信息系统来记录被称为时间的抽象?
+In addition to function, performance emerges.
+除了功能，性能也出现了。
+Performance is how well a system operates or executes its function(s).
+性能是指一个系统运行或执行其功能的好坏。
+It is an attribute of the function of the system.
+它是系统功能的一个属性。
+How quickly does the car transport people?
+汽车运送人的速度有多快?
+How accurately does the hourglass keep time?
+沙漏的计时精度有多高?
+These are issues of performance.
+这些都是性能问题。
+Take as an example the human system shown in Figure 2.2, a soccer (or football) team.
+以图2.2所示的人类系统为例，一个足球(或足球)队。
+The function of all soccer teams is the same: the team members must work together to score more goals than the opponent.
+所有足球队的作用都是一样的:队员们必须共同努力才能比对手进更多的球。
+However, some soccer teams have better performance than others they win more games.
+然而，一些足球队比其他球队表现更好，赢得更多的比赛。
+The team portrayed in Figure 2.2 was arguably the highest-performing team in the world in 2014 the German national team that won the 2014 World Cup
+图2.2所描绘的这支球队可以说是2014年世界上表现最好的球队，也就是赢得2014年世界杯的德国国家队
+
+The first principle of system architecture deals with emergence (Box 2.2).
+系统架构的第一个原则处理涌现(方框2.2)。
+Principles are long-enduring truths that are always, or nearly always, applicable.
+原则是永恒不变的真理，总是或几乎总是适用的。
+The principles we introduce will generally begin with quotations illustrating how great systems thinkers have expressed the principle.
+我们所介绍的原则通常会以引言开头，说明伟大的系统思想家是如何表达原则的。
+These quotations suggest the timelessness and universality of the principle.
+这些引语表明了该原则的永恒性和普遍性。
+Each principle also includes a descriptive part and a prescriptive part (which guide our actions), as well as some further discussion.
+每个原则还包括描述性部分和说明性部分(指导我们的行动)，以及一些进一步的讨论。
+There are other attributes of operation that emerge from a system, such as reliability, maintainability, operability, safety, and robustness.
+系统还具有其他操作属性，如可靠性、可维护性、可操作性、安全性和健壮性。
+These are often called the ilities.
+这些通常被称为能力。
+In contrast with functional and performance emergence, which tend to create value immediately, the emergent value created by these ilities tends to emerge over the lifecycle of the system.
+功能和性能的涌现往往会立即创造价值，与之相反，由这些功能和性能所创造的涌现价值往往会在系统的生命周期中出现。
+How safely does a car transport people?
+汽车运送人有多安全?
+How reliably does the hourglass keep time?
+沙漏计时的可靠性如何?
+How robustly does the German national soccer team win?
+德国国家足球队的胜利有多强劲?
+How robustly or reliably will the software run?
+软件运行的可靠度如何?
+When a car
+当一辆车
+breaks down at the side of the road, is it a mechanical ility problem or an embedded software ility problem?
+在路边抛锚，是机械故障还是嵌入式软件故障?
+The final class of emergence is so important that it merits a separate discussion: severe unanticipated and undesirable emergence.
+最后一类涌现非常重要，值得单独讨论:严重的、未预料到的和不受欢迎的涌现。
+We usually call this an emergency (from the same word root as emergence!).
+我们通常称这种情况为emergency(与emergence是同一个词根)。
+Cars can lose traction and spin or roll.
+汽车可能会失去牵引力并旋转或滚动。
+A soccer team could develop conflicts and lose its effectiveness on the day of an important match.
+在一场重要的比赛中，一支足球队可能会发生冲突，失去战斗力。
+Pictured in Figure 2.3 is a
+如图2.3所示
+
+natural example of emergence: Hurricane Katrina as it bore down on New Orleans.
+自然出现的例子:卡特里娜飓风袭击新奥尔良。
+The devastation from this system was enormous.
+这个系统造成的破坏是巨大的。
+These emergent properties associated with function, performance, the ilities, and the absence of emergencies are closely related to the value that is created by a system.
+这些与功能、性能、功能和紧急情况的缺失相关的紧急属性与系统所创造的价值密切相关。
+Value is benefit at cost.
+价值就是以成本计算的收益。
+We build systems to deliver the benefit (the worth, importance, or utility as judged by a subjective observer).
+我们构建系统来交付利益(价值、重要性或由主观观察者判断的效用)。
+In summary: A system is a set of entities and their relationships, whose functionality is greater than the sum of the individual entities.
+总而言之:系统是一组实体及其关系，其功能大于单个实体的总和。
+Almost anything can be considered a system, because almost everything contains entities and relationships.
+几乎所有东西都可以看作是系统，因为几乎所有东西都包含实体和关系。
+Emergence occurs when the functionality of the system is greater than the sum of the functionalities of the individual entities considered separately.
+当系统的功能大于单独考虑的单个实体的功能之和时，就会出现涌现。
+Understanding emergence is the goal and the art of system thinking.
+理解涌现是系统思维的目标和艺术。
+Function, performance, and the ilities emerge as systems operate.
+功能、性能和功能随着系统的运行而出现。
+These are closely linked to benefit and value, as is the absence of emergencies.
+这些都与利益和价值密切相关，就像没有紧急情况一样。
+natural example of emergence: Hurricane Katrina as it bore down on New Orleans.
+自然出现的例子:卡特里娜飓风袭击新奥尔良。
+The devastation from this system was enormous.
+这个系统造成的破坏是巨大的。
+These emergent properties associated with function, performance, the ilities, and the absence of emergencies are closely related to the value that is created by a system.
+这些与功能、性能、功能和紧急情况的缺失相关的紧急属性与系统所创造的价值密切相关。
+Value is benefit at cost.
+价值就是以成本计算的收益。
+We build systems to deliver the benefit (the worth, importance, or utility as judged by a subjective observer).
+我们构建系统来交付利益(价值、重要性或由主观观察者判断的效用)。
+In summary: A system is a set of entities and their relationships, whose functionality is greater than the sum of the individual entities.
+总而言之:系统是一组实体及其关系，其功能大于单个实体的总和。
+Almost anything can be considered a system, because almost everything contains entities and relationships.
+几乎所有东西都可以看作是系统，因为几乎所有东西都包含实体和关系。
+Emergence occurs when the functionality of the system is greater than the sum of the functionalities of the individual entities considered separately.
+当系统的功能大于单独考虑的单个实体的功能之和时，就会出现涌现。
+Understanding emergence is the goal and the art of system thinking.
+理解涌现是系统思维的目标和艺术。
+Function, performance, and the ilities emerge as systems operate.
+功能、性能和功能随着系统的运行而出现。
+These are closely linked to benefit and value, as is the absence of emergencies.
+这些都与利益和价值密切相关，就像没有紧急情况一样。
+
+though form can be altered, created, or destroyed).
+虽然形态可以被改变，创造或毁灭)。
+Form is the thing that is built;
+形式是被建造的东西;
+the creator of the system builds, writes, paints, composes, or manufactures it.
+系统的创造者建造、书写、绘制、合成或制造系统。
+Form is not function, but form is necessary to deliver function.
+形式不是功能，但形式是传递功能的必要条件。
+Function is what a system does;
+功能是系统的功能;
+it is the activities, operations, and transformations that cause, create, or contribute to performance.
+活动、操作和转换导致、创建或促进性能。
+Function is the action for which a thing exists or is employed.
+函数是一个事物存在或被使用的动作。
+Function is not form, but function requires an instrument of form.
+功能不是形式，但功能需要形式的工具。
+Emergence occurs in the functional domain.
+出现发生在功能领域。
+Function, performance, the ilities, and emergencies are all issues of functionality.
+功能、性能、功能和紧急情况都是功能问题。
+Function is more abstract than form, and because it is about transitions, it is more difficult to diagram than form.
+函数比形式更抽象，因为它是关于转换的，所以用图表表示比形式更困难。
+Function consists of a process and an operand.
+函数由进程和操作数组成。
+The process is the part of function that is pure action or transformation, and thus it is the part that changes the state of the operand.
+过程是纯动作或转换的函数部分，因此它是改变操作数状态的部分。
+The operand is the thing whose state is changed by that process.
+操作数的状态会被这个过程改变。
+Function is inherently transient;
+函数本身是暂态的;
+it involves change in the state of the operand (creation, destruction, or alteration of some aspect of status of the operand).
+它包括操作数状态的改变(创建、销毁或改变操作数的某些方面的状态)。
+In organizations, function is sometimes referred to as role or responsibilities.
+在组织中，功能有时被称为角色或责任。
+We are now prepared to state Task 1 of System Thinking (Box 2.3)
+我们现在准备陈述系统思维的任务1(方框2.3)
+Now we can apply this first task to our four running examples and identify their form and function, as summarized in Table 2.2.
+现在我们可以将第一个任务应用到四个正在运行的示例中，并确定它们的形式和函数，如表2.2所示。
+For each of the built systems, there is an instrument of form, a process, and a value-related operand, whose change in state is the reason for the existence of the system.
+对于每个构建的系统，都有一个形式工具、一个过程和一个与值相关的操作数，它们状态的变化是系统存在的原因。
+For the amplifier circuit, the output signal is the value-related operand.
+对于放大电路，输出信号是与值相关的操作数。
+There may be more than one operand of
+可以有多个操作数
+a process (for example, the input voltage), but creating the amplified output signal is why we build this sort of device, and producing this amplified output signal is the primary function of the amplifier.
+一个过程(例如输入电压)，但是产生放大的输出信号是我们制造这种设备的原因，而产生这种放大的输出信号是放大器的主要功能。
+The design team (Team X) is a type of built system, in that someone assembled the team.
+设计团队(team X)是一种已构建的系统，在这种系统中，团队由某人组成。
+The form is the collective of the individuals, and its primary function is to develop a design.
+形式是个体的集合，其主要功能是开发设计。
+In addition to its primary function, a built system may also deliver secondary functions.
+除了主要功能之外，一个已构建的系统还可能交付次要功能。
+For example, Team X may also present the design.
+例如，团队X也可能展示设计。
+Primary and secondary functions are discussed in more detail in Chapter 5.
+第5章将更详细地讨论主要函数和次要函数。
+For natural systems, such as the solar system and the circulatory system, it is a bit more difficult to identify function.
+对于自然系统，比如太阳系和循环系统，要确定其功能就有点困难了。
+For the circulatory system, the form is clearly the collective of the heart, lungs, veins, arteries, and capillaries.
+对于循环系统来说，形态显然是心脏、肺、静脉、动脉和毛细血管的集合。
+The function could be expressed as supply oxygen to cells, as in Table 2.2 (supply is the process, and oxygen is the operand).
+这个函数可以表示为给细胞供氧，如表2.2所示(供氧是过程，氧是操作数)。
+But one could also say that the function is to absorb CO2 from cells, or, more generally, to keep in balance the gas chemistry of the cells.
+但我们也可以说它的功能是从细胞中吸收二氧化碳，或者，更一般地说，是保持细胞内气体化学的平衡。
+In systems that have evolved (rather than having been designed), identifying a crisply defined function is a bit more difficult, because there is no statement of design intent from a designer.
+在已经发展(而不是已经设计)的系统中，识别明确定义的函数有点困难，因为设计者没有说明设计意图。
+(In principle, we could talk with the designer of the amplifier circuit and Team X and ask, What was the function you were trying to produce in the system?
+(原则上我们可以和功放电路的设计者以及X团队商量一下，你们想在系统中产生什么功能?
+or What functional and performance emergence did you anticipate? ).
+或者你预期的功能和表现是什么?)
+The solar system is even more of a challenge.
+太阳系的挑战更大。
+The elements are unquestionable: the Sun, planets, and so on.
+元素是不容置疑的:太阳、行星等等。
+But what is the function?
+但是函数是什么呢?
+An Earth-centric view might be that the solar system maintains Earth s temperature to make life as we know it possible.
+以地球为中心的观点可能是，太阳系维持地球的温度，使我们所知的生命成为可能。
+This is certainly a function, but there are dozens of other formulations of the function of the solar system that are equally valid.
+这当然是一个函数，但是还有许多其他的太阳系函数的公式也是同样有效的。
+The function listed in Table 2.2 is a more general statement: The solar system maintains an approximately constant solar energy flux to the planets.
+表2.2中列出的功能是一个更一般的陈述:太阳系维持着一个近似恒定的太阳能量通量到行星。
+This is truly emergence, because it requires both a constant solar output and a roughly constant planetary orbital radius.
+这是真正的出现，因为它既需要恒定的太阳输出，又需要大致恒定的行星轨道半径。
+The problem is not that the solar system does not have a function, but that it has so many!
+问题不在于太阳系没有功能，而在于它有那么多功能!
+And it is very difficult to question the designer about design intent.
+很难去质疑设计师的设计意图。
+The distinction between form and function also appears in what business calls goods and services.
+形式和功能之间的区别也体现在所谓的商品和服务上。
+Goods are products that are tangible (what we would call form).
+商品是有形的产品(我们称之为形式)。
+Services are products that are less tangible and more process-oriented (what we would call function).
+服务是不那么有形的、更面向流程的产品(我们称之为功能)。
+In fact, every system can be sold as form, which delivers value by performing the function.
+事实上，每个系统都可以以形式出售，通过执行功能来交付价值。
+Or the system can be sold as function (service) that implicitly requires the instrument of form in order to be executed.
+或者该系统可以作为功能(服务)出售，这种功能(服务)隐含地需要形式文书才能执行。
+Instrument Process Operand: Canonical Patterns in Human Thought?
+工具过程操作数:人类思维的典型模式?
+In each of the four systems of Table 2.2, one can always identify the canonical characteristics of the system: the instrument of form (something that is) and the function (what it does), which in turn is composed of a process (the transformation, shown in a special font) and the operand (what is transformed, shown in bold).
+在一年的四个表2.2的系统,人们总是可以确定系统的典型特征:仪器的形式(东西)和功能(它),进而由一个过程(转换,一个特殊的字体所示)和操作数(转换,以粗体显示)。
+All systems have these three characteristics.
+所有的系统都有这三个特点。
+When Noam Chomsky developed transformational grammar, proposing the deep structure that underlies all human natural language, he found that the underlying structure of language has three parts: a noun that is the instrument of the action (what we call form), a verb that describes the action (what we call process), and a noun that is the object of the action (what we call the operand).
+当诺姆·乔姆斯基转换语法开发,提出构成所有的人类自然语言的深层结构,他发现语言的底层结构有三个部分:一个名词的仪器操作(我们称之为形式),一个动词描述动作(我们称之为过程),和一个名词操作的对象(我们所说的操作数)。
+The basic unit of all human language is the sentence, which has two nouns (the instrument and the operand) and one verb.
+所有人类语言的基本单位是句子，它有两个名词(工具和操作数)和一个动词。
+Thus, this noun verb noun or instrument process operand model is either fundamental to all systems or fundamental to the way the human brain understands all systems.
+因此，这个名词、动词、名词或仪器过程操作数模型是所有系统的基础，或者是人类大脑理解所有系统的基础。
+In either case, it is very useful!
+无论哪种情况，它都是非常有用的!
+In summary: All systems have form (what the system is) and function (what the system does).
+总而言之:所有系统都有形式(系统是什么)和功能(系统做什么)。
+The form is the instrument of the function.
+形式是功能的工具。
+Function further breaks down into process (the transformation) and the operand (the object that is transformed or whose state is changed).
+函数进一步分解为进程(转换)和操作数(被转换或其状态被改变的对象)。
+The primary function of most human-built systems is usually clear.
+大多数人造系统的主要功能通常是清楚的。
+The primary function of evolved systems is more difficult to discern and is often subject to interpretation.
+进化系统的主要功能更难以辨别，往往受制于解释。
+The proposed representation of a system (instrument form process operand) very closely resembles the deep structure of natural language (noun verb object).
+所提出的系统的表示(工具形式的过程操作数)非常类似于自然语言的深层结构(名词动词对象)。
+2.4 Task 2: Identify Entities of a System, Their Form, and Their Function We have established that a system itself can be considered as a single entity that has form and function.
+2.4任务2:识别系统的实体、它们的形式和功能我们已经确定了系统本身可以被视为一个具有形式和功能的单一实体。
+Now we will examine how a system decomposes into entities, each of which also has form and function.
+现在我们将研究一个系统如何分解为实体，每个实体也有形式和功能。
+These entities are usefully represented by abstractions.
+这些实体可用抽象表示。
+The selection of the entities is guided by holistic thinking and by focus.
+实体的选择以整体思维和焦点为指导。
+The system is surrounded by a boundary that separates the system from its context.
+系统被一个边界所包围，该边界将系统与其上下文分开。
+The following discussions examine Task 2 of System Thinking, which is stated in Box 2.4.
+下面的讨论是关于系统思维的任务2，如方框2.4所述。
+In general, each of the entities of the system will also have form and function.
+一般来说，系统的每个实体都有形式和功能。
+We will sometimes use the word element (whose synonyms include part and piece ) when we want to emphasize some aspect of the form of the system.
+当我们想要强调系统形式的某些方面时，我们有时会使用单词element(它的同义词包括part和piece)。
+The word entity (whose synonyms include unit and thing ) tends to more generically evoke both form and function.
+实体这个词(其同义词包括单位和事物)更倾向于泛指形式和功能。
+The two columns on the right side of Table 2.3 show the decomposition of the form of our example systems into its constituent elements of form.
+表2.3右侧的两列显示了将示例系统的表单分解为表单的组成元素。
+The amplifier circuit decomposes into the two resistors and the operational amplifier;
+放大电路分解为两个电阻和运算放大器;
+Team X decomposes into its members, and so on.
+团队X分解为它的成员，以此类推。
+Reading right to left, breaking a system into smaller pieces of form is called decomposition.
+从右到左阅读，将一个系统分解成更小的部分称为分解。
+Reading left to right, collecting pieces into the form of the system is called aggregation.
+从左到右读取，将片段收集到系统的形式称为聚合。
+The middle two columns of Table 2.3 indicate the mapping of the form of the entities onto the function of the entities.
+表2.3的中间两列表示实体的形式到实体的功能的映射。
+Resistors 1 and 2 set the gain.
+电阻1和2设置增益。
+The heart pumps blood.
+心脏输送血液。
+Each of the entities of the system also has form and function.
+系统的每一个实体也都具有形式和功能。
+Note that the function of each entity is written as a process and operand.
+请注意，每个实体的函数都被编写为进程和操作数。
+The two columns on the left side of Table 2.3 show the way in which the function of the system and the function of the entities are related.
+表2.3左边的两列显示了系统功能和实体功能的关联方式。
+Reading left to right, breaking the function into constituents is called zooming.
+从左到右读取，将函数分解为部分称为缩放。
+Reading right to left, when the functions of the entities combine to produce the function of the system, we find the sought-after property of emergence.
+从右至左阅读，当实体的功能结合起来产生系统的功能时，我们发现了涌现这一备受追捧的属性。
+Function is a quasi-static view of the process acting on an operand.
+函数是作用于操作数的进程的准静态视图。
+When a number of functions act in a sequence of operations, a more dynamic behavior emerges, as will be discussed in Chapter 6.
+当一些函数在一系列操作中起作用时，会出现更动态的行为，这将在第6章中讨论。
+Sometimes in system thinking, it is useful to think just about function and zooming.
+有时在系统思维中，只考虑函数和缩放是有用的。
+For example, to think about the amplifier circuit in terms of amplification and gain setting.
+例如，考虑放大器电路的放大和增益设置。
+This kind of functional thinking is often used early in analysis and design.
+这种功能性思维通常在分析和设计的早期使用。
+On the other hand, sometimes it is enough to reason about form and decomposition, such as when you are developing a parts list (amplifier, resistor 1, resistor 2). Reasoning about form or function separately is a convenience: it does not imply that both are not ultimately present or that they are not linked.
+另一方面,有时是足够的推理形式和分解,例如当您正在开发一个零件清单(放大器,电阻电阻2)。推理形式或功能分别是一个方便:它并不意味着最终都不存在,或者他们不联系。
+Our initial reference for the system is arbitrary.
+系统的初始参考值是任意的。
+We could have started higher up with the human body as the system, which could then be decomposed to find the circulatory system, the digestive system, and so on.
+我们可以从更高的地方开始，以人体作为系统，然后分解，找到循环系统，消化系统，等等。
+Or we could have started lower down, defining the heart as the system, which is composed of chambers, valves, and so on.
+或者我们可以从更低的位置开始，把心脏定义为一个系统，它由心室，瓣膜等等组成。
+This leads us to a generalization: All systems are composed of entities that are also systems, and all systems are entities of larger systems.
+这使我们得到了一个概括:所有的系统都是由实体组成的，这些实体也是系统，而所有的系统都是更大系统的实体。
+Because the initial choice of the system in these hierarchies is arbitrary, all systems must be made up of systems, which are made up of smaller systems, and so on.
+因为在这些层次结构中对系统的初始选择是任意的，所以所有系统必须由系统组成，而系统又由更小的系统组成，以此类推。
+There are limits: the cosmos on one end (but is there really only one cosmos?) and the quarks on the other end (but is there really nothing smaller than quarks?).
+这是有限制的:宇宙在一端(但真的只有一个宇宙吗?)，夸克在另一端(但真的没有比夸克更小的了吗?)
+What matters is that we choose a system boundary that is useful, so that we train our system-thinking lens on the most important part of the problem.
+重要的是我们选择一个有用的系统边界，这样我们就能把我们的系统思维透镜训练在问题最重要的部分上。
+In practice, definition of the entities and boundary is important and challenging.
+在实践中，实体和边界的定义是重要和具有挑战性的。
+There are five issues the systems thinker faces: Defining the initial decomposition into entities Identifying the potential entities using holistic thinking Winnowing down to the consequential entities using focus Creating abstractions for the entities Defining the boundary of the system, and separating the system from context The remainder of Section 2.4 addresses these five issues.
+系统思考者面临有五个问题:定义初始分解为实体识别潜在的实体使用整体思考筛选重要的实体使用集中创建抽象为实体定义系统的边界,通过上下文和分离系统的其余部分2.4节对这五个问题。
+Define the Initial Decomposition into Entities The level of difficulty encountered in defining the entities, and therefore the internal boundaries, of the system depends on whether the system is made up of distinct elements, is modular, or is integral.
+定义实体的初始分解在定义实体时遇到的困难程度，因此系统的内部边界，取决于系统是由不同的元素组成的，是模块化的，还是完整的。
+Sometimes the system is made up of clearly distinct entities, and the decomposition is obvious.
+有时系统是由明显不同的实体组成的，其分解是明显的。
+Team X is made up of three people.
+X组由三个人组成。
+Any other decomposition of the team would not make sense.
+团队的任何其他分解都没有意义。
+Likewise, the solar system is clearly made up of the sun, the planets, and the smaller bodies (of which there are a multitude).
+同样地，太阳系显然是由太阳、行星和较小的天体(其中有很多)组成的。
+Unambiguous decomposition into entities is a trait of systems that really are made up of discrete entities brought together and defined as a system (a fleet of ships, a herd of horses, a forest of trees, a library of books, and the like).
+明确地分解为实体是系统的一个特征，这些系统实际上是由聚集在一起的离散实体组成的，并被定义为一个系统(船队、一群马、一片树林、一个图书库等等)。
+For systems that are fundamentally modular, the decomposition is more challenging but still relatively clear.
+对于基本上是模块化的系统，分解更具挑战性，但仍然相对清晰。
+Modules are relatively independent, especially in function.
+模块是相对独立的，特别是在功能上。
+Internal relationships are dense within a module, and relationships between modules are weaker or less dense.
+模块内部关系密集，模块之间的关系较弱或较不密集。
+For the amplifier circuit system, there are inputs, resistors, amplifiers, internal nodes, and connections.
+对于放大器电路系统，有输入、电阻、放大器、内部节点和连接。
+There may be some fuzziness about where the resistor ends and the connector begins, but it is largely clear.
+可能有一些模糊在哪里电阻器结束和连接器开始，但它很大程度上是清楚的。
+Integral systems are the most difficult to decompose.
+积分系统是最难分解的。
+Integral systems cannot be easily divided with their function intact.
+在功能完整的情况下，积分系统是不能轻易分割的。
+They are often highly interconnected systems, such as the components in the steering mechanisms of a car (tires, wheels, suspension, steering gears, column), some of which are simultaneously also components of other systems (ride quality, drive).
+它们通常是高度互联的系统，如汽车转向装置中的组件(轮胎、车轮、悬挂、转向装置、立柱)，其中一些同时也是其他系统的组件(平顺性、驱动)。
+Truly integral mechanical elements (such as complex forgings and machined parts) and integrated circuits are examples of integral elements.
+真正的集成机械元件(如复杂锻件和加工零件)和集成电路就是集成元件的例子。
+Many information systems are highly integral.
+许多信息系统是高度集成的。
+Identify the Potential Entities of the System Holistic Thinking Holism insists on the intimate interconnection of things on the idea of the whole and to think holistically is to think deliberately about the whole.
+整体思维主张事物之间的密切联系是建立在整体观念上的，而整体思维就是对整体进行有意识的思考。
+Holistic thinking seeks to identify all of
+整体思维试图识别所有
+the entities (and other issues) that might be important to the system (see the Principle of Holism in Box 2.5).
+可能对系统很重要的实体(和其他问题)(参见框2.5中的整体原则)。
+We think holistically in order to bring into view all aspects of the system at hand, taking into account the influences and consequences of anything that might interact with the system.
+我们从整体上考虑，以便将当前系统的所有方面纳入视野，考虑任何可能与系统交互的事物的影响和后果。
+We use holism to expand our thinking about the problem or issue at hand.
+我们用整体论来扩展我们对手头问题的思考。
+Always design a thing by considering it in its next larger context a chair in a room, a room in a house, a house in an environment, an environment in a city plan.
+设计事物时，总是要考虑到它的下一个更大的背景，比如房间里的椅子，房子里的房间，房子里的环境，城市规划中的环境。
+eliel Saarinen No man is an island, entire of itself;
+没有人是一个完全独立的孤岛;
+every man is a piece of the continent, a part of the main.
+每个人都是大陆的一部分，是大陆的一部分。
+John Donne Every system operates as a part of one large system or several larger systems, and each is itself composed of smaller systems.
+每个系统都是一个大系统或几个大系统的一部分，而每个系统本身又由更小的系统组成。
+Think holistically about all of these relationships, and develop architectures that are in harmony with the larger, smaller, and peer systems.
+从整体上考虑所有这些关系，并开发与较大、较小和对等系统协调的体系结构。
+Holism holds that all things exist and act as wholes, not just as the sum of their parts.
+整体论认为所有的事物都作为一个整体而存在并发挥作用，而不仅仅是它们各部分的总和。
+Its sense is the opposite of that of reductionism, which suggests that things can be understood by carefully explaining their parts.
+它的意义与还原论相反，还原论认为事物可以通过仔细解释其部分来理解。
+To think holistically is to encompass all aspects of the system at hand, taking into account the influences and consequences of anything that might interact with the system.
+整体地思考就是要包含当前系统的所有方面，考虑任何可能与系统交互的事物的影响和结果。
+In more simple terms, to think holistically is to think about all the things (entities, relationships, and so on) that may be important to the question, circumstance, or problem at hand.
+用更简单的术语来说，整体思考就是考虑所有可能对问题、环境或手头问题很重要的事情(实体、关系等等)。
+Methods to stimulate holistic thinking include structured and unstructured brainstorming, frameworks, thinking from different perspectives, and thinking about context
+激发整体思维的方法包括结构化和非结构化的头脑风暴，框架，从不同的角度思考，以及考虑上下文
+By thinking as widely as is feasible about what might be important to the system, we increase the chances that we will move something into consideration that will ultimately be important.
+通过尽可能广泛地思考什么对这个系统可能是重要的，我们增加了将某些最终将是重要的东西纳入考虑的可能性。
+Holistic thinking gets issues onto the radar screen.
+整体思维将问题置于雷达屏幕上。
+There is a distinction between the known-unknowns, and the unknown-unknowns.
+已知-未知和未知-未知之间是有区别的。
+A knownunknown is something that you know is there but don t know much about.
+所谓已知的未知是指你知道某件事就在那里，但你却知之甚少。
+Its presence is known, but its features are unknown.
+它的存在是已知的，但它的特征是未知的。
+However, you know that you should know more about it.
+然而，你知道你应该了解更多。
+An unknown-unknown is something that you don t even know is there, so you have no way to evaluate its importance.
+未知-未知是你甚至不知道的东西，所以你没有办法评估它的重要性。
+Holistic thinking works to identify as many potential unknown-unknowns as possible so that their potential importance can be considered.
+整体思维的作用是识别尽可能多的潜在的未知-未知，以便考虑它们的潜在重要性。
+There are various methods to help stimulate holistic thinking, including: structured and unstructured brainstorming (Chapter 11);
+有多种方法可以帮助激发整体思维，包括:有组织和无组织的头脑风暴(第11章);
+the development of frameworks to ensure that relevant issues have been considered (Chapters 4 through 8);
+制订框架，确保有关问题得到考虑(第4章至第8章);
+thinking from various perspectives (Chapter 10);
+多角度思考(第10章);
+and thinking explicitly about context (Chapter 4)
+明确地思考上下文(第4章)
+As a running example in this section, we will apply the five issues facing a systems thinker to Team X. In a team with discrete individuals, identifying the entities at first looks easy.
+作为本节中的一个实例，我们将把系统思考者面临的五个问题应用到团队x中。在一个个体离散的团队中，首先识别实体看起来很容易。
+As indicated in the first column of Table 2.4, let s assume that we first looked narrowly at design as only concept generation (John) and design approval (Sue).
+如表2.4的第一列所示，让我们假设我们首先将设计狭隘地看作仅仅是概念生成(John)和设计审批(Sue)。
+The initial consideration was then expanded by holistic thinking into a longer list of potential team members, including requirements analysts, finance analysts, team coaches, and experts in marketing, manufacturing, and supply chains, as indicated in the second column.
+然后，通过整体思考将最初的考虑扩展为更长的潜在团队成员列表，包括需求分析师、财务分析师、团队教练以及营销、制造和供应链方面的专家，如第二列所示。
+The desired outcome of holistic thinking is a longer list of all the potentially important entities to consider in defining the system and its context.
+整体思维的期望结果是在定义系统及其上下文时考虑的所有潜在的重要实体的一个更长的列表。
+This list is then narrowed by focus.
+然后，这个列表会根据焦点缩小范围。
+Include the Important Entities of the System Focus The next issue that the system thinker faces is focus that is, to identify what is important to the question at hand (see the Principle of Focus in Box 2.6).
+包括系统焦点的重要实体系统思考者面临的下一个问题是焦点，即确定什么对手头的问题是重要的(参见框2.6中的焦点原则)。
+This means separating the wheat from the chaff.
+这意味着把小麦从谷壳中分离出来。
+It means cutting down the list of everything generated in holistic thinking to a shorter list of things that are truly consequential
+这意味着把由整体思维产生的所有事情的清单缩减为更短的真正重要的事情的清单
+The pivotal step in focusing is defining the question, circumstance, or problem at hand and articulating what is important about it.
+集中注意力的关键步骤是定义手头的问题、环境或问题，并明确其中的重要之处。
+More specifically, what is important to you and your stakeholders?
+更具体地说，什么对您和您的利益相关者来说是重要的?
+What outcomes are important?
+什么结果是重要的?
+Is it the emergent behavior of the system?
+它是系统的突发行为吗?
+Is it satisfaction of some specific set of criteria?
+是否满足了某些特定的标准?
+Then you can begin to reason through the entities in the whole and ask a simple question that is very difficult to answer: Is this entity important in determining the outcome and the emergence that I am interested in?
+然后你就可以开始从整体上对实体进行推理并提出一个简单但很难回答的问题:这个实体在决定我感兴趣的结果和出现方面重要吗?
+We could make a very long list of things, but the human brain can only reason about a finite number of things simultaneously, while remaining able to understand their interaction.
+我们可以列出一长串事物，但人脑只能同时推理有限数量的事物，同时还能理解它们之间的相互作用。
+This manageable number is conventionally thought of as seven +/ two.
+这个可管理的数字通常被认为是7 +/ 2。
+[2] What we are doing by focusing is being aware of a longer list of things that are potentially important, and then swapping in up to seven of them at any time to really focus on.
+我们通过专注所做的就是意识到一长串潜在重要的事情，然后在任何时候切换到最多7件事情来真正专注。
+When the circumstances change, we will swap in another set of issues to reason about.
+当情况发生变化时，我们将交换另一组问题来进行推理。
+Returning to the Team X example in Table 2.4, we might reason that the main outcome of the team is a good design, the inputs are the requirements, and that the supporting entities include an understanding of the supply chain and manufacturing.
+回到表2.4中的Team X示例，我们可以推断出团队的主要结果是一个好的设计，输入是需求，支持实体包括对供应链和制造的理解。
+Therefore, we would keep under consideration the three members of the team (Sue, John, and Amy), as well as those who determine customer needs, those who analyze the competitive environment, and the experts on manufacturing and supply chain, as shown in the third column of the table.
+因此，我们会继续考虑团队的三个成员(Sue, John, Amy)，以及那些确定客户需求的人，那些分析竞争环境的人，以及制造和供应链方面的专家，如表的第三列所示。
+Based on our focus analysis, the experts on finance, team dynamics, and regulation would therefore be omitted from today s system thinking.
+基于我们的重点分析，金融、团队动力和监管方面的专家将因此从今天的系统思维中被忽略。
+This leads to the final part of the focus issue: performing a sanity check to make sure that the entities still under consideration are broad enough to cover the important question, circumstance, or problem, but small enough so that they can be carefully examined with the resources at hand.
+这就引出了焦点问题的最后一部分:执行完整性检查，以确保仍在考虑中的实体足够广泛，能够涵盖重要的问题、环境或问题，但又足够小，以便能够使用手头的资源仔细检查它们。
+Create or Recognize Abstractions for the Entities Once you have a sense of what is important to the question, circumstance, or problem (the outcome of the holistic thinking and focus), the next issue is to define or recognize the appropriate abstractions to represent the entities in the system.
+为实体创建或识别抽象一旦你知道了什么对问题、环境或问题(整体思考和关注的结果)重要，下一个问题是定义或识别合适的抽象来表示系统中的实体。
+An abstraction is defined as expression of quality apart from the object or as a representation having only the intrinsic nature rather than the detail.
+抽象被定义为脱离对象的质量的表现，或只有内在本质而没有细节的表现。
+Many problems come with predefined abstractions (people, layers, control volumes), which can either enable or disable your reasoning.
+预定义的抽象(人、层、控制卷)会带来许多问题，它们可以启用或禁用推理。
+Creating useful abstractions means bringing to the surface important details about the entity and hiding, within the abstractions, any details and complexity that you do not need to consider.
+创建有用的抽象意味着展示关于实体的重要细节，以及隐藏在抽象中的不需要考虑的任何细节和复杂性。
+Let s look at some abstractions in our four running examples.
+让我们看看四个运行示例中的一些抽象。
+In the amplifier circuit, we abstracted the operational amplifier into a device that has an inverting input, a non-inverting input, and an output and that amplifies the difference between the inputs;
+在放大器电路中，我们将运算放大器抽象为具有反相输入、非反相输入和输出的器件，并将输入之间的差异放大;
+see Figure 2.4.
+参见图2.4。
+The actual circuit to do this is shown in Figure 2.8.
+实际的电路如图2.8所示。
+The abstraction hides all of this detail and allows us to reason about the function on the surface amplification.
+抽象隐藏了所有这些细节，并允许我们在表面放大的功能上推理。
+In Team X, we abstracted a physiologically and psychologically complex person into a team member who could create concepts.
+在团队X中，我们将一个在生理和心理上都很复杂的人抽象为一个能够创造概念的团队成员。
+For the circulatory system, we abstracted the complex organ called the heart into a simple pump.
+对于循环系统，我们将复杂的心脏器官抽象成一个简单的泵。
+In the solar system, we abstracted the entire solid mass, ecosystem, and population of the planet Earth into a sphere.
+在太阳系中，我们将地球的整个固体质量、生态系统和人口抽象成一个球体。
+4 V V+ R11 50 k R12 50 k Q20 R10 50 k 5 R9 25 k Q14 Q15 Q17 Q15 R8 7.5 k C1 30 pF R5 39 k Q9 Q12 Q11 Q22 R4 5 k R2 1 k R3 50 k R1 1 k Q5 OFFSET NULL OFFSET NULL Q13
+4 V V R11 50 k + R12 50 k Q20 R10 50 k 5 R9机型25 k Q14最喜欢篮最喜欢R8 7.5 k C1 30 pF R5 39 k你校Q12 Q11如R4 5 k R2 1 k R3 50 k R1 1 k Q5抵消零偏置零问题
+From these examples, we can generalize to the following guidelines on creating abstractions: Create abstractions of form and function with the important information represented on the surface, and with less important details concealed.
+从这些示例中，我们可以归纳出以下关于创建抽象的指导原则:创建表单和功能的抽象，在表面上表示重要的信息，隐藏不太重要的细节。
+Create abstractions that allow for representation of appropriate relationships (see Section 2.5).
+创建允许表示适当关系的抽象(参见2.5节)。
+Create abstractions at the right level of decomposition or aggregation.
+在正确的分解或聚合级别上创建抽象。
+Create the minimum number of abstractions that will effectively represent the aspects of the system at hand.
+创建能够有效地表示系统方面的最小数量的抽象。
+It is possible to create less-than-useful abstractions.
+可以创建不太有用的抽象。
+For example, we would violate the first guideline above if we abstracted an operational amplifier as a heat source.
+例如，如果我们将运算放大器抽象为热源，就违反了上面的第一条准则。
+Doing so would be technically correct, but it would not bring to the surface the entity s important role in amplification.
+这样做在技术上是正确的，但它不会使实体在放大方面的重要作用浮出水面。
+We could violate the third guideline by representing too much detail on the components of an operational amplifier.
+我们可能会违反第三条准则，在运算放大器的组件上描述太多细节。
+Again, this might be true, but so much detail may not be necessary to understand the operational amplifier s role in a circuit.
+再说一遍，这可能是对的，但要理解运算放大器在电路中的作用，可能不需要这么多细节。
+When creating abstractions, you would naturally loop back many times to the focus issue to ensure that you were creating abstractions that captured the important issues.
+在创建抽象时，您会很自然地多次返回到焦点问题，以确保您创建的抽象捕获了重要的问题。
+You might even loop back to the holism issue if you were reminded of something that was missing from the holistic view.
+如果你想起了整体观中缺失的东西，你甚至可能会回到整体论的问题。
+Note that abstractions are not unique, and there may be other abstractions of the same entities that are also completely valid.
+请注意，抽象不是唯一的，可能存在相同实体的其他抽象也是完全有效的。
+Which abstraction is the right one to choose depends on the nature of the question, circumstance, or problem at hand.
+选择哪种抽象是正确的取决于问题、环境或手头问题的性质。
+You usually cannot make universal abstractions.
+通常不能进行通用抽象。
+To return to the Team X example of Table 2.4, we have maintained as abstractions the three individuals John, Sue, and Amy, but we have abstracted Heather and Chris into Marketing and likewise their functions into market analysis.
+回到表2.4的Team X示例，我们将John、Sue和Amy三个人抽象为抽象，但是我们将Heather和Chris抽象为市场营销，同样地，将他们的功能抽象为市场分析。
+Similarly, we have abstracted Karen and James and their functions into planning manufacturing and supply chain operations.
+类似地，我们将Karen和James及其职能抽象为计划制造和供应链操作。
+Although this reduction from seven entities to five seems trivial, we will see in Section 2.5 that the relationships among the entities scale like N2 (N-Squared).
+虽然从7个实体减少到5个看起来微不足道，但我们将在2.5节中看到实体之间的关系可以扩展到N2 (n ^ 2)。
+By defining this smaller set of abstractions, we have probably reduced the possible relationships from 49 to 25, a significant improvement!
+通过定义这个更小的抽象集，我们可能已经将可能的关系从49个减少到25个，这是一个显著的改进!
+The outcome is a set of abstractions that are important to the system but have not yet been defined to be in the system.
+结果是一组抽象，它们对系统很重要，但还没有被定义为存在于系统中。
+In other words, we have not yet drawn the system boundary.
+换句话说，我们还没有划定系统的边界。
+Define the Boundary of the System, and Separate It from Context In defining the entities of the system, it will often be necessary to define a boundary of the system.
+定义系统的边界，并将其与上下文分离在定义系统实体时，通常需要定义系统的边界。
+The boundary makes it clear what is in the system and what is outside it.
+边界清楚地表明系统中有什么，系统外有什么。
+All systems, perhaps short of the cosmos, have boundaries.
+所有的系统，也许除了宇宙之外，都有边界。
+When we examine systems, we always define them to be of limited extent, either because we are simply not able to consider a more extensive set of entities (a human capability limitation) or because we believe it is not useful to do so (a human judgment).
+当我们检查系统时，我们总是将它们定义为有限的范围，要么是因为我们根本不能考虑更广泛的实体集(人类的能力限制)，要么是因为我们认为这样做是没有用的(人类的判断)。
+In defining the boundary of the system, we separate the system from its context.
+在定义系统的边界时，我们将系统与其上下文分离。
+Context is what surrounds the system.
+上下文是围绕系统的东西。
+It is the entities that are just on the outside of the system but are relevant to it.
+它是那些仅仅在系统外部但与系统相关的实体。
+Between the system and the context sits the system boundary.
+系统和上下文之间是系统边界。
+In drawing the system boundary, we might consider Including the entities to be analyzed (if the goal is understanding) Including what is necessary to create the design (if the goal is design) Including what we are responsible for implementing and operating (if the goal is delivery of value) Formal boundaries, established by law, contract,
+在绘图系统边界,我们可能会考虑包括实体进行分析(如果目标是理解),包括什么是必要的来创建设计(如果目标是设计)包括我们负责实现和操作(如果目标是交付价值)正式边界,建立了法律,合同,
+or other legal regime Traditions or conventions that distinguish the system from context Interface definitions or standards that we must respect, including supplier relationships When a relationship crosses a boundary, it defines an external interface between the system and the context.
+或其他法律制度的传统或惯例将系统与我们必须尊重的上下文接口定义或标准区分开来，包括供应商关系。当关系跨越边界时，它定义了系统和上下文之间的外部接口。
+These external interfaces are critical for the system and will be discussed in Section 2.5.
+这些外部接口对系统至关重要，将在2.5节中讨论。
+Table 2.4 represents the outcome of Task 2 of System Thinking for Team X. If we think that the job is to produce a design, then a logical place to put the system boundary is with John, Susan, and Amy within the system and to place marketing and operations outside it.
+表2.4的结果代表任务2的系统思考团队x如果我们认为工作是生产设计,然后一个逻辑系统边界和约翰,苏珊和艾米在系统外,把营销和运营。
+The system boundary will be consistently shown in this text as a dashed line.
+系统边界将在本文本中一致地以虚线表示。
+As we conclude the discussion of Task 2 of System Thinking (identifying the entities of the system, their form, their function, and the system boundary and context), we are left with the information shown in Figure 2.9.
+当我们结束关于系统思维的任务2的讨论(识别系统的实体，它们的形式，它们的功能，以及系统边界和环境)时，我们剩下的信息如图2.9所示。
+The entities are shown in the boxes, with the form and function described in the text.
+实体在方框中显示，形式和功能在文本中描述。
+The boundary, indicated by the dashed line, separates the system from the context.
+由虚线表示的边界将系统与上下文分开。
+In summary: All systems are composed of entities, which have form and function and are themselves likely to be systems.
+总而言之:所有的系统都是由实体组成的，实体具有形式和功能，它们本身也可能是系统。
+Defining the composition of the system as entities is easy for a system made up of distinct entities, is moderately difficult for a modular system, and is quite difficult for integral sy
+对于由不同实体组成的系统来说，将系统的组成定义为实体是很容易的，而对于模块化系统来说则比较困难，而对于积分sy来说则相当困难
+Thinking holistically helps to identify all of the entities that might be important to represent in the system, but it often yields too many entities to usefully consider.
+整体地思考有助于识别在系统中可能很重要的所有实体，但它通常会产生太多的实体，以至于无法有效地考虑。
+Focus helps to reduce the entities to those that are consequential to consider at that moment, but the set may change with time and activity.
+集中注意力有助于将实体简化为那些在那一刻需要考虑的实体，但是集合可能会随着时间和活动而改变。
+Creating abstractions helps bring to the surface the essential details of an entity, while  hiding the rest of the complexity.
+创建抽象有助于揭示实体的基本细节，同时隐藏其余的复杂性。
+Defining a boundary separates the system from the context.
+定义边界将系统与上下文分隔开来。
+2.5 Task 3: Identify the Relationships among the Entities Form and Function of Relationships As a matter of definition, systems are composed of a set of entities and their relationships.
+2.5任务3:确定实体之间的关系关系的形式和功能作为定义，系统是由一组实体及其关系组成的。
+By now, the reader should have come to expect that these relationships can have two characters: they can be functional relationships or formal relationships.
+到目前为止，读者应该已经预料到这些关系可以有两个字符:它们可以是功能关系，也可以是正式关系。
+Functional relationships are relationships between entities that do something;
+功能关系是做某件事的实体之间的关系;
+they involve operations, transfers, or exchanges of something between the entities.
+它们涉及实体之间的操作、转移或交换。
+We sometimes call functional relationships interactions to emphasize their dynamic nature.
+我们有时称功能关系为交互作用，以强调其动态的本质。
+During interactions, operands are exchanged by the entities or acted on jointly.
+在交互过程中，操作数由实体交换或共同作用。
+Thus a heart exchanges blood with a lung, and a team member shares results with a colleague.
+因此，心脏与肺交换血液，团队成员与同事分享结果。
+A more thorough presentation of functional interactions can be found in Chapter 5.
+在第5章中可以找到关于功能交互的更全面的介绍。
+Formal relationships are relationships among the entities that exist or could exist stably for some period of time.
+正式关系是存在或可能稳定存在一段时间的实体之间的关系。
+The adjective formal, derived from form, is not just a way to describe a dinner party!
+从form衍生而来的形容词formal不仅仅是用来描述一个晚餐聚会!
+Formal relations often include a connection or a geometric relationship.
+形式关系通常包括连接或几何关系。
+For example, when a lung is connected to the heart, or when a person joins a team, a formal relationship exists.
+例如，当一个肺连接到心脏，或者当一个人加入一个团队，一个正式的关系存在。
+We sometimes call formal relationships structure to emphasize their static nature.
+我们有时称正式关系为结构，以强调其静态的性质。
+We discuss formal relationships in more detail in Chapter 4.
+我们将在第4章中更详细地讨论正式关系。
+In general, a functional relationship usually requires a formal relationship.
+一般来说，功能关系通常需要正式关系。
+The formal relationship is the instrument of the functional relationship.
+正式关系是功能关系的工具。
+The heart cannot exchange blood with the lung without a connection.
+心脏和肺没有连接就不能交换血液。
+Team members cannot share results without either being in proximity or having an information link.
+团队成员在没有临近或者没有信息链接的情况下不能共享结果。
+These formal and functional relationships can be represented in either a relationship diagram or an N-Squared table.
+这些形式关系和功能关系可以用关系图或n方表表示。
+Figure 2.10 shows a relationship diagram of a system with two entities within the system and one outside in the context.
+图2.10显示了系统与系统内的两个实体和环境外的一个实体的关系图。
+The formal interactions are represented by the thin double-headed arrows, and the functional interactions are represented by broader arrows, which can be single- or double-headed, depending on the nature of the interactions.
+形式的相互作用由细的双头箭头表示，而功能的相互作用由宽的箭头表示，宽的箭头可以是单头或双头箭头，这取决于相互作用的性质。
+Some relationships are within the system, and some cross the system boundary, which is labeled as such and indicated by the dashed line.
+有些关系是在系统内部的，有些是跨系统边界的，系统边界被标记为这样并由虚线表示。
+Best practice for such diagrams is to label the entities with their form and function, and also to label the relationships, but this often produces a very cluttered diagram.
+这类图的最佳实践是用实体的形式和功能标记它们，同时也标记它们的关系，但这通常会产生非常混乱的图。
+We can now use our running examples to illustrate Task 3 of System Thinking, as expressed in Box 2.7.
+我们现在可以用我们的运行示例来说明系统思维的任务3，如Box 2.7所示。
+The relationship diagram for the amplifier circuit is shown in Figure 2.11.
+放大电路的关系图如图2.11所示。
+The structural relations indicate that the input circuit voltage is connected to Resistor 1, which is connected at its other port to Resistor 2 and the Op Amp. The output of Resistor 2 is connected to the Op Amp at a different port, and to the output circuit.
+由结构关系可知，输入电路电压连接到电阻1，电阻1在另一个端口连接到电阻2和运算放大器，电阻2的输出连接到另一个端口的运算放大器，再连接到输出电路。
+This link provides a type of feedback
+这个链接提供了一种反馈
+around the Op Amp. For a circuit, these structural connections or formal relationships are electrical connections.
+对于电路来说，这些结构连接或形式关系是电连接。
+The arrows indicate the functional interactions, which for a circuit are flows of current.
+箭头表示功能相互作用，对电路来说就是电流。
+In contrast, the standard electrical diagram for this circuit (Figure 2.4) would have only  one relationship shown between elements, which would imply to an electrical engineer both a connection and a flow of current.
+相比之下，这个电路的标准电气图(图2.4)只显示了元件之间的一种关系，这对电气工程师来说意味着连接和电流。
+An alternative representation of relationships uses two N-Squared tables, as shown in Table 2.5.
+关系的另一种表示使用两个n平方表，如表2.5所示。
+Each N-Squared table lists the N entities on each side.
+每个N平方的表列出了每边的N个实体。
+The first shows the formal
+第一个表示正式
