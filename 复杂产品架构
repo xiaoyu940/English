@@ -132,3 +132,94 @@ whereas those that embody sound architectures generally do survive and even pros
 然而，那些包含声音架构的人通常确实生存下来，甚至繁荣起来。
 That, of course, is what architecting complex systems is all about.
 当然，这就是构建复杂系统的全部内容。
+We wrote this book to capture a powerful idea.
+我们写这本书是为了抓住一个有力的观点。
+The idea of the architecture of a system is growing in recognition.
+系统架构的思想正在得到越来越多的认可。
+It appears in diverse fields including the architecture of a power grid or the architecture of a mobile payment system.
+它出现在不同的领域，包括电网架构或移动支付系统架构。
+It connotes the DNA of the system, and the basis for competitive advantage.
+它隐含着这个体系的DNA，以及竞争优势的基础。
+There are over 100,000 professionals with the title system architect today, and many more practicing the role of the architect under different titles.
+现在有超过100,000名拥有职称体系架构师的专业人员，还有更多的人在不同的职称下实践着架构师的角色。
+Powerful ideas often have nebulous boundaries.
+强大的想法往往有模糊的界限。
+We observed that many of our co-workers, clients, students had a shared recognition of system architecture issues, but used the term in very different scopes.
+我们注意到，我们的许多同事、客户、学生都对系统架构问题有共同的认识，但是在非常不同的范围内使用这个术语。
+The term is often used to differentiate between existing systems, as in the architecture of these two mountain bikes is different.
+这个术语经常用来区分现有的系统，就像在这两辆山地自行车的架构是不同的。
+What exactly constitutes the architecture of a system is often a subject of great debate.
+究竟是什么构成了一个系统的架构常常是一个有很大争议的话题。
+In some fields, the term is used for a singular decision that differentiates two types of systems at a high level, as in packet-switched architecture vs. circuit-switched architecture.
+在某些领域，这个术语被用于在高水平上区分两种类型系统的奇异决策，如在包交换体系结构和电路交换体系结构中。
+In other fields, the term is used to describe a whole implementation, save for some smaller details, as in our software as a service architecture.
+在其他领域中，这个术语用于描述整个实现，而不涉及一些较小的细节，如在我们的软件即服务体系结构中。
+Our goal was to capture the power of the idea of architecture, and to sharpen the boundaries.
+我们的目标是捕捉架构思想的力量，并明确界限。
+Much of the power of idea originates with the potential to trade among several architectures early, to look downstream and identify which constraints and opportunities will be central to value.
+许多想法的力量来源于早期在几个架构之间进行交易的潜力，去寻找下游并确定哪些约束和机会将是价值的中心。
+It isn t possible to trade among early ideas if the architecture encompasses all details, nor is it a meaningful exercise if important drivers of value are missing.
+如果架构包含所有的细节，那么在早期的想法之间进行交易是不可能的，如果缺少重要的价值驱动因素，那么这也不是一个有意义的实践。
+We wrote this book to build on the idea that the architect is a specialist, not a generalist, as proposed by Eberhardt Rechtin.
+正如Eberhardt Rechtin所建议的，我们写这本书是基于架构师是专家而不是通才的观点。
+Our intent is to showcase the analysis and methodologies of system architecture, and to develop the science of system architecture.
+我们的目的是展示系统架构的分析和方法，并开发系统架构的科学。
+This text is less prescriptive in places than the discipline of product design, as the systems tackled are more complex.
+这篇文章在某些地方比产品设计的规程更少规定性，因为处理的系统更复杂。
+Where the product development community has a stronger focus on design, our focus centers more on emergence the magic of functions coming together to produce a coherent whole.
+当产品开发社区更关注设计时，我们的焦点则更多地集中在功能的出现上，即功能聚集在一起形成一个连贯的整体。
+We ve imbued this book with our past experience.
+我们把过去的经验写进了这本书里。
+We ve been fortunate to be involved in the early development of a number of complex systems in communications, transportation, mobile advertising, finance, robotics, and medical devices, ranging in complexity from farm equipment to the International Space Station.
+我们有幸参与了通信、交通、移动广告、金融、机器人和医疗设备等一系列复杂系统的早期开发，涉及从农业设备到国际空间站的各种复杂系统。
+Additionally, we have included case studies from the experience of other system architects, in disciplines ranging from hybrid cars to commercial aircraft.
+此外，我们还包括了从混合动力汽车到商用飞机的其他系统架构师的经验案例研究。
+Our intent was that this book can only advance system architecture if it works from challenges faced by system architects today.
+我们的意图是，这本书只有在系统架构师今天所面临的挑战中工作时才能推进系统架构。
+We wrote this book for two core audiences professional architects and engineering students.
+我们为两个核心读者写了这本书，专业的建筑师和工程专业的学生。
+System architecture as an idea grew out of practitioners wisdom and attempts to codify the challenges of developing new architecture.
+系统架构作为一种想法，是由从业者的智慧产生的，并试图将开发新架构的挑战编入法典。
+One core audience is senior professionals who are faced with architectural decisions.
+一个核心受众是面临架构决策的高级专业人员。
+The field encompasses a variety of professionals in senior technical and managerial roles in technical industries software, electronics, industrial goods, aerospace, automotive, and consumer goods.
+该领域包括在技术行业软件、电子、工业产品、航空航天、汽车和消费品中担任高级技术和管理角色的各种专业人员。
+This book is also focused on engineering students as a core audience.
+这本书也把工程专业的学生作为核心读者。
+This text grew out of the graduate course we have taught at MIT for the past 15 years, where we ve been fortunate to educate many leaders in the private sector and government.
+这本书是从我们过去15年在MIT教授的研究生课程中衍生出来的，在那里我们很幸运地培养了很多私营部门和政府的领导者。
+The lens of architecture helps us understand how a system operates today, but moreover, we believe that it is a necessary competency to learn in the management of technical organizations
+架构的镜头帮助我们理解今天系统是如何运行的，而且，我们相信这是在技术组织管理中学习的必要能力
+
+We d like to thank the many people that made this book possible.
+我们要感谢那些使这本书得以出版的人们。
+First and foremost, our thanks to Bill Simmons, Vic Tang, Steve Imrich, Carlos Gorbea, and Peter Davison who contributed sections from their expertise, and who all provided comments on early drafts.
+首先，我们要感谢Bill Simmons, Vic Tang, Steve Imrich, Carlos Gorbea和Peter Davison，他们贡献了他们的专业知识，并对早期的草案提供了评论。
+We re indebted to Norm Augustine, who in addition to contributing the foreword, shaped our thinking on the topic.
+我们再次感谢Norm Augustine，他除了贡献了序言之外，还塑造了我们对这个主题的思考。
+Our reviewers Chris Magee, Warren Seering, Eun Suk Suh, Carlos Morales, Michael Yukish, and Ernst Fricke helped us deliver crisp messages and helped identify where we had missed key ideas.
+我们的评审员Chris Magee、Warren Seering、Eun Suk Suh、Carlos Morales、Michael Yukish和Ernst Fricke帮助我们传达清晰的信息，并帮助我们确定哪些地方漏掉了关键的想法。
+We also received a number of anonymous reviews, whose feedback improved the book.
+我们还收到了一些匿名的评论，他们的反馈改进了这本书。
+Dov Dori has been an invaluable partner as the developer of the OPM.
+作为OPM的开发者，Dov Dori是一个非常宝贵的合作伙伴。
+Pat Hale supported the development of the curriculum at MIT, and provided feedback on an early draft.
+Pat Hale支持麻省理工学院课程的发展，并对早期的草稿提供了反馈。
+The 63 students of the MIT System Design and Management Class of 2011 reviewed each chapter in detail and provided mountains of suggestions.
+麻省理工学院2011年系统设计与管理课程的63名学生详细回顾了每一章，并提出了大量的建议。
+In particular, our thanks to Erik Garcia, Marwan Hussein, Allen Donnelly, Greg Wilmer, Matt Strother, David Petrucci, Suzanne Livingstone, Michael Livingstone, and Kevin Somerville.
+特别要感谢Erik Garcia, Marwan Hussein, Allen Donnelly, Greg Wilmer, Matt Strother, David Petrucci, Suzanne Livingstone, Michael Livingstone和Kevin Somerville。
+Ellen Finnie Duranceau at MIT Libraries helped us choose a publisher wisely.
+麻省理工学院图书馆的Ellen Finnie Duranceau帮助我们明智地选择了出版商。
+Our graduate students over the years have helped shape the book s content much of their work appears here in one form or another.
+我们的研究生多年来帮助塑造了书的内容，他们的大部分工作出现在这里的一种或另一种形式。
+In addition to those mentioned above, we d like to thank Morgan Dwyer, Marc Sanchez, Jonathan Battat, Ben Koo, Andreas Hein, and Ryan Boas.
+除了上面提到的，我们还要感谢Morgan Dwyer, Marc Sanchez, Jonathan Battat, Ben Koo, Andreas Hein和Ryan Boas。
+We would like to thank Eun Suk Suh for his contributions to the Global Edition as well.
+我们也要感谢Eun Suk Suh对全球版的贡献。
+The staff at Pearson made our book a reality Holly Stark, Rose Kernan, Erin Ault, Scott Disanno, and Bram van Kempen.
+培生的员工把我们的书变成了现实，霍莉·斯塔克、罗斯·克南、埃琳·奥尔特、斯科特·迪桑诺和布拉姆·范·肯普森。
+Thanks for all your hard work.
+谢谢你的辛勤工作。
+Finally, to our wives Ana, Tess, and Karen, thanks for your patience as we labored on weekends and during vacations, enduring the risk that this project become a forever book.
+最后，感谢我们的妻子安娜、苔丝和凯伦，感谢你们的耐心，我们在周末和假期辛苦工作，冒着这个项目成为一本永恒的书的风险。
