@@ -1,1 +1,66 @@
-The simplest notion of architecture we will use is that architecture is an abstract description of the entities of a system and the relationship between those entities. In systems built by humans, this architecture can be represented as a set of decisions. The premise of this text is that our systems are more likely to be successful if we are careful about identifying and making the decisions that establish the architecture of a system. This text is an attempt to encode experience and analysis about early system decisions and to recognize that these choices share common themes. Over the past 30 years, analysis and computational effort have opened a broad tradespace of options, and in many areas, that tradespace grew faster thanour ability to understand it. The field of system architecture grew out of practitioners’ attempts to capture expert wisdom from past designs and to structure a broader understanding of potential future designs. The market context in which our products and systems compete does not offer any comfort. Consider Boeing’s decision to “bet the company” on the development of the 787 aircraft and the associated composite technology. Boeing is half of a global duopoly for large passenger aircraft, yet in its core business, rather than spreading risk across many small programs, the firm turns on a single product’s emergent success or failure. The global market for mobile devices is larger and more competitive still. Although it can be argued that the product risk is more diversified (that is, an individual product development investment is a smaller fraction of firm revenues) in the mobile sector, witness the declines of former giants BlackBerry and Ericsson. To capture market share, systems must innovate on the product offering, incorporate novel technologies, and address multiple markets. To compete on tight margins, they must be designed to optimize manufacturing cost, delivered through multi-tiered supply chains. We will argue that good architectural decisions made by firms can create competitive advantage in difficult markets, but bad decisions can hobble large developments from the outset. Figure 1.1 Complex  systems: the heavy-lift ship mV Blue Marlin transporting the 36,000 metricton drilling platform SSV Victoria.  (Source: dockwise/rex  Features/associatedpress)18 part 1    SyStem thInkIng Every system built by humans has an architecture. Products such as mobile phone software, cars, and semiconductor capital equipment are defined by a few key decisions that are made early in each program’s lifecycle. For example, early decisions in automotive development, such as the mounting of the engine, drive a host of downstream decisions. Choosing to mount an engine transversely in a car has implications for the modularization of the engine, gearbox, and drivetrain, as well as for the suspension and the passenger compartment. The architecture of a system conveys a great deal about how the product is organized. In the design of complex systems, many of these early architectural decisions are made without full knowledge of the system’s eventual scope. These early decisions have enormous impact on the eventual design. They constrain the envelope of performance, they restrict potential manufacturing sites, they make it possible or impossible for suppliers to capture after-market revenue share, and so forth. As an example of gathering downstream information for upstream consumption, the width of John Deere’s crop sprayers is constrained to be less than the column separation at the manufacturing site. In this case the width constraint is obvious to the development team and was not uncertain or hidden, but it is one of the main variables in the productivity equation for a crop sprayer. The central assertion of this text is that these early decisions can be analyzed and treated. Despite uncertainty around scope, even without knowing the detailed design of components, the architecture of the system merits scrutiny. Architecting a system is a soft process, a composite of science and art; we harbor no fantasies that this can or should be a linear process that results in an optimal solution. Rather, we wrote this text to bring together what we’ve learned about the core ideas and practices that compose system architecture. Our central assertion is that structured creativity is better than unstructured creativity. This focus on decisions enables system architects to directly trade the choices for each decision, rather than the underlying designs they represent, thus encouraging broader concept evaluation. At the same time, this decision language enables system architects to order decisions according to their leverage on the system performance, in recognition that system architectures are rarely chosen in one fell swoop; rather, they are iteratively defined by a series of choices. The failed National Polar-Orbiting Environmental Satellite System (NPOESS) is an exemplar of architectural decisions handicapping a system. NPOESS1 was created in 1994 from the merger of two existing operational weather satellite programs, one civilian (weather prediction) and one military (weather and cloud cover imagery). The rationale for the merger was not ill-founded; these two systems collecting related data presented a $1.3 billion cost consolidation opportunity. [9] Early in the merged program, a decision was made to include the superset of instruments capability from both historical programs. For example, the VIIRS (Visible Infrared Image Radiometer Suite) instrument was expected to combine the capabilities of three historical instruments. The assumption underlying the program was that the functional complexity of the merged program would scale linearly with the sum of the two historical programs. This might have held, had the program derived needs and concepts from the heritage instruments. However, a second decision to list new functions independent of the system concept trapped the architectural performance in an 
+前言
+
+A particularly promising trend that has been taking place in healthcare is the marriage of biomedical research with engineering practices.
+在医疗保健领域出现的一个特别有希望的趋势是生物医学研究与工程实践的结合。
+A friend of mine, an engineer, recently described to me a meeting that took place at one of America s most prestigious universities between the faculties of the engineering department and the cardiology department exploring just such opportunities.
+我的一位工程师朋友最近向我描述了在美国最著名的一所大学，工程系和心理系的院系正在探索这样的机会。
+Having decided to focus on constructing a practicable mechanical human heart, the head of cardiology began his presentation with a description of the properties of the human heart.
+在决定集中精力建造一个可行的人类机械心脏之后，心脏病学的负责人开始了他的报告，描述了人类心脏的特性。
+Almost immediately an engineer interrupted, asking Does it have to be in your chest?
+一个工程师几乎立刻打断了他，问他是不是一定要放在胸口?
+Could it be, say, in your thigh where it would be easier to reach?
+是不是在你的大腿上，那里比较容易够到?
+No one in the room had ever considered that possibility.
+房间里没有人考虑过这种可能性。
+Nonetheless, the presentation continued.
+尽管如此，演示仍在继续。
+Soon another interruption occurred;
+不久，另一个干扰出现了;
+this time it was another engineer asking, Instead of just one heart could you have three or four small hearts integrated in a distributed system?
+这次是另一个工程师问，你能不能在一个分布式系统中集成三到四个小心脏而不是一个心脏?
+No one had thought of that either.
+也没有人想到这一点。
+System Architecture, so insightfully presented in this book by three of the field s most highly regarded leaders, is about asking and answering just such questions.
+在这本书中，由该领域三位最受尊敬的领导人所提出的系统架构就是关于提出和回答这样的问题。
+In my own career I have encountered system architecture questions in fields ranging from engineering to business to government.
+在我自己的职业生涯中，我在工程、商业和政府等领域遇到过系统架构问题。
+When established practices of the field of system architecture are applied, far superior outcomes seem to result.
+当应用系统架构领域的既定实践时，似乎会产生远为优越的结果。
+Applying such practices has not always been the case.
+应用这种做法并不总是如此。
+Early in my career I recall asking various of my colleagues who were working together on a guided missile program why they had chosen a particular design approach for their specific element of the product.
+我记得在我职业生涯的早期，我曾问过很多同事，他们一起在一个导弹项目中工作，为什么他们要为产品的特定元素选择一种特定的设计方法。
+One replied, Because it is the lowest weight.
+一个人回答说:“因为它的重量最低。”
+Another assured me that his part would have the lowest radar cross-section.
+另一个人向我保证，他那部分的雷达横截面是最低的。
+Still another answered because her component would be less costly.
+还有一个回答，因为她的组件更便宜。
+And yet another had focused on minimizing volume.
+而另一个则关注于体积最小化。
+And so it went.
+就这样。
+What was missing?
+遗失了什么?
+The answer is a system architect.
+答案是系统架构师。
+This shortcoming is too often encountered, usually in more subtle ways.
+这个缺点是经常遇到的，通常以更微妙的方式。
+Consider the case of the Near-Sonic Transport aircraft that was in the early stages of development a few years ago.
+考虑一下近音速运输机的例子，几年前它还处于发展的早期阶段。
+A marketing survey had indicated that airline passengers want to get to their destinations faster.
+一项市场调查表明，航空公司乘客希望更快到达目的地。
+To an aerodynamicist (my own early field), if one wishes to avoid the penalties of supersonic flight, that translates into more closely approaching Mach One, creeping up on the drag curve into a regime wherein fuel consumption abruptly increases.
+对于一个空气动力学家(我自己的早期领域)来说，如果一个人想要避免超音速飞行的惩罚，那就转换成更接近1马赫的速度，在阻力曲线上爬升到一个燃料消耗突然增加的状态。
+This was, in fact, the underlying concept of the Near-Sonic Transport.
+事实上，这是近声传输的基本概念。
+But when viewed from a system architecture perspective, the appropriate question is not how to fly faster;
+但是从系统架构的角度来看，合适的问题不是如何飞得更快;
+rather, it is how to minimize the time to get from one s home, to the airport, check-in, pass through security, board the aircraft, fly, collect baggage and travel to one s final destination.
+相反，它是如何将从某人的家到机场、办理登机手续、通过安检、登机、飞行、领取行李和旅行到他的最终目的地的时间减至最少。
+Placed in this context, an even more fundamental question arises: How much will a passenger pay to save five or ten minutes of flying time?
+在这种情况下，一个更基本的问题就出现了:为了节省5或10分钟的飞行时间，乘客会花多少钱?
+The answer turns out to be, not much and the Near-Sonic Transport aircraft thus met its early, and deserved, demise.
+答案是，没有太多，因此近音波运输机早早地就被淘汰了。
+There are clearly better
+当然还有更好的
