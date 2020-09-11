@@ -999,3 +999,365 @@ Each N-Squared table lists the N entities on each side.
 每个N平方的表列出了每边的N个实体。
 The first shows the formal
 第一个表示正式
+relationships, the second the functional relationships.
+关系，第二个是功能关系。
+The entities within the system are above and to the left of the dashed lines.
+系统内的实体在虚线的上方和左侧。
+Off diagonal terms indicate an internal connection or interface.
+非对角线术语表示内部连接或接口。
+There is value in both the relationship diagram, which is easier to visualize, and the N-Squared table, which has more detail and does not become visually congested as nodes and connections proliferate.
+关系图和n方表都有价值，前者更容易可视化，而n方表更详细，在节点和连接激增时不会出现视觉拥堵。
+Formal relationships tend to be more concrete, and they are a good starting point for thinking about relationships in general.
+正式的关系往往更具体，它们是思考一般关系的一个很好的起点。
+As you examine each formal relationship, however, try to understand the functional relationship that it enables.
+不过，在检查每个正式关系时，请尝试理解它所支持的功能关系。
+The formal relationships are important primarily because they are instruments of the functional relationships.
+正式关系之所以重要，主要是因为它们是功能性关系的工具。
+Because emergence occurs in the functional domain, it is really the functional interactions that are of primary importance, as will be discussed further in Section 2.6.  
+因为出现发生在功能领域，所以真正重要的是功能交互，这将在2.6节中进一步讨论。
+External Interfaces Formal and functional relationships can exist across the boundary of the system, between entities in the system and its context.
+外部接口形式化的和功能性的关系可以跨系统的边界存在于系统及其上下文中的实体之间。
+These are called the external interfaces of the system.
+这些被称为系统的外部接口。
+In the N-Squared table, Table 2.5, these external interfaces are indicated as any relationship outside the part of the table reserved for the system (such as connected at input ).
+在n方表(表2.5)中，这些外部接口被表示为表中保留给系统的部分之外的任何关系(例如，在输入处连接)。
+In the relationship diagram, Figure 2.11, these external interfaces show up as arrows crossing the system boundary and are marked.
+在关系图(图2.11)中，这些外部接口显示为穿越系统边界的箭头，并进行标记。
+Similar external interfaces can be found between Team X members and supporters, and between the circulatory system and the air.
+类似的外部接口可以在X团队成员和支持者之间，以及循环系统和空气之间找到。
+In fact, it is nearly impossible to define a system that is not connected somehow to entities beyond its boundary by external interfaces.
+实际上，几乎不可能定义一个没有通过外部接口以某种方式连接到其边界之外实体的系统。
+In summary: Fundamental to the definition of a system is the existence of relationships among the entities, which can be formal (they exist or could exist structure) or functional (they do something interactions).
+总之:系统定义的基础是实体之间关系的存在，这些实体可以是形式化的(它们存在或可能存在结构)或功能性的(它们进行一些交互)。
+In general, some of the entities of a system will also have both formal and functional relationships with context entities outside the system;
+一般来说，系统的一些实体也会与系统外部的上下文实体有正式的和功能性的关系;
+such relationships occur across external interfaces.
+这种关系发生在外部接口之间。
+Formal and functional interactions can be effectively represented by either relationship diagrams or N-Squared tables.
+形式和功能的交互可以通过关系图或n方表有效地表示。
+2.6 Task 4 Emergence The Importance of Emergence Emergence is the magic of a system.
+出现的重要性出现是一个系统的魔力。
+As the entities of a system are brought together, a new function emerges as a result of combination of the function of the entities and the functional interactions among the entities.
+当一个系统的实体被聚集在一起时，一个新的功能出现了，这是实体的功能组合和实体之间的功能交互的结果。
+Recall that a system is a set of entities and their relationships, whose
+回想一下，系统是一组实体及其关系
+
+Nothing emerges in the domain of the form of the system.
+在系统的形式领域中没有出现任何东西。
+When the form of chunk A and chunk B are brought together, nothing more happens in the form domain than the sum A plus B. Properties of the aggregation of the form are relatively easy to calculate.
+当块A和块B的形式被放在一起时，在表单域中不会发生比A加B的和更多的事情。表单聚合的属性相对容易计算。
+The mass of the system is just the mass of chunk A and chunk B. Form is linear.
+系统的质量就是块A和块b的质量，形式是线性的。
+
+However, in the functional domain, the sum of A and B is much more interesting, is much more complicated, and has nothing to do with linearity.
+然而，在泛函域中，A和B的和更有趣，也更复杂，与线性无关。
+When the function of chunk A interacts with the function of chunk B, almost anything can happen!
+当A块的函数与B块的函数交互时，几乎任何事情都可能发生!
+It is exactly this property of emergence that gives systems their power.
+正是这种涌现性赋予了系统力量。
+Striving to understand and predict emergence, and the power it brings to systems, is the primary goal of system thinking.
+努力理解和预测出现，以及它给系统带来的力量，是系统思考的首要目标。
+System Failure Another way to understand the importance of emergence is to think what might happen if the anticipated emergence does not occur.
+系统故障理解出现的重要性的另一种方法是思考如果预期的出现没有发生可能会发生什么。
+This can happen in two ways: The anticipated desirable emergence can fail to occur, or undesirable unanticipated emergence can occur;
+这可以通过两种方式发生:预期的理想的出现可能没有发生，或者不希望的、未预期的出现可能发生;
+see Table 2.1.
+见表2.1。
+Both are bad situations.
+这两种情况都很糟糕。
+Consider some potential system failures in our examples.
+在我们的示例中考虑一些潜在的系统故障。
+In the human circulatory system, a connection from the heart may partially clog, raising blood pressure in other parts of the system;
+在人体循环系统中，与心脏的连接可能会部分堵塞，导致系统其他部分的血压升高;
+thus an unanticipated undesirable emergence occurs, impacting the entire system.
+因此，出现了意想不到的不良情况，影响了整个系统。
+In Team X, a team member may develop good requirements but not communicate them effectively, and the team consequently makes a design that causes the company to lose a sale;
+在X团队中，团队成员可能提出了很好的要求，但没有进行有效的沟通，团队因此做出的设计导致公司失去了一笔销售;
+thus an anticipated desirable emergence fails to occur.
+因此，预期的理想的出现未能出现。
+Gridlock on a four-lane urban expressway is a classic example of system failure.
+四车道城市高速公路上的交通堵塞是系统故障的典型例子。
+Every car is doing exactly what its function calls for, transporting people.
+每一辆车都在做它的功能要求，运送人。
+The roadway is performing its function, supporting car travel.
+道路正在发挥它的功能，支持汽车行驶。
+The drivers are staying safely behind each other and within their lanes.
+司机们安全地呆在各自的车道内。
+Yet the anticipated desirable performance of cars traveling rapidly down the road fails to materialize.
+然而，预期的理想性能的汽车快速行驶的道路没有实现。
+A well-documented case of unanticipated undesirable emergence is shown in Figure 2.12.
+图2.12显示了一个记录良好的意外不良出现的案例。
+An Airbus A320 tried to land in a crosswind with the upwind wing held low.
+一架空客A320试图在侧风中着陆，将迎风的机翼举得很低。
+On the slippery runway, the wheel brakes were not effective, so after touch-down the pilot tried to apply the engine-based thrust reverser, but it did not operate.
+在滑滑的跑道上，轮刹失效，所以在着陆后，飞行员试图使用基于发动机的推力逆转器，但没有工作。
+What happened?
+发生了什么事?
+As a safety measure, the software system was designed not to deploy the thrust reverser until the plane had landed,
+作为一项安全措施，该软件系统的设计是在飞机着陆前不展开反推器，
+which was signaled by weight compressing both landing gear assemblies.
+通过重量压缩两个起落架组件发出信号。
+But because one wing was held low, the landing gear on one side was not compressed.
+但是，由于一侧机翼被压得很低，一侧的起落架没有被压缩。
+Everything worked exactly as planned that day, but the result was a system failure an emergency.
+那天一切都按计划进行，但结果却是系统出现了紧急故障。
+Trying to understand and anticipate such system failures is also a goal of system thinking.
+试图理解和预测这样的系统故障也是系统思维的一个目标。
+Predicting Emergence As suggested by Box 2.8, the last task in system thinking is to predict emergence.
+如Box 2.8所示，系统思维的最后一个任务是对Emergence进行预测。
+It is hard to predict a priori what will emerge from the combinations of the functions of the various entities of a system.
+很难预先预测系统中不同实体的功能组合会产生什么结果。
+The anticipated desirable function may emerge (system success) or may fail to emerge, or something unanticipated and undesirable may emerge (system failure).
+预期的理想功能可能会出现(系统成功)，也可能不会出现，或者出现一些未预期和不希望出现的东西(系统失败)。
+We have seen examples of anticipated function emerging.
+我们已经看到了预期功能出现的例子。
+In the amplifier circuit, amplifying voltage plus setting gain created amplification.
+在放大电路中，放大电压加上设定增益产生放大。
+In Team X, the members working effectively and communicating created a good design.
+在X团队中，成员们有效地工作和交流创造了一个好的设计。
+But if the systems thinkers did not already know about this emergence, how would they predict it?
+但是，如果系统思考者还不知道这种出现，他们将如何预测它呢?
+There are three ways to predict emergence.
+有三种方法来预测涌现。
+One is to have done it in the past.
+一个是在过去做过。
+This is prediction based on precedent.
+这是基于先例的预测。
+We look for identical or very similar solutions in our experience and implement them with at most small changes.
+我们在我们的经验中寻找相同或非常相似的解决方案，并通过最微小的改变来实现它们。
+We build the pendulum mechanism in grandfather clocks because our grandfathers built it that way.
+我们在落地钟上安装了钟摆装置，因为我们的祖父就是这么做的。
+When Team X was put together, there was experience that suggested that this group of people would form an effective team.
+当团队X被组合在一起时，有经验表明这群人可以组成一个有效的团队。
+Another way to predict emergence is to do experiments.
+另一种预测涌现的方法是做实验。
+We simply try putting together the entities with the proposed relations to see what emerges.
+我们只是尝试将实体与提议的关系放在一起，看看会出现什么。
+This can range from tinkering to very highly structured prototyping.
+这可以从修补到非常结构化的原型。
+You could explore the output of the Op Amp by building one, applying an input voltage, and monitoring the output.
+你可以通过建立一个运放，施加一个输入电压，并监视输出来探索运放的输出。
+Spiral development is a form of experiment in which some of the system is first built to check emergence before the rest of the system is built (in later spirals).
+螺旋发展是实验的一种形式，在系统的其他部分被建立之前(在后面的螺旋中)，首先建立一些系统来检查涌现。
+The third way to predict emergence is modeling.
+第三种预测涌现的方法是建模。
+If the function of the entities and the functional interaction can be modeled, then it may be possible to predict emergence from a model.
+如果实体的功能和功能交互可以建模，那么就有可能从一个模型中预测出现。
+One example of spectacular success in modeling occurred in the development of integrated circuits.
+在建模方面取得巨大成功的一个例子发生在集成电路的发展中。
+IC s with billions of gates are now routinely manufactured and produce the correct emergent properties.
+拥有数十亿门的集成电路现在常规生产和生产正确的紧急特性。
+How?
+如何?
+The fundamental element is a transistor, which can be modeled simply, and from there up it is all mathematics.
+它的基本元素是晶体管，它可以被简单地建模，从那开始就全是数学了。
+Our amplifier circuit can be modeled with a few lines of algebra if one knows the constitutive relations for the Op Amp and resistors, and Kirchhoff s voltage and current laws.
+如果我们知道运算放大器和电阻的本构关系，以及基尔霍夫电压和电流定律，我们的放大器电路可以用几行代数来建模。
+What do you do if you need to predict emergence for systems that are without precedent, cannot be experimented on, and cannot be reliably modeled?
+如果您需要预测那些没有先例、不能进行实验、不能可靠地建模的系统的出现，您该怎么办?
+Welcome to the question at the crux of system thinking!
+欢迎来到系统思考的关键问题!
+Such issues arise routinely in many domains, including new product development.
+在许多领域，包括新产品开发，都会出现这样的问题。
+In these situations, we are left to reason about what will emerge.
+在这些情况下，我们只能靠推理来判断将会发生什么。
+This reasonin
+这reasonin
+may be informed partially by precedent (observing results in similar but not identical systems) and partially by experiments and incomplete modeling, but the projection about emergence ultimately depends on human judgment.
+可能部分来自先例(在相似但不完全相同的系统中观察的结果)，部分来自实验和不完整的建模，但关于涌现的预测最终取决于人类的判断。
+Emergence Depends on Entities and Relationships Notice that the emergence of function from a system depends on the function of the entities and their functional interactions.
+出现依赖于实体和关系注意，系统中功能的出现依赖于实体的功能和它们的功能交互。
+The form enables the function of the entities, and the formal relationships are instrumental in functional interactions.
+表单支持实体的功能，而正式的关系有助于功能交互。
+This implies that both form and formal relationships (structure) are important to consider in predicting emergence.
+这意味着在预测出现时，形式和正式关系(结构)都是重要的考虑因素。
+To see this more clearly, let s look at the simple systems shown in Figure 2.13: An electrical low pass filter, consisting of a single resistor and a capacitor.
+为了更清楚地了解这一点，让我们来看看图2.13所示的简单系统:一个电气低通滤波器，由一个电阻器和一个电容组成。
+Place the resistor between the input voltage and output, and the capacitor between the output and ground, and high frequencies are attenuated.
+把电阻放在输入电压和输出之间，电容放在输出和地之间，高频就衰减了。
+Change the pattern of connectivity by switching the two components, and low frequencies are attenuated.
+通过切换这两个元件来改变连接模式，低频就会衰减。
+A mechanical lever, consisting of a bar and a fulcrum.
+一种机械杠杆，由杆和支点组成。
+Put the fulcrum near the end farther from the operator, and you get the desired emergence of magnify force.
+将靠近末端的支点离操作者较远的地方放置，就能得到所需的放大力。
+Change the location, putting the fulcrum closer to the operator, and this desired emergence disappears.
+改变位置，使支点更靠近操作员，这种期望的出现消失。
+A simple software segment, with a conditional statement and a simple computation.
+一个简单的软件段，带有一个条件语句和一个简单的计算。
+Put the IF statement first, and the a = 100 statement is executed only if the condition is true.
+将IF语句放在前面，a = 100语句只在条件为真时执行。
+Change the sequence, placing the a = 100 statement first, and it is always executed.
+改变序列，将a = 100语句放在前面，它总是被执行。
+The formal relationships are critical to the emergence: the pattern of connection of the electrical components, the location of the fulcrum, and the sequence of the software instructions.
+正式的关系是出现的关键:电子元件的连接模式，支点的位置，以及软件指令的顺序。
+The formal relationships are important in guiding a certain specific functional interaction that leads to a specific system-level emergence.
+正式的关系在指导导致特定系统级出现的特定功能交互时非常重要。
+In summary: Emergence occurs when the function of the entities and their functional interaction combine to produce a new functionality, which is more than the sum of the parts.
+总而言之，当实体的功能和它们的功能相互作用结合起来产生一个新的功能时，就会出现新的功能，而这个功能不仅仅是各个部分的总和。
+System success and system failure often hinge on emergence.
+系统的成功和失败往往取决于系统的出现。
+may be informed partially by precedent (observing results in similar but not identical systems) and partially by experiments and incomplete modeling, but the projection about emergence ultimately depends on human judgment.
+可能部分来自先例(在相似但不完全相同的系统中观察的结果)，部分来自实验和不完整的建模，但关于涌现的预测最终取决于人类的判断。
+Emergence Depends on Entities and Relationships Notice that the emergence of function from a system depends on the function of the entities and their functional interactions.
+出现依赖于实体和关系注意，系统中功能的出现依赖于实体的功能和它们的功能交互。
+The form enables the function of the entities, and the formal relationships are instrumental in functional interactions.
+表单支持实体的功能，而正式的关系有助于功能交互。
+This implies that both form and formal relationships (structure) are important to consider in predicting emergence.
+这意味着在预测出现时，形式和正式关系(结构)都是重要的考虑因素。
+To see this more clearly, let s look at the simple systems shown in Figure 2.13: An electrical low pass filter, consisting of a single resistor and a capacitor.
+为了更清楚地了解这一点，让我们来看看图2.13所示的简单系统:一个电气低通滤波器，由一个电阻器和一个电容组成。
+Place the resistor between the input voltage and output, and the capacitor between the output and ground, and high frequencies are attenuated.
+把电阻放在输入电压和输出之间，电容放在输出和地之间，高频就衰减了。
+Change the pattern of connectivity by switching the two components, and low frequencies are attenuated.
+通过切换这两个元件来改变连接模式，低频就会衰减。
+A mechanical lever, consisting of a bar and a fulcrum.
+一种机械杠杆，由杆和支点组成。
+Put the fulcrum near the end farther from the operator, and you get the desired emergence of magnify force.
+将靠近末端的支点离操作者较远的地方放置，就能得到所需的放大力。
+Change the location, putting the fulcrum closer to the operator, and this desired emergence disappears.
+改变位置，使支点更靠近操作员，这种期望的出现消失。
+A simple software segment, with a conditional statement and a simple computation.
+一个简单的软件段，带有一个条件语句和一个简单的计算。
+Put the IF statement first, and the a = 100 statement is executed only if the condition is true.
+将IF语句放在前面，a = 100语句只在条件为真时执行。
+Change the sequence, placing the a = 100 statement first, and it is always executed.
+改变序列，将a = 100语句放在前面，它总是被执行。
+The formal relationships are critical to the emergence: the pattern of connection of the electrical components, the location of the fulcrum, and the sequence of the software instructions.
+正式的关系是出现的关键:电子元件的连接模式，支点的位置，以及软件指令的顺序。
+The formal relationships are important in guiding a certain specific functional interaction that leads to a specific system-level emergence.
+正式的关系在指导导致特定系统级出现的特定功能交互时非常重要。
+In summary: Emergence occurs when the function of the entities and their functional interaction combine to produce a new functionality, which is more than the sum of the parts.
+总而言之，当实体的功能和它们的功能相互作用结合起来产生一个新的功能时，就会出现新的功能，而这个功能不仅仅是各个部分的总和。
+System success and system failure often hinge on emergence.
+系统的成功和失败往往取决于系统的出现。
+Emergence can be predicted a priori by relying on precedent, experimentation, and modeling.
+通过依赖先例、实验和模型，可以先验地预测涌现。
+For unprecedented systems for which experimentation and modeling are not easy, humans must reason about emergence based on available information.
+对于史无前例的系统，进行实验和建模并不容易，人类必须基于现有的信息对出现的系统进行推理。
+Emergence depends on the function of the entities enabled by form, and on the functional relationships enabled by the formal relationships.
+出现依赖于形式所赋予实体的功能，以及形式关系所赋予的功能关系。
+It is the property of emergence that gives systems their power and also creates the challenges in understanding and predicting them.
+正是涌现的特性赋予了系统力量，也给理解和预测系统带来了挑战。
+
+
+
+2.7 Summary Because system thinking is simply thinking about a question, circumstance, or problem explicitly as a system, it makes sense that there is a strong parallel between the essential features of a system and the tasks of system thinking.
+因为系统思维只是简单地将一个问题、环境或问题作为一个系统来明确地思考，所以系统的基本特征和系统思维的任务之间存在很强的相似性是有道理的。
+
+The essential features of a system are listed in the left column of Table 2.6, and the tasks that constitute system thinking, which were introduced in Section 2.1 and developed in Sections 2.2 through 2.6, are shown in the right column of Table 2.6.
+表2.6的左列列出了系统的基本特征，表2.6的右列列出了2.1节介绍、2.2 - 2.6节发展的构成系统思维的任务。
+At the highest level, the goal of system thinking is to enable us to reason about systems.
+系统思维的最高目标是使我们能够对系统进行推理。
+We are surrounded by systems, and they are becoming increasingly complex.
+我们被各种系统包围着，它们变得越来越复杂。
+System thinking should help us to make these complex systems appear less complicated.
+系统思维应该能帮助我们把这些复杂的系统变得不那么复杂。
+There are a variety of outcomes that can be achieved with system thinking.
+系统思维可以产生多种结果。
+An entry-level goal of system thinking is understanding what is, or examining a system and trying to make sense of it.
+系统思考的入门级目标是理解是什么，或者检查系统并试图理解它。
+A more advanced goal of system thinking is predicting what might be if something changes.
+系统思考的一个更高级的目标是预测如果某件事发生了变化会发生什么。
+This assertion should be greeted with caution, because predicting what will happen
+这种断言应该谨慎对待，因为要预测将会发生什么
+if something changes requires the ability to predict emergence a task that is fraught with difficulty!
+如果某些事情发生了变化，需要预测出现的能力，这是一个充满困难的任务!
+Working upward, the next role of system thinking is in informing judgment and balance in decision making.
+再往上，系统思维的下一个作用是在决策中告知判断和平衡。
+Decision making requires the identification, analysis, and weighing of options.
+决策需要对各种选择进行识别、分析和权衡。
+A systems thinker might ask: What tensions are apparent in the system?
+系统思考者可能会问:系统中有什么明显的张力?
+What alternatives or solutions balance the various factors and resolve tensions?
+有什么替代方案或解决方案能够平衡各种因素并解决紧张关系?
+How will the solution react to future change?
+解决方案将如何应对未来的变化?
+At the heart of informed decision making is ensuring that all the important implications of the decision are identified and considered, which is an application of system thinking.
+知情决策的核心是确保确定和考虑决策的所有重要含义，这是系统思维的应用。
+At the pinnacle of system thinking is synthesizing a system, which is the domain of system architecting and the subject of Part 3 of this text.
+系统思维的巅峰是综合一个系统，这是系统架构的领域，也是本文的第3部分的主题。
+
+if something changes requires the ability to predict emergence a task that is fraught with difficulty!
+如果某些事情发生了变化，需要预测出现的能力，这是一个充满困难的任务!
+Working upward, the next role of system thinking is in informing judgment and balance in decision making.
+再往上，系统思维的下一个作用是在决策中告知判断和平衡。
+Decision making requires the identification, analysis, and weighing of options.
+决策需要对各种选择进行识别、分析和权衡。
+A systems thinker might ask: What tensions are apparent in the system?
+系统思考者可能会问:系统中有什么明显的张力?
+What alternatives or solutions balance the various factors and resolve tensions?
+有什么替代方案或解决方案能够平衡各种因素并解决紧张关系?
+How will the solution react to future change?
+解决方案将如何应对未来的变化?
+At the heart of informed decision making is ensuring that all the important implications of the decision are identified and considered, which is an application of system thinking.
+知情决策的核心是确保确定和考虑决策的所有重要含义，这是系统思维的应用。
+At the pinnacle of system thinking is synthesizing a system, which is the domain of system architecting and the subject of Part 3 of this text.
+系统思维的巅峰是综合一个系统，这是系统架构的领域，也是本文的第3部分的主题。
+Complexity is inherent in system architecture, and before proceeding with a rigorous development of the analysis of architecture (Part 2) and the synthesis of architecture (Part 3), we should spend a short time dealing with the issues of complexity in systems and the approaches that have been developed to enable us to comprehend complex systems.
+复杂性是固有的系统架构,在继续之前的严格的发展的分析架构(第2部分)和合成的架构(第3部分),我们应该花很短的时间内处理复杂性问题的系统和方法已经发展到使我们能够理解复杂的系统。
+This chapter starts with a brief discussion of what makes systems complex.
+本章以简单讨论是什么使系统变得复杂开始。
+We then summarize the approaches that enable people to better understand and work with complex systems.
+然后，我们总结了使人们更好地理解和处理复杂系统的方法。
+These include decomposition and hierarchy, different types of relationships among entities (such as class/instance relationships and specialization/generalization), and specific tools to reason through complex systems, such as zigzagging, views, and projections.
+这些包括分解和层次结构、实体之间的不同类型的关系(例如类/实例关系和专门化/泛化)，以及通过复杂系统进行推理的特定工具，例如曲折、视图和投影。
+The chapter ends with an introduction to SysML and OPM: two tools that are often used to represent complex systems.
+本章最后介绍了SysML和OPM:这两种经常用于表示复杂系统的工具。
+
+if something changes requires the ability to predict emergence a task that is fraught with difficulty!
+如果某些事情发生了变化，需要预测出现的能力，这是一个充满困难的任务!
+Working upward, the next role of system thinking is in informing judgment and balance in decision making.
+再往上，系统思维的下一个作用是在决策中告知判断和平衡。
+Decision making requires the identification, analysis, and weighing of options.
+决策需要对各种选择进行识别、分析和权衡。
+A systems thinker might ask: What tensions are apparent in the system?
+系统思考者可能会问:系统中有什么明显的张力?
+What alternatives or solutions balance the various factors and resolve tensions?
+有什么替代方案或解决方案能够平衡各种因素并解决紧张关系?
+How will the solution react to future change?
+解决方案将如何应对未来的变化?
+At the heart of informed decision making is ensuring that all the important implications of the decision are identified and considered, which is an application of system thinking.
+知情决策的核心是确保确定和考虑决策的所有重要含义，这是系统思维的应用。
+At the pinnacle of system thinking is synthesizing a system, which is the domain of system architecting and the subject of Part 3 of this text.
+系统思维的巅峰是综合一个系统，这是系统架构的领域，也是本文的第3部分的主题。
+
+Chapter 3
+Thinking about Complex Systems
+
+if something changes requires the ability to predict emergence a task that is fraught with difficulty!
+如果某些事情发生了变化，需要预测出现的能力，这是一个充满困难的任务!
+Working upward, the next role of system thinking is in informing judgment and balance in decision making.
+再往上，系统思维的下一个作用是在决策中告知判断和平衡。
+Decision making requires the identification, analysis, and weighing of options.
+决策需要对各种选择进行识别、分析和权衡。
+A systems thinker might ask: What tensions are apparent in the system?
+系统思考者可能会问:系统中有什么明显的张力?
+What alternatives or solutions balance the various factors and resolve tensions?
+有什么替代方案或解决方案能够平衡各种因素并解决紧张关系?
+How will the solution react to future change?
+解决方案将如何应对未来的变化?
+At the heart of informed decision making is ensuring that all the important implications of the decision are identified and considered, which is an application of system thinking.
+知情决策的核心是确保确定和考虑决策的所有重要含义，这是系统思维的应用。
+At the pinnacle of system thinking is synthesizing a system, which is the domain of system architecting and the subject of Part 3 of this text.
+系统思维的巅峰是综合一个系统，这是系统架构的领域，也是本文的第3部分的主题。
+However, most of the systems that we deal with professionally are complex.
+然而，我们专业处理的大多数系统是复杂的。
+These include the artifacts we design, the systems used to build and operate them, the stakeholder systems involved, and the organizations in which we work.
+这些包括我们设计的工件、用于构建和操作它们的系统、涉及的涉众系统，以及我们工作的组织。
+Hence, in this chapter we will extend the approaches of system thinking to more complex systems.
+因此，在本章中，我们将把系统思维的方法扩展到更复杂的系统。
+In other words, we will start developing the methods of system architecting.
+换句话说，我们将开始开发系统架构的方法。
+Complexity is inherent in system architecture, and before proceeding with a rigorous development of the analysis of architecture (Part 2) and the synthesis of architecture (Part 3), we should spend a short time dealing with the issues of complexity in systems and the approaches that have been developed to enable us to comprehend complex systems.
+复杂性是固有的系统架构,在继续之前的严格的发展的分析架构(第2部分)和合成的架构(第3部分),我们应该花很短的时间内处理复杂性问题的系统和方法已经发展到使我们能够理解复杂的系统。
+This chapter starts with a brief discussion of what makes systems complex.
+本章以简单讨论是什么使系统变得复杂开始。
+We then summarize the approaches that enable people to better understand and work with complex systems.
+然后，我们总结了使人们更好地理解和处理复杂系统的方法。
+These include decomposition and hierarchy, different types of relationships among entities (such as class/instance relationships and specialization/generalization), and specific tools to reason through complex systems, such as zigzagging, views, and projections.
+这些包括分解和层次结构、实体之间的不同类型的关系(例如类/实例关系和专门化/泛化)，以及通过复杂系统进行推理的特定工具，例如曲折、视图和投影。
+The chapter ends with an introduction to SysML and OPM: two tools that are often used to represent complex systems.
+本章最后介绍了SysML和OPM:这两种经常用于表示复杂系统的工具。
+
+
