@@ -64,3 +64,71 @@ The answer turns out to be, not much and the Near-Sonic Transport aircraft thus 
 答案是，没有太多，因此近音波运输机早早地就被淘汰了。
 There are clearly better
 当然还有更好的
+opportunities in which to invest if one s objective is to help passengers reach their destinations more rapidly.
+如果一个人的目标是帮助乘客更快到达目的地，那么他就有投资的机会。
+The failing in this case was to not recognize that one was dealing with a problem of system architecture...
+这种情况下的失败在于没有意识到自己正在处理系统架构的问题……
+not simply a problem of aerodynamics and aircraft design.
+这不仅仅是空气动力学和飞机设计的问题。
+My own definition of a system evolved over years of experience.
+我自己对系统的定义是在多年的经验中逐渐形成的。
+It is two or more elements that interact with one another.
+它是两个或两个以上的元素相互作用。
+The authors of this book wisely add that the resultant functionality must exceed the sum of functionalities of the individual elements.
+本书的作者明智地补充说，最终的功能必须超过单个元素功能的总和。
+Thus simple in concept, the complexity of most real-world systems is enormous.
+因此，在概念上很简单，但现实世界中大多数系统的复杂性是巨大的。
+In fact, the equation describing the number of possible states a system of several elements (that interact in the simplest of all manners) has been aptly named, The Monster!
+事实上，描述由几个元素(以最简单的方式相互作用)组成的系统的可能状态数的方程被恰当地命名为“怪物!”
+And when a system includes humans, as many systems do, the challenge of system architecting becomes all the more immense due to the presence of unpredictability.
+当一个系统包括人类时，就像许多系统一样，由于不可预测性的存在，系统架构的挑战变得更加巨大。
+But these are the kind of systems that one encounters, and are the kind of systems that the authors show how to deconstruct and address.
+但这些都是我们遇到的系统，也是作者展示如何解构和处理的系统。
+One such system that I had the occasion to analyze concerned provisioning the (human occupied) U.S. station at the Earth s South Pole.
+我曾有机会分析过这样一个系统，它与美国在地球南极站(人类居住)的供应有关。
+Setting the specific objective of the evaluation in itself required care ...
+制定具体的评估目标本身就需要谨慎……
+as is often the case.
+这是常有的事。
+Was it to minimize expected cost?
+是为了最小化预期成本吗?
+Or to minimize worst-case cost in the face of uncertainty, say, due to weather?
+或者是在面对不确定性时，比如由于天气，将最坏情况的成本降到最低?
+Or perhaps to minimize regret that is, when supplies are not delivered at all?
+或者也许是为了尽量减少遗憾，当供应品根本没有送达?
+Or . ..?
+或者。。?
+In the case of this particular system there are a number of elements that must interface with one-another: cargo ships, ice breakers, aircraft of various types, ice piers for off-loading, storage facilities, traverse vehicles, communications...
+在这个特殊的系统中，有许多要素必须相互连接:货船、破冰船、各种类型的飞机、卸载冰码头、存储设施、横越车辆、通信……
+and, underlying all decisions, was the ever-present danger of single-point failure modes creeping into the architecture.
+而且，在所有决策的基础上，始终存在的单点故障模式潜入体系结构的危险。
+In the business world one of the more complex problems faced in my career was whether and how all or major parts of seventeen different companies could be combined to create the Lockheed Martin Corporation.
+在商界，我职业生涯中遇到的一个比较复杂的问题是，十七家不同公司的全部或主要部分是否可以合并，如何合并，从而创建洛克希德·马丁公司。
+Each of the elements had its strengths and its weaknesses;
+每一种元素都有其长处和弱点;
+each involved large numbers of humans, each with their own goals, capabilities, and limitations;
+每一个都涉及大量的人，每个人都有自己的目标、能力和局限性;
+and critical to the decision, the whole had to have significantly greater functionality than the sum of the parts.
+对这个决定至关重要的是，整体的功能要比部分的总和大得多。
+If the latter were not the case, there would be no reason to pay the financial premium that is implicit in most mergers and acquisitions.
+如果不是后者，就没有理由支付多数并购交易中隐含的财务溢价。
+Sadly, in engaging complex questions of this type there is no simple mathematical formula that will reveal the right answer.
+遗憾的是，在处理这类复杂问题时，没有简单的数学公式能揭示正确答案。
+However, the discipline of systems thinking proves to be an invaluable tool in assessing exposure, opportunities, parametric sensitivities, and more.
+然而，系统思维的训练被证明是评估暴露、机会、参数敏感性和更多的无价工具。
+In the above case, most people judge that the answer came out right which, incidentally, contrasts with nearly 80 percent of similar undertakings.
+在上述情况下，大多数人认为答案是正确的，顺便说一句，这与近80%的类似情况形成了对比。
+One of the authors of this book and I, along with a group of colleagues, had the occasion to propose to the President of the United States a human spaceflight plan for America for the next few decades.
+这本书的作者之一和我，还有一群同事，有机会向美国总统提议美国未来几十年的载人航天计划。
+In this instance perhaps the most difficult challenge was to define a useful mission, as opposed to the (non-trivial) task of defining an appropriate hardware configuration.
+在这种情况下，可能最困难的挑战是定义一个有用的任务，而不是定义一个适当的硬件配置的(非琐碎的)任务。
+Fortunately, such issues are amenable to solution through system thinking.
+幸运的是，这些问题是可以通过系统思维来解决的。
+As the authors point out in the material that follows, the process of establishing the architecture of systems is both a science and an art.
+正如作者在接下来的材料中指出的那样，建立系统架构的过程既是一门科学也是一门艺术。
+But, as is so elegantly portrayed herein, there is a Darwinian phenomenon wherein systems embodying the mistakes of the past do not survive;
+但是，正如这里优雅地描述的那样，存在一种体现过去错误的系统不复存在的达尔文现象;
+whereas those that embody sound architectures generally do survive and even prosper.
+然而，那些包含声音架构的人通常确实生存下来，甚至繁荣起来。
+That, of course, is what architecting complex systems is all about.
+当然，这就是构建复杂系统的全部内容。
