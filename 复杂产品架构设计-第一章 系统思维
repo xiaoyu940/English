@@ -1360,4 +1360,537 @@ These include decomposition and hierarchy, different types of relationships amon
 The chapter ends with an introduction to SysML and OPM: two tools that are often used to represent complex systems.
 本章最后介绍了SysML和OPM:这两种经常用于表示复杂系统的工具。
 
-的地方
+3.2 Complexity in Systems Complexity
+
+ A system is complex if it has many interrelated, interconnected, or interwoven entities and relation ships (Box 3.1).
+如果一个系统有许多相互关联、相互连接或相互交织的实体和关系，那么这个系统就是复杂的(框3.1)。
+The fuzziness of the word many in this definition is deliberate for now.
+在这个定义中，“many”这个词的模糊性是故意的。
+Complexity is driven into systems by asking more of them: more function, more perfor mance, more robustness, and more flexibility.
+对系统的要求越多，系统就越复杂:功能越多，性能越好，健壮性越强，灵活性越强。
+It is also driven into systems by asking systems to
+它还通过请求系统进入系统
+work together and interconnect your car with the traffic control system, your house with the Internet, and so on.
+一起工作，把你的车和交通控制系统连接起来，把你的房子和互联网连接起来，等等。
+Complex systems require a great deal of information to specify and describe.
+复杂系统需要大量的信息来指定和描述。
+Therefore, some measures of complexity are based on the information content of the description of the system.
+因此，复杂性的一些度量是基于系统描述的信息内容。
+Other measures of complexity take the approach of trying to categorize what the system does;
+其他衡量复杂性的方法是试图对系统所做的事情进行分类;
+this is a function-based approach to complexity.
+这是一种基于函数的复杂性处理方法。
+An idea closely related to complex is complicated.
+与复杂密切相关的思想就是复杂的。
+The definition of complicated takes into consideration the finite ability of the human to perceive and understand complexity.
+复杂的定义考虑了人类感知和理解复杂性的有限能力。
+The systems of Chapter 2 are not complicated.
+第2章的系统并不复杂。
+We can understand them reasonably well after a few minutes of study.
+经过几分钟的学习，我们可以相当好地理解它们。
+Complicated things have high apparent complexity.
+复杂的东西表面上很复杂。
+They are complicated because they stretch or overwhelm our ability to understand them.
+它们之所以复杂，是因为它们扩展或压倒了我们理解它们的能力。
+Dealing with complexity is not new.
+处理复杂性并不是什么新鲜事。
+In fact, by the time of classical Rome, complex systems were routinely built (such as large water delivery networks).
+事实上，到了古典罗马时代，复杂的系统已经例行地建立起来了(比如大型的供水网络)。
+However, over the last century, systems and the context in which they operate have become more complex (compare the telephone of 1900 and 2000).
+然而，在过去的一个世纪里，电话系统及其运行环境变得更加复杂(与1900年和2000年的电话相比)。
+This increasing complexity has strained our ability to comprehend systems.
+这种日益增加的复杂性已经限制了我们理解系统的能力。
+Our job as architects is to train our minds to understand complex systems so that they do not appear to be complicated to us.
+作为建筑师，我们的工作就是训练我们的大脑去理解复杂的系统，这样它们对我们来说就不会显得复杂。
+We should seek to build architectures that do not appear complicated to all the others who have to work on the system designers, builders, operators, and so on.
+我们应该寻求构建那些对于必须从事系统设计人员、构建人员、操作人员等工作的其他人来说并不复杂的体系结构。
+The task of good architecture design can be summarized as follows: Build systems of the necessary level of complexity that are not complicated!
+好的架构设计的任务可以总结如下:构建不复杂的必要复杂度级别的系统!
+Introducing Team XT In this chapter, we will analyze the case of Team XT, which is an extended (XT) version of the Team X system introduced in Chapter 2.
+在本章中，我们将分析Team XT的案例，它是第2章中介绍的Team X系统的一个扩展(XT)版本。
+The team s role is still to produce a design.
+团队的角色仍然是设计。
+All of the entities and relations of Team X are still valid, but more detail is considered.
+团队X的所有实体和关系仍然有效，但考虑了更多的细节。
+We have chosen to continue with the example of a more complex organization because many readers can easily relate to the example, and because the lessons of system thinking are readily applicable to organizations.
+我们选择继续一个更复杂的组织的例子，因为许多读者可以很容易地联系到这个例子，因为系统思维的教训是容易适用于组织。
+Imagine that we walk into a room at a company and are introduced to Team XT.
+想象一下，我们走进一家公司的一个房间，被介绍给XT团队。
+We begin to apply the methods of Chapter 2 first by asking, What is the system?
+我们开始应用第2章的方法时，首先要问，什么是系统?
+In this case, the system is still the group of people and process responsible for developing the design.
+在这种情况下，系统仍然是负责开发设计的一组人和过程。
+Next, what is the form?
+接下来，表单是什么?
+In this case, the form is the sum of the people.
+在这种情况下，表格是人数的总和。
+The function is what the system does, its activity or transformation.
+功能是指系统所做的，它的活动或转化。
+Here it is to develop a design.
+这里是开发一个设计。
+We have completed Task 1 of System Thinking (Box 2.3).
+我们已经完成了系统思维任务1 (Box 2.3)。
+If the entities of form of Team XT are the people, then determining the function for each member of the team requires careful observation, extensive experience, or interviews with the individuals.
+如果团队XT形式的实体是人，那么确定团队每个成员的功能需要仔细观察、丰富的经验或与个人面谈。
+The resulting function of each of the members is listed in the third column of Table 3.1.
+每个成员的结果函数列在表3.1的第三列中。
+Each of these functions has an operand and a process.
+每个函数都有一个操作数和一个进程。
+As discussed in Chapter 2, we think holistically (Box 2.5) to identify all of the entities that might be important, and then we draw the boundary (Box 2.6) to focus on the designers and design processes.
+正如在第2章中所讨论的，我们整体地思考(方框2.5)来识别所有可能重要的实体，然后我们画出边界(方框2.6)来关注设计师和设计过程。
+This makes the Marketing and Operations functions part of the context external to Team XT, as indicated by the dashed line in Table 3.1.
+这使得营销和运营功能成为团队XT外部上下文的一部分，如表3.1中的虚线所示。
+Now we have completed Task 2 of System Thinking (Box 2.4).
+现在我们已经完成了System Thinking的Task 2 (Box 2.4)。
+Task 3 of System Thinking is to identify the relationships among the entities in the system and at the boundaries.
+系统思维的任务3是识别系统中实体之间的关系和边界。
+In Table 3.1 we have identified the principal functional interactions among the Team XT participants, both within the team itself and across the boundaries to Marketing and to Operations.
+在表3.1中，我们确定了团队XT参与者之间的主要功能交互，包括团队内部以及跨边界的营销和运营。
+The fourth column shows the interaction, and the fifth column shows the person at the other end of the interaction.
+第四列显示交互，第五列显示交互另一端的人。
+These are also shown in Figure 3.1.
+这些也如图3.1所示。
+The formal structure is shown in the last three columns of Table 3.1.
+形式结构见表3.1的最后三列。
+Geographically, some of the team members are located in Cambridge, while the rest are in Moscow.
+从地理上讲，一些队员在剑桥，而其他队员在莫斯科。
+There are several software tools and associated databases that help connect the team members.
+有几个软件工具和相关的数据库可以帮助连接团队成员。
+These are connection relationships.
+这些都是连接关系。
+Finally, there is a reporting structure;
+最后，还有一个报告结构;
+these are human relationships that do not by themselves imply any interaction.
+这些人际关系本身并不意味着有任何互动。
+The various kinds of formal relationships are discussed in more detail in Chapter 4.
+第四章将更详细地讨论各种形式的关系。
+Task 4 of System Thinking, identifying the emergent properties, will become more evident as we develop and apply the tools for thinking about more complex systems in the sections that follow.
+系统思考的任务4，识别涌现的属性，将在接下来的章节中，随着我们开发和应用用于思考更复杂系统的工具而变得更加明显。
+
+3.3 Decomposition of Systems Decomposition Decomposition is the dividing of an entity into smaller pieces or constituents.
+系统的分解分解是将一个实体分割成更小的部分或组成部分。
+
+It is one of the most powerful tools in our toolset for dealing with complexity.
+它是我们工具集中处理复杂性的最强大的工具之一。
+Divide and conquer is a fundamental strategy.
+分而治之是一种基本策略。
+Break a problem down into smaller problems until each is tractable.
+把一个问题分解成更小的问题，直到每个问题都可以解决。
+It is no coincidence that Julius Caesar s account of the Gallic Wars opens with the declaration All Gaul is divided into three parts.
+这不是巧合，尤利乌斯凯撒的叙述高卢战争的开始，宣布所有的高卢被分为三个部分。
+By the time of classical Rome, this approach was understood and widely applied.
+到了古典罗马时期，这种方法被理解并广泛应用。
+As discussed in Section 2.4, sometimes defining decomposition is easy for example, when the system is made up of distinct elements.
+正如在第2.4节中讨论的，有时定义分解很容易，例如，当系统由不同的元素组成时。
+Sometimes the system is modular, which suggests decomposition, and sometimes it is integral, where the decomposition can be somewhat arbitrary.
+有时系统是模块化的，这意味着分解，有时它是积分的，分解可以是任意的。
+The difficulty with breaking things apart is not in the breaking apart, but in the process of bringing together the decomposed entities to build the whole.
+将事物分解的困难不在于分解本身，而在于将分解的实体集合起来构建整体的过程。
+This process is often called integration.
+这个过程通常称为集成。
+In the formal domain, we say that form aggregates, and we have to worry about the physical/logical fit between the elements as they are brought together.
+在形式领域，我们说形式聚合，我们必须担心元素之间的物理/逻辑匹配，因为他们被带到一起。
+In the functional domain, we decompose functions into more basic functions, and then, in recombining the entities of function, we encounter emergence: the real challenge.
+在功能领域，我们将功能分解成更基本的功能，然后，在重组功能实体的过程中，我们遇到了出现:真正的挑战。
+Let s begin the analysis of Team XT.
+让我们开始分析团队XT。
+Above, we jumped to the conclusion that the right way to decompose the system was based on the distinct elements of form the members of the team.
+在上面，我们得出结论，分解系统的正确方法是基于团队成员的不同元素。
+If the form is not so distinct, or is not yet defined, we are more likely to consider decomposing based on entities of function.
+如果形式不是那么明显，或者还没有定义，我们更可能考虑基于功能实体的分解。
+This might produce entities tagged with functions (steering mechanism, compressor, sorting routine).
+这可能会产生带有功能标签的实体(转向机构、压缩机、排序例程)。
+Examining Table 3.1, we see that there are several places where focusing on function would yield a different decomposition.
+检查表3.1，我们可以看到在几个地方关注函数会产生不同的分解。
+For example, the function Develops requirement documents is common to both Jose and Vladimir, so an alternative decomposition might have included Jose and Vladimir in one entity.
+例如，功能开发需求文档对于Jose和Vladimir都是通用的，所以一个替代的分解可能将Jose和Vladimir包含在一个实体中。
+Such a function-based decomposition might have better supported the understanding of emergence.
+这种基于功能的分解可能更好地支持对出现的理解。
+Hierarchy Hierarchy is another powerful approach that can be used to understand and reason about complexity in systems.
+层次结构是另一种可以用来理解和推理系统复杂性的强大方法。
+Hierarchy is defined as a system in which entities belong to layers or grades, and the layers are ranked one above the other.
+层次结构被定义为一个系统，其中实体属于层次或级别，层次是一个高于另一个的。
+Hierarchy is very commonly found in social systems.
+等级制度在社会制度中非常普遍。
+For example, in the military there are grades: generals, colonels, majors, captains, and so on.
+例如，军队里有等级:将军、上校、少校、上尉等等。
+In large companies there are presidents, executive vice presidents, senior vice presidents, and so on.
+大公司里有总裁、执行副总裁、高级副总裁等等。
+What causes some grades to be higher in the hierarchy than others?
+是什么原因导致某些等级在等级中比其他等级高?
+Generally: They have more scope: Governors rank above mayors because they have more scope (a state is larger than a city)
+一般来说:他们有更大的范围:州长排名在市长之上，因为他们有更大的范围(一个州比一个城市大)
+
+FiguRe 3.2 hierarchy in the team xt members.
+图3.2团队xt成员的层次结构。
+They have more importance or performance: Black belts rank above brown belts because they perform to a higher standard and have greater skills.
+他们更重要，更有表现:黑带高于棕带，因为他们的表现标准更高，技能更强。
+Their functions entail more responsibility: Presidents rank above vice presidents because they have more responsibility.
+他们的职能包含了更多的责任:总统的级别高于副总统，因为他们有更多的责任。
+Hierarchy is not always obvious.
+等级制度并不总是显而易见的。
+Even close examination of Figure 3.1 and Table 3.1 does not reveal the actual hierarchy in Team XT.
+即使仔细研究图3.1和表3.1，也不能揭示团队XT中的实际层次结构。
+This is because the group leaders and managers actually work in the delivery of value, rather than simply reviewing the work of others.
+这是因为小组领导和经理实际上是在交付价值，而不是简单地检查其他人的工作。
+We need to examine Figure 3.2, which explicitly shows hierarchy, to see that Sue is ranked above Amy, John, and Phil, who themselves are ranked above all others on the extended team.
+我们需要检查图3.2，它明确地显示了层次结构，以看到Sue的排名在Amy、John和Phil之上，而Amy、John和Phil在扩展的团队中排名在所有其他人之上。
+We extracted this information from the last column of structural information in Table 3.1.
+我们从表3.1中的最后一列结构信息中提取了这些信息。
+The hierarchic view presents quite a different impression than the egalitarian view of Figure 3.1;
+等级观与图3.1中的平均观呈现出截然不同的印象;
+now it is obvious that some team members are somehow more important than others.
+现在很明显，有些团队成员在某种程度上比其他人更重要。
+Note that hierarchy does not imply that anyone on a particular level reports to any specific person on the next level.
+请注意，层次结构并不意味着某个特定级别的任何人要向下一个级别的任何特定人员报告。
+That occurs only in hierarchic decomposition.
+这只发生在等级分解中。
+Hierarchic Decomposition Often, decomposition and hierarchy are combined into a multilevel or hierarchic decomposition: a decomposition with more than two levels, as shown in Figure 3.3.
+层次分解通常将分解和层次组合成多级或层次分解:一个超过两个层次的分解，如图3.3所示。
+Figure 3.3 is cognitively much more satisfying than the undifferentiated second level of Figure 3.2.
+图3.3的认知满意度远高于图3.2的无差异第二层次。
+It appeals to our desire to group things in sets of seven +/ two.
+它迎合了我们将事物分组为7 +/ 2的愿望。
+[1] Figure 3.3 shows three group leaders reporting to Sue and about four people reporting to each of the group leaders.
+图3.3显示了三个组长向Sue报告，大约有四个人向每个组长报告。
+
+
+FiguRe 3.3 hierarchic decomposition of team xt.
+图3.3团队xt的层次分解。
+The group is a useful abstraction suggested by Table 3.1 and Figure 3.2, but it is not a  unique way to decompose the team.
+组是表3.1和图3.2中提出的有用的抽象，但它不是分解团队的唯一方法。
+We could have clustered the team members in several other ways at the level below Sue, including by location, connectivity, or functional relationships.
+我们可以用其他几种方式将团队成员聚集在苏的下面，包括按位置、连接或功能关系。
+In fact, Figure 3.2 does not imply anything about who is close to or connected to whom (formal relationships) or who exchanges information with whom (functional relationships).
+事实上，图3.2并没有暗示任何关于谁与谁接近或联系到谁(正式关系)或谁与谁交换信息(功能关系)的信息。
+Simple Systems, Medium-Complexity Systems, and Complex Systems We will adopt a scheme of classifying systems as simple, of medium complexity, or complex complexity, or complex.
+简单系统、中等复杂系统和复杂系统我们将把系统分为简单、中等复杂、复杂和复杂。
+We call a system that can be completely described by a one-level decomposition diagram of the type shown in Figure 3.4 a simple system.
+我们将一个可以完全由图3.4所示类型的一级分解图描述的系统称为一个简单的系统。
+All four of the systems we examined in Chapter 2 were represented as simple system: even the solar system had only one level of decomposition, the planets and smaller bodies.
+我们在第二章中研究的所有四个系统都被表示为简单的系统:即使是太阳系也只有一个分解层次，即行星和较小的天体。
+In a simple system there are generally no more than seven +/ two elements of form at Level 1.
+在一个简单的系统中，在第1级的表单元素通常不超过7 +/ 2。
+When you get to these elements, they are more or less atomic parts (see the discussion below).
+当您接触到这些元素时，它们或多或少都是原子部分(参见下面的讨论)。
+If there are no more than (seven +/ two)2 parts that is, no more than about 81 entities a system can be represented by a two-level decomposition diagram of the type shown in Figure 3.3.
+如果不超过(7 +/ 2)2个部分，也就是说，不超过大约81个实体，一个系统可以用图3.3所示类型的两级分解图来表示。
+We call these medium-complexity systems.
+我们称之为中等复杂度系统。
+A complex system has the same representational diagram as a medium-complexity system (Figure 3.3), but at the second level (down) there are still only abstractions of things below.
+一个复杂的系统与一个中等复杂度的系统有相同的具象图(图3.3)，但是在第二层(下面)仍然只有下面事物的抽象。
+
+These are significantly harder to analyze, and more common.
+这些问题更难以分析，也更常见。
+For example, if Natasha were really just the leader of another organization that is responsible for developing concepts, this would be a complex system.
+例如，如果Natasha真的只是另一个负责开发概念的组织的领导，这将是一个复杂的系统。
+One rarely sees a single decomposition diagram more than two levels deep.
+一个分解图很少能超过两层。
+There are two reasons why such drawings are not used.
+这样的图纸没有被使用有两个原因。
+First, a three-level diagram could have as many as (seven +/ two)3 elements at the third level, or as many as 729, which is far more than humans can routinely process.
+首先，一个三层图在第三层可以有多达(7 +/ 2)3个元素，或者多达729个元素，这远远超过了人类日常处理的能力。
+Second, when we look down into an organization or system, we find that we know the Level 1 elements well (the direct reports in the organization), and we more or less comprehend things on the next level (the direct reports of your direct reports), but beyond that it is more or less a haze.
+第二,当我们到一个组织或系统,我们发现我们知道一级元素(直接下属的组织),我们或多或少地理解事情下一个级别(直接下属的直接下属),但除此之外它或多或少是一个阴霾。
+We will simply refer to Level 0, Level 1 (down), and Level 2 (down) when discussing the decomposition of systems.
+在讨论系统分解时，我们将简单地引用级别0、级别1(下降)和级别2(下降)。
+As we learned in Chapter 2, virtually everything is a system, so the designation of Level 0 as the system is somewhat arbitrary and depends on the viewpoint of the architect.
+正如我们在第2章中所学到的，几乎所有的东西都是一个系统，所以将0级定义为系统有点武断，并且依赖于架构师的观点。
+There are dozens of words to designate the layers below the system ;
+有几十个单词来表示系统下面的层次;
+they may be referred to as modules, assemblies, sub-assemblies, functions, racks, online replacement units (ORUs), routines, committees, task forces, units, components, sub-components, parts, segments, sections, chapters, and so on.
+它们可以被称为模块、组件、子组件、功能、机架、在线替换单元(ORUs)、例程、委员会、任务组、单元、组件、子组件、部件、段、节、章节，等等。
+Unfortunately, there is little consensus about how these terms are applied.
+不幸的是，对于这些术语如何应用还没有达成共识。
+One person s assembly is another person s component.
+一个人的组装是另一个人的零件。
+There are relatively fewer words for the levels above the system ;
+相对而言，用于系统以上级别的单词较少;
+people speak of systems of systems, complexes, and collections.
+人们常说系统的系统、综合体和集合。
+If needed, we will call these Level 1 (up) and Level 2 (up).
+如果需要，我们将调用级别1 (up)和级别2 (up)。
+Atomic Parts Our discussion hinges somewhat on how we define the term atomic part,  which does not have an exact definition.
+原子部分我们的讨论在某种程度上取决于我们如何定义术语原子部分，它没有一个确切的定义。
+Its meaning derives from the Greek word ἄτομος (atomos), which means indivisible.
+它的意义来源于希腊语ἄτομος(atomos),这意味着不可分割。
+In mechanical systems, we will stipulate that the atomic parts are those that cannot easily be taken apart.
+在机械系统中，我们将规定原子部分是那些不能轻易拆卸的部分。
+A person, a screw, and a processor chip all pass this test.
+一个人、一颗螺丝钉和一个处理器芯片都通过了这个测试。
+Of course, a processor chip has many internal details that might be architecturally important.
+当然，一个处理器芯片有许多可能在架构上很重要的内部细节。
+How many of what type of transistor or gate are included?
+包括多少类型的晶体管或栅极?
+How are they connected?
+它们是如何联系在一起的?
+Even a simple screw has architecturally important details.
+即使是一个简单的螺丝钉也有建筑上重要的细节。
+Is it a straight head or Phillips head?
+是直头还是菲利普斯头?
+Yes, this definition is a bit fuzzy, but here is a simple rule: Call it a part when you can t take it apart.
+是的，这个定义有点模糊，但有一个简单的规则:当你不能把它拆开时，就称它为一个部分。
+In information systems, the definition of the term atomic part is even fuzzier.
+在信息系统中，原子部分这个术语的定义甚至更加模糊。
+A useful test is to call something an atomic part when it possesses a semantic meaning (as does a word or an
+一种有用的测试是，当某物具有语义意义时(如单词或an)，将其称为原子部分
+
+instruction) or when it is a unit of data or information.
+指令)或当它是一个数据或信息的单位。
+These words, instructions, or data units would include details, of course.
+这些词、指令或数据单元当然会包含细节。
+Because all information is an abstraction (as we will discuss in Chapter 4), defining meaningful abstractions of abstractions is necessarily more fuzzy, but here is another simple rule: Call it a part if it loses meaning when you take it apart.
+因为所有的信息都是一个抽象(我们将在第4章中讨论)，定义抽象的有意义的抽象必然会更加模糊，但是这里有另一个简单的规则:如果你把它拆开，它就失去了意义，那么就称它为部分。
+3.4 Special Logical Relationships The Class/Instance Relationship Another tool that helps us understand and manage complexity is the class/instance relationship.
+另一个帮助我们理解和管理复杂性的工具是类/实例关系。
+The term class/instance relationship is more commonly used in software than in hardware.
+术语类/实例关系在软件中比在硬件中更常用。
+A class is a construct that describes the general features of something, and an instance is a specific occurrence of the class.
+类是描述某物的一般特性的构造，而实例是类的特定事件。
+The instance is often referred to as the instantiation of the class.
+实例通常被称为类的实例化。
+The idea of class/instance is quite common.
+类/实例的概念非常普遍。
+For example, if we referred to a model of a car (say, a Ford Explorer), that is the class, and an instance would be a specific Vehicle Identification Number (VIN).
+例如，如果我们引用一辆汽车的模型(比如Ford Explorer)，它就是一个类，而一个实例就是一个特定的车辆识别号(VIN)。
+A part number refers to a class, and a serial number refers to an instance.
+零件号指的是类，序列号指的是实例。
+In many computer languages, the class/instance relationship is explicitly supported.
+在许多计算机语言中，类/实例关系是显式支持的。
+For example, when programming the Web interface of an online service application, we may use different instances of the class Button to represent different buttons on the interface that do different things (such as refresh the screen or submit information to the server) when we click on them.
+例如，在编写在线服务应用程序的Web接口时，我们可能使用类按钮的不同实例来表示界面上的不同按钮，当我们单击这些按钮时，它们会执行不同的操作(比如刷新屏幕或向服务器提交信息)。
+We have already subtly made use of the class/instance relationship.
+我们已经巧妙地使用了类/实例关系。
+A careful examination of Table 3.1 reveals that there are two analysts.
+仔细查看表3.1，可以发现有两个分析师。
+We could have created a class called Analyst, listed it on the team roster, and then identified two instances of that class.
+我们可以创建一个名为Analyst的类，将其列在团队花名册上，然后确定该类的两个实例。
+The class/instance relationship is a useful way to manage complexity when an entity recurs many times and when classes can easily be instantiated.
+当实体多次递归并且类可以轻松实例化时，类/实例关系是管理复杂性的有用方法。
+The 11 players on a soccer team and the 88 keys of a piano are instances of the classes Player and Key, respectively.
+足球队的11名球员和钢琴的88个键分别是类Player和Key的实例。
+The Specialization Relationship A related idea is the specialization/generalization relationship.
+专门化关系一个相关的概念是专门化/泛化关系。
+This relationship describes the connection between a general object and a set of more specific objects.
+这种关系描述了一个通用对象和一组更具体的对象之间的联系。
+As we will see in Part 2, the specialization operation is used extensively in design.
+正如我们将在第2部分中看到的，专门化操作在设计中被广泛使用。
+In shopping for a house, choosing which house to buy for a given set of occupants, budget, and setting is a process of specialization.
+在购买房子时，根据给定的住户、预算和环境选择购买哪一所房子是一个专门化的过程。
+The general object is House, and specific objects could be different house styles, such as a colonial house, a Victorian house, and a modern house.
+一般的对象是房子，具体的对象可以是不同的房子风格，比如殖民时期的房子，维多利亚时期的房子和现代的房子。
+In Team XT, we created three specializations of the generalization Group : a requirements development group, a design group, and a support group.
+在团队XT中，我们创建了一般化组的三个专门化:需求开发组、设计组和支持组。
+Specialization is akin to the concept of inheritance in object-oriented programming, in which a class can be created starting from a more general class, from which we inherit some attributes and functionality and to which we can add some new attributes and functionality.
+专门化类似于面向对象编程中的继承概念，在这个概念中，可以从一个更通用的类创建一个类，我们从这个类继承一些属性和功能，并可以向它添加一些新的属性和功能。
+Recursion Recursion occurs when the process or object uses itself within the whole.
+递归递归发生在进程或对象在整体中使用自己时。
+Said another way, it is the use of entities or relationships in a self-similar way.
+换句话说，就是以自相似的方式使用实体或关系。
+If a routine or function uses itself, or an approach used at one level of a system is used again at other levels within the system, this is recursion.
+如果一个例程或函数使用了自己，或者在系统的某个级别使用的方法在系统的其他级别再次使用，这就是递归。
+
+In the example of Team XT, we used a mild form of recursion.
+在团队XT的示例中，我们使用了一种温和的递归形式。
+The entire sum of the members is a team.
+所有成员的总和就是一个团队。
+Then, within the team, there are three groups, each of which is a mini-team, as shown in Figure 3.4.
+然后，在团队中有三个组，每个组都是一个迷你团队，如图3.4所示。
+Recurrence is commonly and very explicitly used in software engineering.
+递归在软件工程中经常被明确地使用。
+For example, in creating a network with nodes and edges, one possible implementation is to have a class Node that has an attribute Neighbors that is an array of Nodes.
+例如，在创建具有节点和边的网络时，一种可能的实现是让一个类节点具有一个属性邻居，即一个节点数组。
+Thus, the class Node is defined recursively, in terms of itself.
+因此，类节点是根据自身递归定义的。
+3.5 Reasoning through Complex Systems When they are presented with a complex system, in either analysis or synthesis, system thinkers use several techniques to reason their way through the system.
+当他们面对一个复杂系统时，无论是在分析还是综合中，系统思考者都会使用几种技术在系统中进行推理。
+Top-down/Bottom-up Reasoning Top-down/bottom-up refers to the direction in which you approach a system.
+自下而上推理自上而下/自下而上指的是你接近一个系统的方向。
+Most of the development in this text is based on the top-down approach.
+本文中的大部分开发都是基于自顶向下的方法。
+You start from the goals of a system and proceed to concept and the high-level architecture.
+您从系统的目标开始，然后进入概念和高级架构。
+Then you develop the architecture in increasing detail until you reach the smallest entities of interest to you.
+然后，您开发架构的细节越来越多，直到您感兴趣的最小实体。
+This method follows the left-hand side of the systems engineering V model.
+该方法遵循系统工程V模型的左侧。
+[2] An alternative is the bottom-up approach.
+另一种方法是自底向上方法。
+Here, you think about the artifacts, capabilities, or services that are available in the lowest-level entities and build upward from them, predicting emergence.
+在这里，您考虑在最低级别实体中可用的工件、功能或服务，并从它们开始构建，预测出现。
+A variant is to start at both top and bottom, and work toward the middle, which might be called an outer-in approach.
+一种变体是同时从顶部和底部开始，然后向中间工作，这可能被称为从外到内的方法。
+In the case of Team XT, we primarily used a top-down approach, defining the system and its function, and then decomposing and identifying internal processes.
+对于团队XT，我们主要使用自顶向下的方法，定义系统及其功能，然后分解和确定内部流程。
+Of course, the CEO of Team XT s company could have practiced bottom-up thinking when the team was formed by putting the16 most appropriate employees in a room and inviting them to self-organize to develop a design most effectively.
+当然，Team XT s公司的CEO在团队组建的时候也可以练习一下自下而上的思维，把16个最合适的员工放在一个房间里，邀请他们自我组织，以最有效地开发一个设计。
+Because there is really no top or bottom to truly complex systems, in reality we always apply a middle-out approach;
+因为对于真正复杂的系统，没有真正的顶层或底层，在现实中，我们总是采用中间向外的方法;
+we start at some arbitrary point in the system hierarchy and try to reason one or two levels up or down.
+我们从系统层次结构中的某个任意点开始，试图推理出一个或两个级别的上升或下降。
+Good architects should be able to practice all of these approaches.
+好的架构师应该能够实践所有这些方法。
+Zigzagging Zigzagging is a term coined by Nam Suh in his work on axiomatic design.
+锯齿形是南苏在他的公理设计的著作中创造的一个术语。
+[3] Suh observed that when you reason about a system, you alternate between reasoning in the form domain and reasoning in the function domain.
+[3] Suh注意到，当你对一个系统进行推理时，你需要在形式域推理和函数域推理之间交替进行。
+You tend to start in one domain, work as long as is practical, and then switch to the other.
+你倾向于从一个领域开始，只要可行就工作，然后转到另一个领域。
+When we first started reasoning about Team XT, we identified the function as design developing.
+当我们第一次开始讨论团队XT时，我们将功能确定为设计开发。
+Then we switched to the form domain and identified the concept of form as small groups.
+然后，我们切换到表单域，并将表单的概念确定为小组。
+We decomposed the team into small groups, and then we switched back to the function side to identify what function each of them performed, and how developing a design emerged.
+我们将团队分解为几个小组，然后切换回功能端，以确定每个人执行了什么功能，以及如何开发一个设计。
+This alternating pattern of thinking about form and then about function would continue through the levels of the system.
+这种思考形式和思考功能的交替模式会在系统的各个层面延续下去。
+
+3.6 Architecture Representation Tools: SysML and OPM Views and Projections A description of the architecture of a complex system contains an enormous amount of information far more than any single human can readily comprehend.
+对一个复杂系统的体系结构的描述包含了大量的信息，远远超出了任何一个人容易理解的范围。
+How should we present this information?
+我们应该如何展示这些信息?
+There are essentially two choices.
+基本上有两种选择。
+We can maintain an integrated model and form projections when they are needed, or we can maintain multiple views in the model.
+我们可以在需要时维护一个集成的模型和表单投影，或者我们可以维护模型中的多个视图。
+These two approaches can be seen in traditional civil architecture.
+这两种方式在传统的民用建筑中都可以看到。
+Before there were 3D computer rendering tools, an architect would draw several views (a floor plan of a building, fa- çades, and several sections), and these views would be the documents that guided construction.
+在3D电脑渲染工具出现之前，建筑师会画几个视图(建筑的平面图、立面和几个部分)，这些视图将成为指导施工的文件。
+But there would be no guarantee that the views would be consistent and that they would produce a building with all parts connected.
+但不能保证景观是一致的，也不能保证建筑的各个部分都是相连的。
+Since the advent of 3D rendering, civil architects have been able to construct an integrated 3D model.
+自从3D渲染的出现，民用建筑师已经能够构建一个集成的3D模型。
+If the civil architect needs a specific view, the software projects the model onto the 2D  plane that shows us what we want to emphasize: a floor plan, façade, or section.
+如果土木建筑师需要一个特定的视图，软件将模型投射到2D平面上，从而显示我们想要强调的内容:平面图、立面或剖面图。
+The projections are certain to be consistent, because they came from the same 3D model.
+这些投影肯定是一致的，因为它们来自同一个3D模型。
+The same options exist for system architectures.
+对于系统架构也存在相同的选项。
+We can construct a larger integrated model and, when necessary, project it to get views.
+我们可以构建一个更大的集成模型，并在必要时对其进行投影以获得视图。
+Or we can start by constructing the views, with only limited confidence that they will yield a consistent whole.
+或者我们可以从构建视图开始，对它们将产生一致的整体只有有限的信心。
+Both of these approaches are in common practice.
+这两种方法在实践中都很常见。
+The integrated-model school is represented in contemporary tools by the Object Process Methodology (OPM).
+在现代工具中，以对象过程方法论(OPM)为代表的是集成模型学派。
+[4] These approaches try to incorporate information about form, function, entities, and relationships into one model.
+这些方法试图将关于表单、功能、实体和关系的信息合并到一个模型中。
+An alternative approach is to use a representation that develops individual views.
+另一种方法是使用开发单独视图的表示。
+Both the Systems Modeling Language (SysML) [5] and the Department of Defense Architecture Framework (DoDAF) [6] use this approach.
+系统建模语言(SysML)[5]和国防部架构框架(DoDAF)[6]都使用这种方法。
+SysML and OPM are discussed below.
+下面将讨论SysML和OPM。
+Both tools appeared at approximately the same time in the early 2000s, and both are widely used.
+这两种工具大约在21世纪初的同一时间出现，并且都被广泛使用。
+Note that this introduction provides only an overview of the tools, without going into the details of the different views and diagrams, which are best obtained by reviewing the references.
+请注意，本介绍只提供了工具的概述，而没有涉及不同视图和图的细节，最好通过查看参考资料来获得这些细节。
+Further details for both approaches are described in Part 2.
+这两种方法的更多细节将在第2部分中描述。
+SysML SysML was developed in 2003 as a joint effort of the Object Management Group (OMG) and the International Council on Systems Engineering (INCOSE) to adapt the software engineering Unified Modeling Language (UML) [7] to the needs of systems engineers.
+SysML是在2003年由对象管理小组(OMG)和国际系统工程委员会(INCOSE)联合开发的，目的是使软件工程统一建模语言(UML)[7]适应系统工程师的需要。
+SysML uses a subset of UML and adds several features oriented toward modeling system requirements and performance.
+SysML使用UML的一个子集，并添加了一些面向建模系统需求和性能的特性。
+The original UML consists of thirteen diagrams or views.
+最初的UML由13个图或视图组成。
+Six of them are used to describe software structure (class diagram, package diagram, object diagram, component diagram, composite structure diagram, and deployment diagram).
+其中6个用于描述软件结构(类图、包图、对象图、组件图、复合结构图和部署图)。
+The other seven UML diagrams are used to describe software behavior (state machine diagram, activity diagram, use case diagram, sequence diagram, communications diagram, timing diagram, and interaction overview diagram).
+其他7个UML图用于描述软件行为(状态机图、活动图、用例图、序列图、通信图、时序图和交互概述图)。
+As shown in Figure 3.5, the most recent version of SysML (2009) consists of nine views.
+如图3.5所示，SysML的最新版本(2009)由9个视图组成。
+Seven of these views are directly taken from UML: the class diagram (renamed the block definition diagram), the package diagram, the composite structure diagram (renamed the internal block diagram), the activity diagram, the state machine diagram, the use case diagram, and the sequence diagram.
+这些视图中有七个直接取自UML:类图(重命名为块定义图)、包图、组合结构图(重命名为内部框图)、活动图、状态机图、用例图和序列图。
+Two new views were added: a parametric diagram and a requirement diagram.
+添加了两个新的视图:参数图和需求图。
+
+page61
+
+The reader may wish to refer to SysML for Systems Engineering (Holt and Perry 2008) for a more comprehensive discussion.
+读者可以参考SysML for Systems Engineering (Holt and Perry 2008)以获得更全面的讨论。
+[8] In Figure 3.5, the block definition diagram and the internal block diagram represent the system form: The block definition diagram represents the elements, and the internal block diagram represents their structure.
+在图3.5中，块定义图和内部框图表示系统的形式:块定义图表示元素，内部框图表示元素的结构。
+We develop these ideas further in Chapter 4.
+我们将在第4章进一步阐述这些观点。
+The requirements diagram captures the text for and relationships among requirements. 
+需求图捕捉了需求的文本以及需求之间的关系。
+(This is analogous to our discussion of stakeholders and goals in Chapter 11.)
+(这类似于我们在第11章中对利益相关者和目标的讨论。)
+The parametric diagram represents information on property values and constraints;
+参数图表示有关属性值和约束的信息;
+it contains more detail than is generally encountered in architectural analysis.
+它包含了比通常在架构分析中遇到的更多的细节。
+The package diagram is used to bookkeep the model elements.
+包关系图用于记录模型元素。
+The four behavioral diagrams represent the functional domain and associated behavior.
+四个行为图表示功能领域和相关的行为。
+The use case diagram portrays what in Chapter 5 we call externally delivered function and value.
+用例图描绘了在第5章中我们称为外部交付的功能和价值。
+The remaining three diagrams represent various aspects of function and time-dependent behavior discussed in Chapters 5 and 6.
+剩下的三个图表示在第5章和第6章中讨论的功能和依赖时间的行为的不同方面。
+OPM OPM was developed by Professor Dov Dori at Technion with the goal of unifying the object- and process-oriented paradigms for describing systems in a single methodology.
+OPM是由Technion的Dov Dori教授开发的，其目标是统一面向对象和面向过程的范式，用单一的方法描述系统。
+In OPM, objects (which appear in SysML Structural Diagrams) are represented by boxes and are discussed in Chapter 4.
+在OPM中，对象(出现在SysML结构图中)用方框表示，将在第4章中讨论。
+Processes (which appear in SysML Behavioral Diagrams) are represented by ovals and are discussed in Chapter 5.
+过程(出现在SysML行为图中)用椭圆表示，将在第5章中讨论。
+In OPM, however, objects and processes appear in one diagram and are connected through different types of relationships: The object can be an instrument of a process, or the object can be changed by the process (Figure 3.6).
+然而，在OPM中，对象和过程出现在一个图中，并通过不同类型的关系连接在一起:对象可以是过程的工具，或者对象可以被过程改变(图3.6)。
+FiguRe 3.6 an oPm diagram showing objects, processes, and their relationships in a single view.
+图3.6在一个视图中显示对象、进程及其关系的oPm图。
+System architect: Dov Dori, inventor of oPm.
+系统架构师:Dov Dori, oPm的发明者。
+
+An important feature of OPM is that it does not have different views or types of diagrams for a system but, rather, a single integrated model.
+OPM的一个重要特性是它没有针对一个系统的不同视图或类型的关系图，而是一个单独的集成模型。
+The information in many of the SysML diagrams can be represented with a single diagram in OPM, using objects, processes, and relationships.
+许多SysML图中的信息可以用OPM中的单个图表示，使用对象、流程和关系。
+Both SysML and OPM are expressive enough to represent system architecture, and they contain many of the same features.
+SysML和OPM都具有足够的表达能力来表示系统架构，并且它们包含许多相同的特性。
+For example, Table 3.2 provides equivalent representations of the decomposition and logical relationships between entities introduced in this chapter.
+例如，表3.2提供了本章中介绍的实体之间的分解和逻辑关系的等价表示。
+Translating entire representations is a more complicated task.
+翻译整个表示是一项更复杂的任务。
+See, for example, Grobshtein and Dori (2009) on how to generate SysML views from an OPM model.
+例如，Grobshtein和Dori(2009)介绍了如何从OPM模型生成SysML视图。
+[9] We will use OPM as the primary tool for architecture representation in this text, but we will refer to relevant SysML diagrams as needed.
+在本文中，我们将使用OPM作为体系结构表示的主要工具，但在需要时，我们将引用相关的SysML图。
+3.7 Summary This chapter has presented different approaches to thinking about complex systems.
+
+3.7小结本章介绍了思考复杂系统的不同方法。
+These approaches are summarized in Table 3.3.
+表3.3总结了这些方法。
+We saw in Section 3.3 that systems can be decomposed into smaller and more specialized entities, and that a hierarchy that goes two levels below the reference level is a useful way of representing this decomposition.
+我们在3.3节中看到，系统可以分解成更小、更专门化的实体，而在参考级别之下两个级别的层次结构是表示这种分解的有用方法。
+In Section 3.4, we introduced two types of relationships between entities, namely the class/ instance relationship, and the specialization relationship.
+在3.4节中，我们介绍了实体之间的两种关系，即类/实例关系和专门化关系。
+We also saw how systems are sometimes most naturally represented recursively that is, by repeating a certain structure within itself.
+我们还看到了系统有时是如何最自然地递归表示的，即通过在自身内部重复某种结构。
+In Section 3.5, we discussed different ways in which we can reason through a complex system, such as top-down, bottom-up, outer-in, and middle-out.
+在3.5节中，我们讨论了在复杂系统中进行推理的不同方法，如自上而下、自下而上、由内而外和由中而外。
+We showed that this usually requires zigzagging between the function and form domains.
+我们展示了这通常需要函数域和表单域之间的曲折。
+In subsequent chapters, four additional techniques are introduced.
+在接下来的章节中，我们将介绍另外四种技术。
+The distinctions among the system, those entities that accompany the system to deliver value, and the overall use context are described in Chapter 4.
+识别系统之间的区别，那些伴随系统交付价值的实体，以及整体的使用上下文在第4章中被描述。
+
+The identification of the value pathway along which value is delivered, along with other layers in the architecture, are presented in Chapters 5 and 6.
+在第5章和第6章中介绍了价值传递的价值路径，以及架构中的其他层。
+In Chapter 8 we discuss an approach to thinking about multilayer architectures: function goal reasoning, in which the function at one level becomes the goal at the next lower level.
+在第8章中，我们讨论了一种思考多层架构的方法:函数目标推理，即一个层次的函数成为下一个更低层次的目标。
+Finally, in the discussion of complexity in Chapter 13, we present 2 Down 1 Up reasoning, which is used to identify the clustering at Level 1 based on information at Level 2.
+最后，在第13章对复杂性的讨论中，我们提出了2个下1个上的推理，该推理基于第2层的信息来识别第1层的聚类。
+In Section 3.6 we introduced the idea of representing systems with views and projections.
+在第3.6节中，我们介绍了用视图和投影表示系统的思想。
+This leads us to the two mainstream frameworks used for representing complex systems, SysML and OPM.
+这就引出了用于表示复杂系统的两种主流框架:SysML和OPM。
+SysML uses multiple views or diagrams to represent different aspects of a system (such as structure and behavior), whereas OPM maintains a master model that represents many aspects of the system.
+SysML使用多个视图或图来表示系统的不同方面(比如结构和行为)，而OPM维护一个表示系统的许多方面的主模型。
+In the remainder of this text, we will make substantial use of these approaches to reasoning about complex systems
+在本文的其余部分，我们将大量使用这些方法来推理复杂系统
+We discuss these relationships in Chapter 6.
+我们将在第6章中讨论这些关系。
+
