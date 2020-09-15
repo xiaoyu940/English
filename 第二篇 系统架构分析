@@ -1102,3 +1102,868 @@ In Table 4.1, we defined six questions to guide the analysis of form, along with
 We applied these procedures to two simple systems, a mechanical pump and bubblesort, and found that they were helpful in guiding the analysis of these systems.
 我们将这些方法应用于机械泵和气泡泵这两个简单的系统，发现它们有助于指导这些系统的分析。
 
+       第五章 
+
+5.1 Introduction The analysis of function and form are interwoven.
+功能和形式的分析是交织在一起的。
+This chapter is the complement of Chapter 4 and establishes the groundwork for the analysis of function.
+本章是第四章的补充，为功能分析奠定了基础。
+When employing zigzagging (Section 3.5), the architect works in one domain for a period and then switches to the other.
+当采用之字形(章节3.5)时，架构师在一个领域工作一段时间，然后切换到另一个领域。
+Therefore, discussing form first does not imply any strict sequence in analysis, but rather is a topical organization of material.
+因此，先讨论形式并不意味着在分析中有任何严格的顺序，而是材料的局部组织。
+Function is less tangible than form, so we begin by defining and describing function in Section 5.2.
+函数不如形式有形，因此我们首先在5.2节中定义和描述函数。
+In Section 5.3, we discuss the externally delivered function that is linked to the primary purpose of the system.
+在第5.3节中，我们将讨论与系统的主要目的相关联的外部交付的功能。
+This external function emerges from internal functions, as described in Section 5.4.
+如5.4节所述，这种外部功能是从内部功能中产生的。
+The internal operands create functional interaction and yield the functional architecture (Section 5.5).
+内部操作数创建功能交互并生成功能架构(章节5.5)。
+A system often delivers secondary externally delivered functions as well, and these are discussed in Section 5.6.
+一个系统通常也提供二级外部提供的功能，这些将在第5.6节中讨论。
+A short discussion of representing function in SysML concludes the chapter.
+最后对SysML中的函数表示进行了简短的讨论。
+In this analysis of function, we will again be guided by a set of questions, given in Table 5.1.
+在这个函数分析中，我们将再次以一组问题为指导，如表5.1所示。
+5.2 Function in Architecture Function Function is what a system does.
+功能是一个系统所做的事情。
+Function is about activity, in contrast with form, which is about existence.
+功能是关于活动的，而形式是关于存在的。
+As indicated by Box 5.1, function involves operations, transformations, or actions.
+如框5.1所示，函数涉及操作、转换或操作。
+Performance (how well a system performs) is an attribute of function.
+性能(系统执行的好坏)是功能的一个属性。
+Function is the activity, operation, or transformation that causes or contributes to performance.
+功能是导致或促成性能的活动、操作或转换。
+In designed systems, function is the actions for which a system exists, which ultimately lead to the delivery of value.
+在设计的系统中，功能是系统存在的行为，最终导致价值的交付。
+Function is executed by form, which is instrumental in function.
+功能由形式执行，形式是功能的工具。
+Function emerges from functional interaction between entities.
+功能产生于实体之间的功能交互。
+Function is a product/system attribute.
+功能是产品/系统的属性。
+Just as form has entities of form (objects) and formal relationships among the entities (structure), function has entities of function and functional relationships among the entities (interactions).
+正如形式有形式的实体(对象)和实体之间的形式关系(结构)一样，功能也有功能的实体和实体之间的功能关系(交互)。
+The function we see on the surface of a system is a result of the emergence that has taken place among these entities of function within the system, and in the whole product system.
+我们在系统表面看到的功能，是系统内部，以及整个产品系统中，功能实体出现的结果。
+Function is vitally important to systems and system architecture.
+功能对于系统和系统架构是至关重要的。
+All of the magic of systems and their emergence, and nearly all of the challenge of designing them, is found in the functional domain.
+系统的所有魔力及其出现，以及设计它们的几乎所有挑战，都存在于功能领域。
+Function is therefore a system attribute.
+函数因此是一个系统属性。
+All systems have function, but in built systems, function must be conceived so that the goals of the system are achieved.
+所有的系统都有功能，但是在构建的系统中，必须考虑功能，以便实现系统的目标。
+Because function is less tangible than form, it is expressed in many different ways.
+因为功能不如形式有形，所以它有许多不同的表达方式。
+In organizations, function is sometimes called tasks, roles, or responsibilities.
+在组织中，功能有时被称为任务、角色或责任。
+In a typical government constitution, it is called powers.
+在一个典型的政府宪法中，它被称为权力。
+It lists the functions of various government branches, which are typically divided into legislature, executive, and judiciary branches.
+它列出了政府各部门的职能，通常分为立法、行政和司法部门。
+Function as Process Plus Operand In Chapter 2, we found that a function is made up of a process and an operand, leading to the rule function = process + operand.
+在第2章中，我们发现一个函数是由一个进程和一个操作数组成的，从而得到函数=进程+操作数的规则。
+For the house and emergency briefing card examples, we have function = housing + resident and function = instructing + passenger.
+对于房屋和紧急情况介绍卡的例子，我们有function = housing + resident和function = instruction + passenger。
+In order to better understand function, we first need to better understand operands and processes.
+为了更好地理解函数，我们首先需要更好地理解操作数和进程。
+Operands Operands are a type of object (Box 4.2).
+操作数是对象的一种类型(框4.2)。
+Some objects in a system are elements of form, and some are operands.
+系统中的一些对象是形式元素，一些是操作数。
+In human language, all objects are usually named by nouns.
+在人类语言中，所有物体通常都用名词来命名。
+All objects, including operand objects and objects of form, have the potential for stable unconditional existence for some period of time.
+所有对象，包括操作数对象和形式对象，都有可能在一段时间内稳定无条件地存在。
+However, form is a type of object that must exist before the function, is instrumental in the function, and is designed by the architect and supplied with the system.
+然而，形式是一种必须先于功能存在的对象，是功能的工具，由架构师设计并随系统提供。
+On the other hand, an operand is the part of function that represents what is changed by the function the resident is housed or the passenger is instructed.
+另一方面，操作数是函数的一部分，它表示居民居住的函数或乘客被指示的函数所改变的内容。
+The more formal definition of the term operand is given in Box 5.2.
+术语操作数的更正式的定义在框5.2中给出。
+We see that operands are acted upon by the process part of the function.
+我们看到操作数被函数的进程部分所作用。
+Operands may exist before the function is executed, or they may appear as the function is executed.
+操作数可以在函数执行之前存在，也可以在函数执行时出现。
+In general, they will be created, transformed, or consumed by the process.
+通常，它们将由流程创建、转换或使用。
+An operand is an object and therefore has the potential for stable, unconditional existence for some period of time.
+操作数是一种对象，因此有可能在一段时间内稳定、无条件地存在。
+Operands are objects that need not exist prior to the execution of function and are in some way acted upon by the function.
+操作数是在函数执行之前不需要存在的对象，它们以某种方式受到函数的作用。
+Operands may be created, modified, or consumed by the process part of function.
+操作数可以由函数的进程部分创建、修改或使用。
+Box 5.2 Definition: Operand Interestingly, the operands are not usually supplied by the architect or builder of the system.
+有趣的是，操作数通常不是由系统的架构师或构建者提供的。
+Instead, they appear at the time of operation, usually from other sources.
+相反，它们通常在操作时从其他来源出现。
+The resident is not supplied with the house, nor is the passenger supplied with the instruction card.
+住户没有得到房子，乘客也没有得到指示卡。
+Often, as architects, we do not have much control over the operand.
+通常，作为架构师，我们对操作数没有太多的控制。
+The residents may have unique tastes in buildings, and the passenger may not speak any of the languages used on the instruction card.
+居民可以对建筑物有独特的品味，乘客不得说任何一种使用说明卡上的语言。
+The operand is almost never shown on a conventional representation of a system.
+在系统的常规表示中，几乎从不显示操作数。
+prOcesses In human language, processes are associated with verbs, which are the aspect of our human language that captures actions or transformations.
+在人类语言中，过程与动词有关，动词是人类语言中捕获动作或转换的方面。
+A process is defined in OPM as a pattern of transformation applied to one or more objects (Box 5.3).
+流程在OPM中定义为应用于一个或多个对象的转换模式(方框5.3)。
+Processes generally involve the creation or destruction of an operand or a change in an operand.
+进程通常涉及操作数的创建或销毁或操作数的更改。
+In our examples, we identify housing of the resident, where housing is a process.
+在我们的例子中，我们确定了居民的住房，其中住房是一个过程。
+This process changes a resident from un-housed to housed.
+这一过程将居民从无住房变为有住房。
+For the aircraft emergency instruction card, the process is the instructing of the passenger.
+对于飞机应急指令卡，过程是乘客的指令。
+Instructing changes the knowledge of the passenger.
+指示改变了乘客的认识。
+Process is a pattern of transformation undergone by an object.
+过程是对象经历的一种转变模式。
+Processes generally involve creation of, destruction of, or a change in an operand.
+过程通常包括操作数的创建、销毁或更改。
+Box 5.3 Definition: Process In contrast with objects, a process is transient and dynamic and takes place along a timeline.
+与对象相比，进程是瞬时的、动态的，并且沿着时间轴发生。
+You cannot take a photograph of process;
+你不能拍过程的照片;
+you need to take a video.
+你需要拍个视频。
+No single frame of the video reveals process;
+视频没有单一帧显示过程;
+it is only when the entire sequence of frames is viewed that process can be comprehended.
+只有当看到整个帧序列时，这个过程才能被理解。
+Imagine a video of a sprinter crossing a finish line.
+想象一下一个短跑运动员冲过终点线的视频。
+If we look at one frame alone, or at the international symbol for running (Figure 5.1), we can only infer dynamics.
+如果我们单独看一个框架，或者看跑步的国际符号(图5.1)，我们只能推断出动力学。
+Cartoonists have developed a series of tricks to hint at motion within a single frame.
+漫画家已经开发了一系列的技巧来暗示在一个单一的框架运动。
+Is the person on the left taking the hubcap off or putting it on
+左边的人是取下轮毂盖还是戴上轮毂盖
+Figure 5.1 examples of the difficulty of expressing process, which is inherently dynamic, with a static image: illustration showing hubcap removal, a symbol for running, and a cartoon for running.
+图5.1说明了表达过程的难度的例子，本质上是动态的，用一个静态图像:显示轮毂盖移除的插图，运行的符号，和运行的卡通。
+(source: (b) miguel angel salinas salinas/shutterstock (c) screwy/shutterstock.)
+(资料来源:(b) miguel angel salinas salinas/shutterstock (c) screwy/shutterstock。)
+Analytical Representation of Function In order to proceed further with the analysis of function, we need to develop an explicit analytical representation of process and operands.
+函数的解析表示为了进一步分析函数，我们需要开发一个过程和操作数的解析表示。
+In the imprecise style of the figures of Chapter 2, we simply drew a round-cornered rectangle and wrote the statement of form, the process, and the operand inside.
+按照第二章中不精确的图形样式，我们简单地画了一个圆角的矩形，并写下了形式、过程和其中的操作数的表述。
+OPM has a set of symbols used to represent objects and processes and their interactions (see Figure 5.2).
+OPM有一组符号用于表示对象和进程及其交互(参见图5.2)。
+The process is shown by the oval, with a label indicating the name of the process.
+该过程显示在椭圆形，与标签表明的名称的过程。
+The operand is shown as a rectangle, because it is an object, with the name of the operand written inside.
+操作数显示为矩形，因为它是一个对象，其中写入了操作数的名称。
+The function is made up of these two OPM elements, the process and the operand, but does not have a separate OPM symbol.
+该函数由进程和操作数这两个OPM元素组成，但没有单独的OPM符号。
+In OPM, there are three ways of representing the relationships between an operand and a process, as shown in Figure 5.2.
+在OPM中，有三种表示操作数和进程之间关系的方法，如图5.2所示。
+A single-headed arrow running from the process to the operand implies that the process creates the operand, as a factory would create a car, or as a team develops a design.
+从进程运行到操作数的单箭头表示进程创建操作数，就像工厂创建汽车，或者团队开发设计一样。
+The car or design did not exist before the process, and after the process, it did.
+在这个过程之前，汽车或设计是不存在的，而在这个过程之后，它就存在了。
+A single-headed arrow running from the operand to the process implies that the process consumes the operand, as when a factory consumes parts (to make a car), or the lungs consume
+从操作数运行到进程的单箭头表示进程消耗操作数，就像工厂消耗部件(制造一辆汽车)或肺消耗部件一样
+Figure 5.2 oPm diagram of process + operand yielding function.
+图5.2进程+操作数生成函数的oPm图。
+from top to bottom, these represent the process affecting the operand, consuming the operand, and producing the operand
+从上到下，它们表示影响操作数、使用操作数和产生操作数的进程
+oxygen from the air in the lungs (in order to transport it to the tissue and organs).
+肺部空气中的氧气(以便将其输送到组织和器官)。
+Consumption is relatively rare.
+消费相对较少。
+It implies that the abstraction of the operand no longer exists in the original nature and place after the process executes.
+它意味着操作数的抽象在进程执行后不再存在于原始的性质和位置。
+Note that in the car factory example, the parts still exist after they leave the factory, but they have become part of another abstraction, called the car.
+注意，在汽车工厂示例中，部件在离开工厂后仍然存在，但是它们已经成为另一个抽象的一部分，称为汽车。
+A double-headed arrow implies that the process affects the operand but does not consume or produce it.
+双箭头表示进程影响操作数，但不消耗或产生操作数。
+The residents were people both before and after moving into the house.
+住户搬进这所房子前后都是人。
+The only difference was that their attribute of being housed was changed.
+唯一的不同是它们被安置的属性改变了。
+The existence of the operand did not change: rather, some attribute of the operand was changed by the process.
+操作数的存在性没有改变:相反，操作数的某些属性被进程改变了。
+OPM reserves the round-headed arrow as the symbol that links the instrument object with the process that it enables.
+OPM保留圆头箭头作为连接仪器对象和它所支持的过程的符号。
+The process then connects, with the appropriate pointed arrow (create, destroy, or affect), to the operand.
+然后，进程用适当的箭头(创建、销毁或影响)连接到操作数。
+We are now in a position to analytically diagram form and function, as illustrated in the canonical model of a system shown in Figure 5.3.
+我们现在可以用图表分析形式和功能，如图5.3所示的系统的规范模型所示。
+A more explicit representation of the canonical system is illustrated in Figure 5.4, in which the states of the operand are explicitly shown.
+规范系统的更显式的表示如图5.4所示，其中显式地显示了操作数的状态。
+This view emphasizes that the operand changes its state through the action of the process enabled by the instrument objects.
+这个观点强调了操作数通过仪器对象激活的过程的动作来改变它的状态。
+This representation that emphasizes the states of the operand is closer to the way in which SysML expresses function using the state machine diagram.
+这种强调操作数状态的表示更接近SysML使用状态机图表达函数的方式。
+SysML state machine diagrams are made of states (rounded boxes), transitions (arrows), and events/signals (rectangles with an inward or outward triangle).
+SysML状态机图由状态(圆角框)、转换(箭头)和事件/信号(带有向内或向外三角形的矩形)组成。
+Transitions triggered by events or signals capture the conditions under which the system goes from one state to another.
+由事件或信号触发的转换捕获系统从一种状态转换到另一种状态的条件。
+An example of a typical SysML state machine diagram (from a robot controller) is given in Figure 5.5.
+图5.5给出了一个典型的SysML状态机图示例(来自一个机器人控制器)。
+Recall that one of the differences between SysML and OPM is that SysML separates description of form and structure from description of function and behavior.
+回想一下，SysML和OPM之间的区别之一是，SysML将形式和结构的描述从功能和行为的描述中分离出来。
+Thus the SysML state machine diagram contains only functional information and does not show any relevant objects;
+因此，SysML状态机图只包含功能信息，不显示任何相关对象;
+note that neither the instruction card nor the air traveler appears on the state machine diagram of Figure 5.6.
+注意，在图5.6的状态机图中既没有指令卡，也没有航空旅客。
+In summary: Function is the activity, operation, or transformation that causes or contributes to performance.
+总而言之:功能是导致或促成性能的活动、操作或转换。
+Function is composed of process and operand.
+函数由进程和操作数组成。
+Process is the pure transformation, while the operand is an object acted upon by the process.
+过程是纯粹的转换，而操作数是被过程作用的对象。
+Processes are generally creation, transformation, and destruction.
+过程通常是创造、转换和破坏。
+The canonical model of a system consists of the operand, the process designed to change it in such a way as to create value, and the instrument object that enables the process.
+系统的规范模型由操作数、以创造价值的方式改变它的进程和支持该进程的工具对象组成。
+5.3 Analysis of External Function and Value Primary Externally Delivered Function We now turn our attention to Question 5a in Table 5.1: What is the primary externally delivered value-related function?
+5.3外部功能和价值主要外部传递功能的分析现在我们将注意力转向表5.1中的问题5a:主要外部传递的价值相关功能是什么?
+We can parse this statement into two parts.
+我们可以将这个语句解析为两部分。
+First, the function must be externally delivered;
+首先，功能必须由外部提供;
+it must cross the boundary of the system and influence something in the context.
+它必须跨越系统的边界，影响环境中的某些东西。
+Second, there is a primary function the function for which the system was built.
+其次，有一个主要功能，即系统为之建立的功能。
+The primary externally delivered functions for several example systems are given in Table 5.2.
+表5.2给出了几个示例系统的主要外部交付功能。
+There are systems that apparently are built only for their form.
+有些系统显然是为它们的形式而建立的。
+These are often associated with aesthetics, accomplishment, or collecting art, trophies, and coins, for example.
+这些通常与美学、成就或收藏艺术品、战利品和硬币等联系在一起。
+These elements of form actually have a function: pleasing + the viewer, impressing + others, and satisfying + a need to collect, respectively.
+这些形式元素实际上有一个功能:愉悦+观众，印象深刻+他人，满足+收集的需要，分别。
+If you were not pleased by art, you would not buy it or travel to see it.
+如果你对艺术不满意，你就不会买它，也不会去旅游看它。
+The function of these kinds of specialized forms is tied to the human reaction to the forms.
+这些特殊形式的功能与人类对这些形式的反应是息息相关的。
+The form, however, still delivers functions.
+然而，表单仍然提供功能。
+Function delivers value when it acts externally to the system.
+功能在系统外部发挥作用时提供价值。
+It is important that the function is externally delivered, that it is not only internal to the system.
+重要的是，功能是外部交付的，而不仅仅是系统内部的。
+This implies an important rule of systems: Function and value are always delivered at an interface in the system boundary.
+这意味着一个重要的系统规则:功能和价值总是在系统边界的接口上交付。
+For example, referring to some of the examples listed in Table 5.2, value is created only when the amplified signals are delivered at the output;
+例如，参考表5.2中列出的一些例子，只有当放大信号在输出端发送时，才会产生值;
+only when the team delivers a design;
+只有当团队提交了一个设计;
+and only when the oxygen is delivered to an organ or tissue.
+只有当氧气被输送到一个器官或组织时。
+Built systems have a primary externally delivered function.
+构建的系统有一个主要的外部交付的功能。
+This is the function for which the system is built, or at least originally was built.
+这是系统构建的功能，或者至少是最初构建的功能。
+If the built system does not deliver this function, it will be a failure.
+如果构建的系统没有交付此功能，则将失败。
+Operational amplifiers are built to amplify;
+运算放大器是用来放大的;
+they may also filter high frequencies, but if they do not amplify, they are a failure.
+它们也可以过滤高频，但如果不放大，就会失败。
+Team X is created to deliver a design: if it does not do so, it is a failure.
+团队X是为了交付设计而创建的:如果它不这样做，那么它就是失败的。
+The reason we focus on primary function is that in modern practice, engineers have an enormous list of requirements and potential features to deliver.
+我们关注主要功能的原因是，在现代实践中，工程师有大量的需求和潜在的特性要交付。
+Many products are delivered that fail to provide the primary function, providing instead a host of secondary features.
+许多交付的产品没有提供主要功能，而是提供了许多次要功能。
+Witness the challenges encountered by Apple when the iPhone case interfered with the radio antenna, disabling the primary function.
+看看苹果遇到的挑战吧，iPhone的外壳干扰了无线电天线，导致主要功能瘫痪。
+The architect should try to reason about the primary function, before being distracted by other features.
+在被其他功能分散注意力之前，架构师应该尝试对主要功能进行推理。
+The test to identify the primary value-related function is therefore: What is the function that the system was originally built to deliver, before all of the other value-related functions were added?
+因此，识别主要价值相关功能的测试是:在添加所有其他与价值相关的功能之前，系统最初构建要交付的功能是什么?
+Or, Which function, if it failed to materialize, would cause the operator to discard or replace the system?
+或者，哪个功能，如果它没有实现，会导致操作员抛弃或替换系统?
+We will call all the other externally delivered functions secondary functions and will discuss them in Section 5.6.
+我们将把所有其他外部交付的功能称为次要功能，并将在5.6节中进行讨论。
+Value-Related Operands Systems deliver value when they execute their primary externally delivered function.
+与值相关的操作数系统在执行其主要的外部传递的功能时传递值。
+As indicated in Box 5.4, value is defined as benefit, worth, importance, or utility for some associated
+如方框5.4所示，价值被定义为相关利益、价值、重要性或效用
+Value is benefit at cost.
+价值就是以成本计算的收益。
+Benefit is synonymous with the worth, importance, or utility created by a system.
+效益是一个系统所创造的价值、重要性或效用的同义词。
+An observer judges benefit subjectively.
+观察者的判断是主观的。
+Cost is a measure of the contribution that must be made in exchange for the benefit.
+成本是衡量为换取利益而必须做出的贡献。
+cost.
+成本。
+Good value can therefore be created by high benefit at modest cost, or by modest benefit at low cost.
+因此，好的价值可以通过低成本的高收益或低成本的低收益来创造。
+Note that others sometimes define the term value as a synonym of benefit, but we will consistently equate value to benefit at cost.
+请注意，有些人有时将术语价值定义为利益的同义词，但我们始终将价值等同于成本利益。
+A similar definition is found in Lean Enterprise Value [1]: Value is how various stakeholders find particular worth, utility, benefit, or reward in exchange for their respective contributions to the enterprise.
+精益企业价值[1]中也有类似的定义:价值是各利益相关者为各自对企业的贡献寻找特定价值、效用、利益或回报的方式。
+If the system is working properly, value will be delivered when the function emerges (Box 5.5), but this is far from certain.
+如果系统正常工作，在函数出现时就会发送值(框5.5)，但这还远不能确定。
+Value is subjective and is judged by an observer who is not the architect but, rather, is the customer, beneficiary, or user.
+价值是主观的，由观察者来判断，观察者不是架构师，而是客户、受益人或用户。
+(The procedure for trying to ensure that systems are designed so that they actually deliver value is the subject of Chapter 11.)
+(第11章的主题是试图确保系统被设计成能够实际交付价值的程序。)
+Design must reflect the practical and aesthetic in business, but above all good design must primarily serve people.
+设计必须反映商业的实用性和美感，但最重要的是，好的设计必须首先服务于人。
+thomas J. Watson, chairman of iBm A cynic is a man who knows the price of everything and the value [i.e.
+“玩世不恭者”是一个知道所有东西的价格和价值的人。
+, the benefit] of nothing.
+毫无益处。
+oscar Wilde Good architectures deliver benefit, first and foremost, built on the primary externally delivered function of the systems by focusing on the emergence of functions, and their delivery across the system boundary at an interface.
+好的架构提供的好处，首先也是最重要的是，通过关注功能的出现，以及它们在界面上跨系统边界的交付，构建在系统的主要外部交付功能之上。
+The benefit delivered by systems is provided by their externally delivered function.
+系统提供的好处是由外部提供的功能提供的。
+There is usually a single externally delivered function for which the system was origi nally defined, the absence of which will cause failure of the system.
+通常有一个单一的外部传递的功能是系统最初定义的功能，缺少它将导致系统的故障。
+The benefit is delivered at the boundary of the system, most likely at an interface.
+好处是在系统的边界交付的，很可能是在接口。
+It is critical to identify the value-related operand from among all of the operands on which the system acts.
+从系统操作的所有操作数中识别与值相关的操作数是至关重要的。
+You can identify the value-related operand by asking, What operand does the system exist to influence: to create, destroy, or affect?
+您可以通过以下问题来识别与值相关的操作数:系统存在以影响哪些操作数:创建、破坏或影响?
+For example, the operational amplifier clearly exists to create the high-amplitude output signal.
+例如，运算放大器的存在显然是为了产生高振幅的输出信号。
+We should also consider the attribute of the operand whose change is associated with value, in this case the amplitude (Table 5.2).
+我们还应该考虑变化与值相关的操作数的属性，在本例中是振幅(表5.2)。
+The system delivers value when the process amplifying
+当流程放大时，系统会传递价值
+acts on the operand signal in such a way as to change its value-related attribute amplitude to the state of high.
+作用于操作数信号，使其与值相关的属性振幅变为高的状态。
+Figure 5.7 shows several ways in which this external function delivery can be diagrammed in OPM.
+图5.7显示了在OPM中绘制这种外部功能交付图的几种方法。
+For Team X, the final design is the value-related operand.
+对于X团队，最终的设计是与值相关的操作数。
+The team will undoubtedly produce other outputs: discarded options, analysis, time cards, and the like.
+团队无疑会产生其他的结果:废弃的选项、分析、时间卡等等。
+But the reason why Team X exists is to produce the final design.
+但X团队存在的原因是要制作最终的设计。
+When the boss asks, Is the design complete yet?
+当老板问:设计完成了吗?
+it is an indication of the value-related function.
+它是与价值相关的功能的指示。
+We can now finish answering Question 5a of Table 5.1.
+现在我们可以完成表5.1中的问题5a。
+Focus on the primary externally delivered function and ask: What is the most specific way to describe the operand on which the system acts on the way to delivering value?     
+关注主要的外部交付的功能，问一问:系统在交付价值的过程中作用的操作数最具体的描述方法是什么?
+What is the attribute of this operand whose change is associated with the delivery of value, and what is the final state associated with value?
+这个操作数的属性是什么，它的更改与值的传递相关联，与值相关联的最终状态是什么?
+What is the specific process executed by the system to change the value-related state  of this specific operand?
+系统执行什么特定进程来改变这个特定操作数的值相关状态?
+For our pump example, the answers to these questions are as follows: The operand is water, the value-related attribute is pressure (which should be high), and the process is pressurizing.
+对于我们的泵示例，这些问题的答案如下:操作数是水，与值相关的属性是压力(应该是高的)，过程正在加压。
+How do we know that the value-related operand is the high-pressure water?
+我们怎么知道与值相关的操作数是高压水?
+The pump can be thought of as consuming low-pressure water and discharging high-pressure water, as shown in Figure 5.8.
+可以认为该泵消耗低压水，排放高压水，如图5.8所示。
+We don t build pumps to consume low-pressure water, but we do build them to produce highpressure water.
+我们造水泵不是为了消耗低压水，但我们造水泵是为了生产高压水。
+Therefore, the high-pressure water is the value-related operand.
+因此，高压水是与数值相关的操作数。
+An alternative
+另一种选择
+representation in OPM is illustrated in Figure 5.9, which shows water as the operand, and the process changing the state associated with the attribute of pressure.
+OPM的表示法如图5.9所示，它显示了水作为操作数，以及改变与压力属性相关的状态的过程。
+In bubblesort, the sorted array is the value-related operand.
+在bubblesort中，排序后的数组是与值相关的操作数。
+Sorted-ness is the attribute, and sorted is the state associated with value.
+排序是属性，排序是与值相关联的状态。
+The sorting process can be thought of as consuming the unsorted array and producing the value-related operand: the sorted array.
+排序过程可以被认为是使用未排序的数组并产生与值相关的操作数:已排序的数组。
+Or the process can be thought of as changing the attribute of sorted-ness for the array from unsorted to sorted.
+或者，这个过程可以被认为是将数组的排序属性从未排序更改为排序。
+Often, there are operand objects present that are not directly related to the delivery of value, which we will simply call other operands.
+通常，存在一些与值传递不直接相关的操作数对象，我们将其称为其他操作数。
+For example, in bubblesort, the array length variable that is passed to the procedure is an operand, but it is not the value-related operand.
+例如，在bubblesort中，传递给过程的数组长度变量是一个操作数，但不是与值相关的操作数。
+It is simply another operand used in sorting.
+它只是排序中使用的另一个操作数。
+Low-pressure water and electrical power are other operands of the pump.
+低压水和电力是泵的其他操作。
+Before we leave this section, we will introduce one more simple system, a kitchen that  makes sliced bread.
+在我们结束这部分之前，我们将介绍另一个简单的系统，一个制作切片面包的厨房。
+The last line of Table 5.2 summarizes the system: The externally delivered value-related operand is sliced bread.
+表5.2的最后一行总结了系统:外部提供的与值相关的操作数是切片面包。
+Thus bread is the operand, sliced is the value-related state, and making is the process.
+因此面包是操作数，切片是与价值相关的状态，而制作是过程。
+In summary: The primary externally delivered function of a system emerges when the process acts across a boundary of the system at an interface.
+总而言之:当流程在接口上跨越系统的边界时，系统的主要外部交付功能就出现了。
+The benefit of a system is linked to the externally delivered function.
+系统的好处是与外部交付的功能联系在一起的。
+Benefit materializes as a consequence of a process acting on the value-related operand.
+好处是作为过程作用于与值相关的操作数的结果而实现的。
+Analyze the operand, the value-related attribute and its change in state, and the process
+分析操作数、与值相关的属性及其状态变化，以及进程
+5.4 Analysis of Internal Function Internal Function Next we analyze the internal function (Question 5b of Table 5.1).
+5.4内部功能分析内部功能接下来我们分析内部功能(表5.1问题5b)。
+Within a system, there are internal functions and relationships among these internal functions.
+在一个系统中，有内部的功能和这些内部功能之间的关系。
+Together these define the functional architecture of the system.
+它们一起定义了系统的功能体系结构。
+The externally delivered function, performance, and ilities emerge from these internal functions and relationships.
+外部交付的功能、性能和职责来自于这些内部功能和关系。
+First, we identify the important internal functions or the entities of function (discussed in this section).
+首先，我们确定重要的内部功能或功能实体(在本节中讨论)。
+Then we construct the functional architecture (discussed in Section 5.5) when we connect up the entities of function.
+然后，我们在连接功能实体时构建功能架构(在第5.5节中讨论)。
+These two steps are similar to the procedure used in systems engineering of functional decomposition.
+这两个步骤类似于系统工程中使用的功能分解过程。
+[2] The key task is to identify the entities of internal function.
+[2]的关键任务是识别实体的内部功能。
+We have already encountered internal functions in the simple examples of Chapter 2.
+我们已经在第2章的简单示例中遇到了内部函数。
+Notice that each of these internal functions has an operand part and a process part, as shown in Table 5.3.
+请注意，每个内部函数都有一个操作数部分和一个进程部分，如表5.3所示。
+For the operational amplifier, gain is an operand, and setting is a process.
+对于运算放大器来说，增益是一个操作数，而设置是一个过程。
+The output signal (with voltage as a state) is an operand, and increasing is the process.
+输出信号(电压作为一种状态)是一个操作数，增加是一个过程。
+Identifying Internal Function How did we identify the internal functions?
+识别内部功能我们是如何识别内部功能的?
+There are several approaches, including reverse engineering of the form, standard blueprints, and metaphor.
+有几种方法，包括表单的反向工程、标准蓝图和隐喻。
+In reverse engineering, we start with
+在逆向工程中，我们从
+the elements of form and reverse-engineer their functions.
+形式元素和对其功能进行反向工程。
+In the op-amp circuit there are only three elements.
+在运放电路中只有三个元件。
+We reason, What do these elements do?
+我们思考，这些元素做了什么?
+A modest understanding of active analog circuits would reveal that the voltage divider in a feedback loop sets the effective gain for the op-amp, and the op-amp amplifies a signal.
+对有源模拟电路有一定的了解，就会发现反馈回路中的分压器决定了运放的有效增益，而运放放大信号。
+Table 5.3 lists the internal functions of Team X. How did we identify these internal functions?
+表5.3列出了x团队的内部职能，我们是如何确定这些内部职能的?
+This is a case in which we can apply our understanding of a standard blueprint of process.
+在这种情况下，我们可以应用我们对过程标准蓝图的理解。
+There are some combinations of processes that often go together to achieve an emergent function.
+有一些过程的组合，常常一起去实现一个紧急功能。
+For example, Box 5.6 describes a standard blueprint for making a decision.
+例如，框5.6描述了一个用于决策的标准蓝图。
+Box 5.6 Insight: Standard Blueprints of Internal Processes Sometimes functions just naturally unfold into a set of internal functions that are stable over many years.
+框架5.6:内部流程的标准蓝图有时只是自然地展开为一组多年稳定的内部功能。
+We call these standard blueprints.
+我们称之为标准蓝图。
+For example, when you compare the internal functions associated with riding a horse from your house to town 150 years ago (get the horse out of the barn, mount the horse, ride to town while navigating, arrive, and stable the horse) with the internal functions associated with driving a car from your house to the office today get in the car, (get the car out of the garage, drive while navigating, arrive, and park the car),
+例如,当你在考虑对比内部功能与骑马从你的房子到另一个城镇150年前(马的马厩,上马,骑到城里当导航,到达稳定的马)与内部功能与开车从你的房子到办公室今天上车,(把车从车库开,而导航,到达,和公园的车),
+you discover remarkable stability in these blueprints for internal process.
+您会发现内部流程的这些蓝图具有显著的稳定性。
+This may be because this is inherently a stable blueprint or because we use the blueprints of prior internal functions when we develop new systems.
+这可能是因为这本身就是一个稳定的蓝图，或者是因为我们在开发新系统时使用了之前内部功能的蓝图。
+In either case, the blueprint is useful in understanding new systems.
+无论哪种情况，蓝图都有助于理解新系统。
+Some examples of standard blueprints are: Transporting something with mass: overcome gravity, overcome drag, guide the mass Transferring information: encode the information, transmit while directing, decode the information Engaging an employee: recruit a candidate, conclude an agreement, train them, assign tasks, and periodically evaluate Making a decision: gather evidence, develop options, develop decision criteria, evaluate options, and decide Assembling parts:
+标准图纸的一些例子包括:运输和质量的东西:克服重力,克服阻力,引导大众传递信息:编码信息,传输当导演,解码的信息员工接触:招募候选人,达成协议,培训他们,分配任务,并定期评估作出决定:收集证据,开发选项,开发决策标准,评估选择,并决定组装部分:
+bring parts together, inspect them, assemble them, test the assembled system
+把零件放在一起，检查它们，组装它们，测试组装的系统
+Because developing a design is basically making a set of decisions, we would not be surprised if the internal processes of Team X therefore followed something of the blueprint of a decision process: Finalizing the requirements (Table 5.3) is gathering evidence and developing decision criteria (Box 5.6);
+因为开发设计基本上就是做一组决策，所以如果X团队的内部过程遵循了决策过程的蓝图，我们不会感到惊讶:最终确定需求(表5.3)就是收集证据和制定决策标准(框5.6);
+developing design concepts is developing options;
+发展设计概念就是发展选择;
+and approving the design is evaluating options and making a decision.
+批准设计就是评估选项并做出决定。
+For the circulatory system, Table 5.3 indicates the internal functions.
+循环系统的内部功能如表5.3所示。
+How did we identify these?
+我们是如何识别这些的?
+In this case, you might consider a home heating system as a metaphor for the human circulatory system.
+在这种情况下，你可以把家庭供暖系统看作是人类循环系统的隐喻。
+In each there is a working fluid (water/blood) that absorbs something (heat/oxygen), and is pumped to a delivery point.
+每个容器中都有一种工作液体(水/血液)，它吸收一些东西(热量/氧气)，并被泵送到输送点。
+Other approaches to analyzing internal functions include the three techniques we developed in Chapter 2 for predicting emergence: precedent, analysis, and experiments.
+其他分析内部功能的方法包括我们在第2章中开发的用于预测出现的三种技术:先例、分析和实验。
+Often, just observing operations is valuable too.
+通常，仅仅观察操作也是有价值的。
+In applying these approaches, we must first focus on the internal processes that lead to the creation of value.
+在应用这些方法时，我们必须首先关注导致价值创造的内部过程。
+We must also apply domain knowledge and experience.
+我们还必须应用领域的知识和经验。
+We can now apply this procedural guidance to analyze making sliced bread.
+我们现在可以应用这个程序指导来分析制作切片面包的过程。
+We could just observe someone making bread, or we could infer the internal processes from a standard blueprint for cooking: chop/mix food, heat, and break into chunks.
+我们可以只是观察某人在做面包，或者我们可以从烹饪的标准蓝图中推断出内部过程:切碎/混合食物，加热，然后切成块。
+It is not much of a jump from this blueprint to bread: mix to produce dough, heat to produce bread, and cut to produce slices.
+从这个蓝图到制作面包，并没有太大的跳跃:混合成面团，加热成面包，切成薄片。
+Figure 5.10 shows the OPM diagram for this set of internal processes.
+图5.10显示了这组内部流程的OPM图。
+Turning our attention to the pump, we focus on the value-related external function of pressurizing the water.
+把我们的注意力转向泵，我们关注的是与价值相关的外部功能，加压水。
+It requires significant domain knowledge to identify the internal function of the system.
+识别系统的内部功能需要重要的领域知识。
+The pump first increments kinetic energy and then trades it for the potential energy associated with pressure.
+泵首先增加动能，然后用它交换与压强相关的势能。
+Thus, in addition to the inflow and outflow functions, the two principal internal functions are accelerating to produce internal high-velocity flow and diffusing to produce internal high-pressure flow.
+因此，除了流入和流出功能外，两个主要的内部功能是加速产生内部高速流动和扩散产生内部高压流动。
+The matrix approach to representing internal function is to create an array that has the process on one axis and the operands on the second.
+表示内部函数的矩阵方法是创建一个数组，其中进程在一个轴上，操作数在第二个轴上。
+We will call this the PO array (for processoperand).
+我们将其称为PO数组(用于处理操作数)。
+Looking only at the create steps of Table 5.4 shows the internal processes for the pump.
+仅查看表5.4中的创建步骤就可以看到这个泵的内部进程。
+Adding the destroy steps indicates the functional architecture, as discussed below.
+添加销毁步骤表明功能架构，如下所述。
+For the bubblesort code, focus on the external value-related operand, the sorted array.
+对于bubblesort代码，重点关注与值相关的外部操作数，即排序数组。
+Imagine a metaphor: You are at a gambling table sorting a hand of cards from smallest to largest.
+想象一个比喻:你坐在赌桌前，将一手牌从最小的到最大的排序。
+You might exchange them pairwise until they are sorted.
+你可以成对地交换它们，直到它们被排序。
+We can also reverse-engineer the pseudocode, identifying what the lines of code do.
+我们还可以对伪代码进行反向工程，识别代码行的功能。
+We can consider the algorithm as a blueprint
+我们可以把算法看作一个蓝图
+Applying these techniques, we identify four internal functions associated with looping + I index, looping + J index, testing + array entries, and conditionally exchanging + array entries.
+应用这些技术，我们确定了四个与循环+ I索引、循环+ J索引、测试+数组项和有条件地交换+数组项相关的内部函数。
+The OPM diagram of the internal functions of bubblesort (Figure 5.11) shows the internal functions.
+bubblesort内部功能的OPM图(图5.11)显示了内部功能。
+Looping affects the index value, in that it increments the value (changing its state), but it does not create or destroy the index.
+循环会影响索引值，因为它会增加值(改变值的状态)，但不会创建或销毁索引。
+Likewise, exchanging affects the location or value of an array entry but does not create or destroy the entry.
+同样，交换影响数组项的位置或值，但不会创建或销毁该项。
+The array entries are actually an instrument of testing, and testing does not change anything about the array element;
+数组条目实际上是一个测试工具，测试不会改变数组元素的任何东西;
+it just uses the information to make a decision.
+它只是利用这些信息来做决定。
+This is an example of an operand object being used as an instrument.
+这是一个操作数对象被用作工具的例子。
+Objects that are operands appear dynamically during operations and usually are transformed, but they can also act as instruments of subsequent processes.
+作为操作数的对象在操作期间动态出现，通常会进行转换，但它们也可以作为后续进程的工具。
+In summary: Within a system, there are internal functions, which include internal processes and internal operands.
+总而言之:在一个系统中，有内部函数，包括内部进程和内部操作数。
+The procedure for identifying the internal functions includes these steps: Focus on the primary externally delivered function, the value-related operand that leads to the creation or destruction of, or has an effect on, the value-related operand.
+识别内部函数的过程包括以下步骤:关注主要的外部传递的函数，与值相关的操作数，它导致与值相关的操作数的创建或销毁，或对其产生影响。
+Involve domain experts;
+涉及领域专家;
+there is no substitute for experience.
+经验是无可替代的。
+Use the reverse engineering of key elements of form, standard blueprints in your field, and metaphors to understand internal functions.
+通过对表单的关键元素、你所在领域的标准蓝图和隐喻的逆向工程来理解内部功能。
+5.5 Analysis of Functional Interactions and Functional Architecture Functional Interactions and Functional Architecture Having identified the entities of internal function, we can move to Question 5c of Table 5.1: What is the functional architecture?
+在确定了内部功能实体之后，我们可以转向表5.1中的问题5c:什么是功能架构?
+Answering this question requires understanding the relationships among the entities of function, which in Chapter 2 we called the interactions.
+回答这个问题需要理解功能实体之间的关系，在第2章中我们称之为交互作用。
+This is the key step in analyzing architecture, because it is through the interaction of the internal functions that the externally delivered function emerges.
+这是分析架构的关键步骤，因为外部交付的功能是通过内部功能的交互出现的。
+The key idea is that the exchanged or shared operands are the functional interactions.
+关键思想是交换或共享操作数是函数交互。
+The functions plus the functional interactions are the functional architecture.
+功能加上功能交互就是功能架构。
+A graphical OPM representation of the functional architecture of bread slice making is shown in Figure 5.12.
+面包片制作功能架构的OPM图形表示如图5.12所示。
+Comparing Figure 5.12 to Figure 5.10 reveals that additional input
+比较图5.12和图5.10可以发现额外的输入
+operands have been identified: flour, water, salt, and yeast.
+操作对象已经确定:面粉、水、盐和酵母。
+The inputs are consumed by the mixing process;
+所述输入由混合过程消耗;
+after mixing they no longer exist as entities.
+混合后，他们不再作为实体存在。
+Mixing produces dough that is consumed by baking, after which the dough no longer exists.
+混合产生的面团被烘烤消耗，之后面团就不存在了。
+Likewise, the bread is consumed by cutting, and slices are produced.
+同样地，面包是通过切面包来消耗的，然后切片生产出来。
+The operands of flour, water, yeast, salt, dough, bread, and slices are the interactions between the processes, being destroyed or created by mixing, baking, and cutting.
+面粉、水、酵母、盐、生面团、面包和面包片的操作数是这些过程之间的相互作用，它们被混合、烘烤和切割破坏或创造。
+The processes now connect to more than one operand, and the operands connect the processes.
+进程现在连接到一个以上的操作数，操作数连接进程。
+The external value-related operand (slices) cross the system boundary.
+与值相关的外部操作数(片)跨越系统边界。
+A matrix-like representation called the process-operand array can represent the same information (Box 5.7).
+称为进程操作数数组的类似矩阵的表示可以表示相同的信息(方框5.7)。
+
+----box
+OPM diagrams of internal process and process-operand (PO) arrays enable us to visualize and analyze the internal functional architecture.
+内部进程和进程操作数(PO)数组的OPM图使我们能够可视化和分析内部功能体系结构。
+Most people find it easier to sketch the OPM diagram and then convert it into a PO array, rather than trying to create the PO array from scratch.
+大多数人发现绘制OPM图并将其转换为PO数组比从头创建PO数组更容易。
+Both are useful representations, and each has a role to play in understanding systems. 
+两者都是有用的表示法，并且在理解系统中都扮演着重要的角色。
+The procedure for translating an OPM diagram of internal function into a PO array is as follows: Create an array in which the rows are processes and the columns are operands.
+将内部函数的OPM图转换为PO数组的过程如下:创建一个数组，其中行是进程，列是操作数。
+Isolate each process on the OPM diagram, and encode the connection between the process and connected operands in the row for the process, using the notation of Figure 5.2 and Figure 5.3.
+隔离OPM图上的每个进程，并使用图5.2和图5.3中的符号对进程和连接的操作数之间的连接进行编码。
+Operands that are created by the process go into the PO array with a prime ( ), and a notation (such as c ) is placed in the column for the operand.
+进程创建的操作数使用素数()进入PO数组，并在该操作数的列中放置符号(如c)。
+This prime becomes important later when we are tracking causality in the system.
+当我们在系统中追踪因果关系时，这个初始值会变得很重要。
+Operands that are affected by the process (a), are destroyed by the process (d), or are instruments of the process (I) exist before the process and go into the PO array with no prime and with the appropriate notation placed in the column for the operand
+被进程(a)影响的操作数，被进程(d)破坏的操作数，或者是进程的工具(I)存在于进程之前，进入没有素数的PO数组中，并在该操作数的列中放置适当的符号
+Such a simple flow-through representation of interactions between processes is pleasing in its simplicity, and this kind of representation appears in many different types in engineering: pipe and flow software, control system block diagrams, SysML activity diagrams, and so on.
+这样一个简单的流程间交互的流式表示很简单，而且这种表示在工程中出现在许多不同的类型中:管道和流软件、控制系统框图、SysML活动图，等等。
+In such simple flow-through systems, there is a unique operand that is created by the upstream process and destroyed by the downstream process, which constitutes the interaction.
+在这种简单的流通系统中，有一个由上游进程创建并由下游进程销毁的唯一操作数，它构成了交互作用。
+Identifying Functional Interactions Having worked through the sliced bread case, we can now generalize the procedure for identifying the functional interactions.
+识别功能交互已经完成了切片面包的工作，现在我们可以概括识别功能交互的过程。
+Start with the diagram of the internal functions, which must include the value-related operand.
+从内部函数的图开始，它必须包含与值相关的操作数。
+Identify processes that are obviously missing from the diagram, such as inputting and outputting processes.
+识别图表中明显缺少的流程，例如输入和输出流程。
+Identify any operands that are obviously missing from the diagram of internal processes, such as inputs.
+识别内部进程图中明显缺少的操作数，比如输入。
+For each process, ask whether there any other operands that are needed for the function to be completely represented.
+对于每个进程，询问函数是否需要其他操作数来完全表示。
+For each operand, ask what other processes it interacts with.
+对于每个操作数，询问它与哪些进程交互。
+Trace the path from the value-related output, considering whether the desired emergence is likely to occur based on the processes and operands represented.
+从与值相关的输出跟踪路径，根据所表示的过程和操作数考虑所期望的出现是否可能发生。
+Figure 5.13 shows an OPM diagram of the internal functions of the pump, fit into a simple flow-through pattern, in which each process destroys an operand and creates another.
+图5.13显示了泵内部功能的OPM图，符合简单的流通模式，其中每个进程销毁一个操作数并创建另一个操作数。
+We can apply the procedure to derive this diagram.
+我们可以应用这个程序来推导这个图。
+We start with only the create information in Table 5.4, which identifies two internal functions (accelerating and diffusing), and of course
+我们从表5.4中的create信息开始，它标识了两个内部函数(加速和扩散)，当然还有
+we have the value-related operand (external high-pressure flow).
+我们有与值相关的操作数(外部高压流)。
+There must also be an inflowing process and an outflowing process, as well as an external low-pressure flow.
+还必须有一个流入过程和一个流出过程，以及一个外部低压流。
+Between the processes of inflowing and accelerating, there must be an internal operand labeled internal lowpressure flow.
+在注入和加速过程之间，必须有一个称为内部低压流的内部操作数。
+With all the operands present, we connect the operands to processes as shown.
+有了所有的操作数，我们将操作数连接到进程，如下所示。
+We can now identify the interactions between the processes.
+我们现在可以识别过程之间的交互。
+For example, the interaction between the inflowing and accelerating processes is the exchange of the internal low-pressure flow operand.
+例如，注入和加速过程之间的相互作用是内部低压流动操作数的交换。
+The interpretation of the abstractions for the internal functions of a system is not unique, unlike decomposition of form, which is more tangible and therefore definite.
+对系统内部功能的抽象解释并不是唯一的，不像形式的分解，形式更有形，因此也更明确。
+There are often several equally valid ways to define the internal processes and operands.
+通常有几种同样有效的方法来定义内部进程和操作数。
+The real question centers on whether emergence is easily understood and predicted.
+真正的问题在于出现是否容易理解和预测。
+For example, Figure 5.13 gives the impression of the pump as a simple flow-through system.
+例如，图5.13给人的印象是泵是一个简单的流通系统。
+But we recognize that the water is not really destroyed by a process, and new water is not really created.
+但我们认识到，水并没有真正被一个过程破坏，新的水也没有真正被创造出来。
+What really happens is that the state of the water changes.
+实际上，水的状态发生了变化。
+Figure 5.14 captures this
+图5.14捕捉到了这一点
+alternative representation, showing that the internal flow has two important attributes: pressure and velocity.
+交替表示，表明内部流动有两个重要的属性:压力和速度。
+The accelerating process changes the velocity (from low to high), and the diffusing process changes both the velocity (from high to low) and the pressure (from low to high).
+加速过程改变速度(从低到高)，扩散过程改变速度(从高到低)和压力(从低到高)。
+Such a representation of state change loses the sense of simple flow-through but more accurately captures the physics.
+这种状态变化的表述失去了简单的流通感，但更准确地捕捉了物理学。
+The PO array that is the equivalent of Figure 5.14 is shown in Table 5.5.
+与图5.14等价的PO数组如表5.5所示。
+Now the operands at the top of the array explicitly show the states.
+现在数组顶部的操作数显式地显示了状态。
+The a under velocity state implies that the accelerating process affects (hence a ) the velocity state.
+速度状态下的a表示加速过程影响速度状态(因此a)。
+The Value Pathway The exchanges of operands are the interactions among the processes, and the combination of the operands and internal processes is the functional architecture.
+操作数的交换是进程之间的相互作用，操作数与内部进程的结合是功能架构。
+One of the main features of the functional architecture is the value pathway along which value develops (Question 5c).
+功能架构的主要特征之一是价值发展的价值路径(问题5c)。
+It is along this pathway that benefit and ultimately value develop.
+正是在这条道路上，利益和价值得以发展。
+It often starts with some input (low-pressure water, perhaps, or an unsorted array) and progressively moves through internal operands and processes until it reaches the value-related output.
+它通常从一些输入开始(可能是低压水，或者一个未排序的数组)，然后逐步通过内部操作数和处理，直到到达与值相关的输出。
+Figure 5.12, Figure 5.13, and Figure 5.14 show such internal value pathways.
+图5.12、图5.13、图5.14为该内部价值路径。
+Note that in flow-though functional architectures, the value pathway is often readily evident, whereas in other types of architecture, more careful reasoning may be necessary to spot it.
+请注意，在流贯穿功能架构中，价值路径通常很明显，而在其他类型的架构中，可能需要更仔细的推理来发现它。
+One might ask, What is not on the value pathway?
+有人可能会问，什么不在价值路径上?
+There are several classes of operands, processes, and objects of form that are not on the value pathway.
+有几种类型的操作数、进程和形式的对象不在值路径上。
+In Figure 5.15, an elaboration of the bread slicing system, the value pathway starts with dough and ends with slices, as shown by the lines.
+在图5.15中，对面包切片系统的详细描述中，价值路径从面团开始，到切片结束，如图所示。
+Things not on the value pathway include Entities of form, because form is not part of functional architecture and only provides an instrumental role to the processes (the oven and slicer), discussed in Chapter 4.
+不在价值路径上的东西包括形式实体，因为形式不是功能架构的一部分，而只是为过程(烤箱和切片机)提供了一个工具角色，这在第4章中讨论过。
+Processes and operands that support secondary externally delivered functions (frying and fried dough), discussed in Section 5.6.
+支持二级外部传递功能(油炸和油炸面团)的过程和操作数，见第5.6节。
+Processes and operands that don t contribute to the emergence of any desired externally delivered function.
+进程和操作数不会导致任何期望的外部交付函数的出现。
+These are sometimes outcomes of unwanted side-effects, of poor design (growing mold), or of legacy, and they contribute to gratuitous complexity, as will be discussed in Chapter 13.
+这些有时是不希望的副作用的结果，不良的设计(生长的模具)，或遗留的结果，他们促成不必要的复杂性，将在第13章讨论。
+Supporting processes and form.
+支持过程和形式。
+These are even further from the value pathway (the powering process enabled by the kitchen), discussed in Chapter 6.
+这些甚至与第6章中讨论的价值路径(厨房启用的供电过程)相差甚远。
+Emergence and Zooming Knowing the internal value pathway is a key step in effectively predicting emergence using any of the approaches discussed in Section 2.6.
+知晓内在价值路径是使用2.6节中讨论的任何方法有效预测涌现的关键步骤。
+Figure 5.16 suggests the emergence of function of the pump.
+图5.16显示了泵的功能的出现。
+The pre-process operand is the low-pressure water, and the post-process valuerelated operand is the high-pressure water.
+前处理操作数为低压水，后处理评价操作数为高压水。
+In the view on the left, all of the internal operands are shown connecting to their associated internal processes.
+在左边的视图中，显示了所有内部操作数，它们连接到与其相关的内部进程。
+The right side of Figure 5.16 shows the pressurizing process emerging, with the internal processes suppressed and the internal and external operands simply attached to the emergent process.
+图5.16的右侧显示了出现的加压过程，内部过程被抑制，内部和外部操作数仅仅附着在紧急过程上。
+Just like entities of form, process also has a whole part relationship.
+过程和形式的实体一样，也具有整体的部分关系。
+The emergence of a system is the smaller to larger whole part relationship.
+系统的出现是小到大的整体关系。
+Zooming is the larger to smaller relationship.
+缩放是从大到小的关系。
+If we read Figure 5.16 from right to left, we see how the pressurizing process is zoomed.
+如果我们从右至左阅读图5.16，我们可以看到加压过程是如何放大的。
+In zooming, we must identify not only the internal processes themselves but also how the external and internal operands interact with those processes.
+在缩放过程中，我们不仅要识别内部过程本身，还要识别外部和内部操作数如何与这些过程交互。
+A final approach to analyzing the functional architecture and predicting emergence is to  project the functional architecture onto only the processes.
+分析功能体系结构和预测出现的最后一种方法是只将功能体系结构投影到流程上。
+This makes the way we view the operands as interactions more implicit.
+这使得我们将操作数视为交互的方式更加隐式。
+For simple flow-through systems, this can sometimes be done by inspection, but for more general systems it is best to apply the methodology of Box 5.8.
+对于简单的流通系统，有时可以通过检查来完成，但对于更一般的系统，最好采用方框5.8的方法。
+Figure 5.17 is an OPM showing the projection of the pump onto the processes.
+图5.17是一个OPM，显示了泵在流程上的投影。
+The method of Box 5.8 has been used, and the outcome has been converted back into an OPM diagram.
+使用了Box 5.8的方法，并将结果转换回OPM图。
+Now the arrows between processes are open-headed (as they were in Chapter 4) and are labeled with the operand that links the processes.
+现在进程之间的箭头是开放的(就像在第4章中那样)，并且用连接进程的操作数标记。
+But these links now represent interactions among functions, not structure of form.
+但是这些链接现在代表的是功能之间的相互作用，而不是形式的结构。
+Functional Architecture in Software Systems In principle, the functional architecture of software systems can be represented in the same way as any general system.
+软件系统的功能体系结构原则上，软件系统的功能体系结构可以用与任何一般系统相同的方式表示。
+Software engineers are comfortable with the functional domain, and they implement code (the form) only because it meets the demands of function.
+软件工程师对功能领域很熟悉，他们实现代码(表单)只是因为它满足功能的需求。
+In practice, however, information systems are dynamic in structure and behavior and are therefore challenging to conceive as static architectures.
+然而，在实践中，信息系统在结构和行为上是动态的，因此很难将其设想为静态架构。
+In software, the functions (as we define them) are of two types.
+在软件中，函数(我们定义它们)有两种类型。
+There are computational statements (A = B + C), but there are also functions (as we define them) that dynamically allocate control (if...
+有计算语句(A = B + C)，但也有函数(正如我们定义的)动态分配控制(如果…
+, then...).
+,然后……)。
+If there are functions, there must be operands: explicit variables used for computation, and more implicit control tokens used for control functions.
+如果有函数，则必须有操作数:用于计算的显式变量，以及用于控制函数的更多隐式控制令牌。
+The interactions produce the data interaction and control interactions among processes, respectively.
+这些交互作用分别产生过程之间的数据交互作用和控制交互作用。
+We can reverse-engineer bubblesort to show the functional architecture (Figure 5.19).
+我们可以对bubblesort进行反向工程，以显示功能架构(图5.19)。
+As suggested by the procedure, we start with the internal processes and operands identified in Figure 5.11.
+正如过程所建议的，我们从图5.11中标识的内部进程和操作数开始。
+This includes the value-related operand, which is the array in the final sorted state.
+这包括与值相关的操作数，它是最终排序状态的数组。
+One of the advantages of matrix-like representations is that it is possible to compute on them.
+类矩阵表示的优点之一是可以对它们进行计算。
+For example, the DSM community has created algorithms to sort and band the DSM.
+例如，DSM社区已经创建了对DSM进行排序和归类的算法。
+[3] Here we will introduce the ideas that the DSM can be broken into arrays and that projection operators can be developed.
+在这里，我们将介绍DSM可以分解成阵列和投影算子可以发展的思想。
+The frst step in this projection is to create the DSM: PP PO OP OO That is, the array is broken into four blocks, with the process-process (PP) block in the upper left and the operand-operand (OO) block in the lower right.
+这个投影的第一步是创建DSM: PP PO OP OO，也就是说，数组被分成四个块，进程-进程(PP)块在左上方，操作数-操作数(OO)块在右下方。
+The PP array is diagonal and simply contains an identifer for each process on the diagonal.
+PP数组是对角的，只包含对角上每个进程的标识符。
+Likewise, the OO array is diagonal with identifers for each operand.
+同样，OO数组是对角的，每个操作数都有标识。
+The process-operand (PO) array has been developed (Box 5.7).
+进程-操作数(PO)数组已经被开发(Box 5.7)。
+The operand-process (OP) array is created by the following rules, as shown in Figure 5.18: Form the transpose of the PO array.
+操作进程(OP)数组由以下规则创建，如图5.18所示:形成PO数组的转置。
+Remove the primes from the create operator (c). Add primes to the destroy operator (d ).
+从create操作符(c)中删除质数。在destroy操作符(d)中添加质数。
+Leave the affect (a) and instrument (I) operators the same.
+保持影响(a)和仪器(I)操作人员不变。
+Then form the array PPoperand = PP OO OP by symbolic matrix multiplication.
+然后通过符号矩阵乘法形成数组PPoperand = PP OO OP。
+This will create a projection of the operands onto the processes.
+这将创建操作数到进程的投影。
+This will produce a nearly symmetric PPoperand matrix, which indicates no causality.
+这将产生一个接近对称的PPoperand矩阵，表明没有因果关系。
+If you are interested in causality (for example, in what precedes and causes what), simply set to zero any term with a prime ( ) in it.
+如果您对因果关系感兴趣(例如，在前面和导致什么)，只需将其中含有素数()的任何项设置为零。
+This will leave a causal matrix that is not symmetric and can be interpreted by the normal DSM convention that an entry suggests flow from the column heading to the row heading
+这将留下一个不对称的因果矩阵，并且可以通过正常的DSM惯例(条目表示从列标题流到行标题)来解释
+
+We then identify missing processes: only importing and exporting, as well as operands that are missing, which include the internal variable called array length, and the external operands: the external unsorted array, the external length of the array, and the external sorted array, which is delivered across the system boundary to create benefit.
+然后我们确定丢失的过程:只导入和导出,以及丢失的操作数,其中包括内部变量数组长度,和外部操作数:外部无序数组,数组的外部长度,和外部排序的数组,这是交付在系统边界创造效益。
+We can then trace the pathway from the external operands, through importing, looping, testing, and exchanging to exporting.
+然后，我们可以跟踪从外部操作数到导入、循环、测试和交换到导出的路径。
+This defines the functional architecture.
+这定义了功能架构。
+Some new features appear in the functional architecture.
+功能架构中出现了一些新特性。
+The operand for internal array length is not destroyed by the looping (I) or looping (J) processes, but rather becomes an instrument of looping.
+用于内部数组长度的操作数不会被循环(I)或循环(J)进程销毁，而是变成了一种循环工具。
+In general, operands that are created during operation can later become instruments.
+一般来说，在操作过程中创建的操作数以后可以成为工具。
+We also see the first appearance of a decomposition of an operand into its parts.
+我们还看到了将操作数分解为各个部分的第一次出现。
+In any given exchange, only two elements of the array are affected, not the entire array.
+在任何给定的交换中，数组中只有两个元素会受到影响，而不是整个数组。
+This analysis also reveals another new issue: There must be an operand that originates in the testing process, which otherwise has only instruments attached to it.
+这个分析还揭示了另一个新问题:必须有一个在测试过程中产生的操作数，否则就只有附加在它上面的仪器。
+The missing operand is part of the command flow of the routine.
+缺少的操作数是例程的命令流的一部分。
+Figure 5.19 suggests that a control token created by the testing process is used by the exchanging process to decide whether to exchange the two array elements.
+图5.19表明，交换过程使用测试过程创建的控制令牌来决定是否交换两个数组元素。
+Now that we have introduced the idea of a control token, we realize that the two looping processes must also create such tokens, in addition to their more explicit roll of incrementing
+既然我们已经引入了控制令牌的思想，那么我们就认识到，除了更显式的增量之外，两个循环进程还必须创建这样的令牌
+
+the I or J variables.
+I或J变量。
+Figure 5.19 shows the J looping process creating a token that passes control to either testing or I looping.
+图5.19显示了创建将控制权传递给测试或I循环的令牌的J循环过程。
+I looping passes control to either J looping or exporting.
+I循环将控制传递给J循环或导出。
+This example reveals the nature of the command interactions that exist in software, in parallel with the data interactions.
+这个示例揭示了存在于软件中的命令交互的性质，并与数据交互并行。
+In general, information systems of all kinds have some equivalent parallelism between control and data interactions.
+一般来说，所有类型的信息系统在控制和数据交互之间都具有某种等价的并行性。
+In summary: The entities of internal function, the internal processes, and the interactions of operands among processes establish the functional architecture.
+总而言之:内部功能实体、内部流程和流程之间操作数的交互建立了功能架构。
+Representation of internal function is not unique and can depend both on interpretation and on the style of representation.
+内部功能的表现不是唯一的，可以依赖于解释和表现风格。
+In general, the functional architecture will contain a value pathway of internal operands and processes along which the value-related external function emerges.
+一般来说，功能架构将包含内部操作数和过程的价值路径，与价值相关的外部功能将沿着此路径出现。
+We zoom the external function to identify the internal processes and operands.
+我们放大外部函数以识别内部进程和操作数。
+Diagrams and tables showing functional interactions can be simplified using projections, in which interactions between processes are indicated by shared operands.
+显示功能交互的图表和表格可以使用投影来简化，在投影中，进程之间的交互通过共享操作数来表示。
+5.6 Secondary Value-Related External and Internal Functions Once a system delivers its primary value-related function, there is no reason why it should not also be designed to deliver other secondary value-related functions.
+5.6与价值有关的次要外部和内部职能一个系统一旦履行了其与价值有关的主要职能，就没有理由不把它设计成履行其他与价值有关的次要职能。
+Team X could produce the design and secondarily create reports to document the decision.
+团队X可以生成设计，然后创建报告来记录决策。
+The circulatory system could return carbon dioxide to the lungs, in addition to delivering oxygen.
+循环系统除了输送氧气外，还可以将二氧化碳送回肺部。
+The operational amplifier could filter high-frequency noise, in addition to amplifying.
+运算放大器除了能放大外，还能滤除高频噪声。
+It is important to identify these secondary functions, because they are expected by customers and are a source of competitive advantage.
+识别这些次要功能很重要，因为它们是客户所期望的，也是竞争优势的来源。
+Question 5d of Table 5.1 is What are the other important secondary value-related external functions?
+表5.1的问题5d是什么是其他重要的次要价值相关的外部功能?
+These other value-related external functions must also emerge from the internal processes.
+这些其他与价值相关的外部功能也必须从内部过程中产生。
+The procedure to address this question is just to repeatedly apply the reasoning for the primary value-related function to these secondary functions.
+解决这个问题的过程就是将与主要价值相关的函数的推理反复应用到次要函数上。
+The centrifugal pump could have secondary value-related functions.
+离心泵可具有二次价值相关功能。
+Many water pumps have a slinger to sling water that leaks through the rotating seal away from entering the electric motor.
+许多水泵都有一个吊具，用来吊运通过旋转密封泄漏的水，使其不能进入电动机。
+The pump could also include a pressure sensor that indicates the outlet pressure of the water, a measure of the property associated with delivery of the primary value.
+该泵还可以包括压力传感器，用于指示水的出口压力，即与初级值的输出相关的属性的测量值。
+Figure 5.20 shows
+图5.20显示了
+the two secondary value-related functions.
+这两个次要的价值相关功能。
+One appears along the principal value pathway, the other on its own pathway.
+一个出现在主价值途径上，另一个出现在它自己的途径上。
+In summary: Systems deliver secondary external value-related functions, in addition to the primary value-related function for which the system exists.
+总而言之:除了系统存在的主要价值相关功能之外，系统还提供次要的外部价值相关功能。
+5.7 Summary Like form, function is a system attribute conceived by the architect.
+功能和形式一样，是建筑师构想的系统属性。
+It is the actions, activities, operations, and transformations that cause or contribute to performance.
+操作、活动、操作和转换导致或促进性能。
+Function is made up of a process, which is pure activity, acting on an operand, which is an object changed by the process.
+函数由一个进程组成，它是纯活动，作用于一个操作数，操作数是一个被进程改变的对象。
+Built systems have a value-related operand, whose change is associated with the delivery of benefit and eventually value.
+构建的系统有一个与价值相关的操作数，它的变更与利益和最终价值的交付相关联。
+The value of a system occurs when the externally delivered function acts on an external operand across the system boundary.
+当外部交付的函数作用于跨系统边界的外部操作数时，系统的值发生。
+Externally delivered value-related function and other, secondary value-related functions  emerge from the internal functional architecture, which usually features a value-related pathway.
+外部交付的价值相关功能和其他次要的价值相关功能从内部功能架构中产生，通常以价值相关路径为特征。
+A complete description of functional architecture includes internal processes and internal operands.
+功能架构的完整描述包括内部流程和内部操作数。
+A summary of features that contrast form and function appears in Table 5.6.
+表5.6列出了对比形式和功能的特点。
+In the next chapter, we will present the core idea of system architecture: the allocation of physical/informational function to elements of form.
+在下一章中，我们将介绍系统架构的核心思想:为表单元素分配物理/信息功能。
+
