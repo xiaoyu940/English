@@ -1,0 +1,1104 @@
+We now begin the analysis of architecture in depth.
+现在我们开始深入分析架构。
+In Part 1, we built up a framework for analyzing systems, and we introduced some of the tools that will be useful in that analysis.
+在第1部分中，我们构建了一个用于分析系统的框架，并介绍了一些对分析有用的工具。
+Here in Part 2: Analysis of System Architecture, we will work to develop a deep understanding of form and function and will show that these are the building blocks of system architecture.
+在第2部分:系统架构的分析中，我们将深入理解形式和功能，并说明这些是系统架构的构建块。
+What is architecture?
+建筑是什么?
+Two possible definitions are: The arrangement of the functional elements into physical blocks.
+两种可能的定义是:将功能元素排列成物理块。
+Ulrich and Eppinger [1] The whole consists of parts;
+乌尔里希和埃平格[1]整体由部分组成;
+the parts have relationships to each other;
+各部分之间有联系;
+when put together, the whole has a designed purpose and fills a need.
+当把它们放在一起时，它们就有了一个设计好的目的并满足了一个需求。
+Reekie and McAdam [2] What these two definitions have in common is that they describe the key elements of a system: form and function, parts and whole, relationships, and emergence.
+这两个定义的共同点是，它们描述了一个系统的关键要素:形式和功能，部分和整体，关系和出现。
+Our experience is that there are many different definitions of architecture, which vary in their emphasis on form or function, and which vary enormously in the level of detail required.
+根据我们的经验，架构有许多不同的定义，它们对形式或功能的强调不同，在所需的细节级别上也有很大的不同。
+Consider two other definitions: The fundamental organization of a system, embodied in its components, their relationships to each other and to the environment, and the principles governing its design and evolution.
+考虑其他两个定义:系统的基本组织，体现在其组件中，它们彼此之间和与环境的关系，以及控制其设计和演化的原则。
+ISO/IEC/IEEE Standard 42010 [3] A formal description of a system, or a detailed plan of the system at component level to guide its implementation.
+ISO/IEC/IEEE标准42010[3]对一个系统的正式描述，或在组件级指导其实现的系统的详细计划。
+The Open Group Architecture Framework (TOGAF) [4] Notice that one definition connotes a high-level description ( fundamental organization, principles ), while the other emphasizes detail and implementation.
+Open Group Architecture Framework (TOGAF)[4]注意，一个定义意味着一个高级描述(基本组织、原则)，而另一个强调细节和实现。
+How much detail is required to capture architecture?
+捕获架构需要多少细节?
+The architecture of the system should ensure that the function and performance that are linked to benefit emerge.
+系统的体系结构应该确保功能和性能与利益相关联。
+Benefit is the worth, importance, or utility of a system as judged by a
+效益是指系统的价值、重要性或效用
+subjective observer.
+主观的观察者。
+Value will be defined here as the delivery of benefit at cost.
+此处的价值定义为按成本交付收益。
+A system can deliver high value by producing benefit at low cost, or high benefit at modest cost.
+一个系统可以通过低成本产生效益来提供高价值，或者以适当的成本产生高效益。
+A deeper discussion of value identification and delivery will be conducted in Chapters 5 and 11.
+第5章和第11章将对价值识别和交付进行更深入的讨论。
+We will develop a more detailed definition of architecture in Chapter 6, as we build up the ideas necessary for the analysis of architecture.
+我们将在第6章中对架构进行更详细的定义，因为我们将为架构的分析建立必要的思想。
+Our approach in Part 2 is to start with very simple systems, even though this may seem counterintuitive for a text on complex systems.
+在第2部分中，我们的方法是从非常简单的系统开始，尽管这对于关于复杂系统的文本来说似乎违反直觉。
+Our intent is to showcase the ideas of architecture in a context where the system can be fully represented all the pieces are present.
+我们的目的是在一个系统可以被完全表示的上下文中展示架构的思想，所有的部分都在其中。
+This alleviates concern that we have somehow left out the kernel of architecture by not representing enough detail, and we will show what information we believe is sufficient to capture the architecture of the system.
+这缓解了我们由于没有表示足够的细节而忽略了体系结构核心的担忧，我们将显示我们认为哪些信息足以捕获系统的体系结构。
+As we proceed through Part 2, we will work on progressively larger systems, but our intent remains to showcase methods and diagrams that can directly represent architecture.
+随着第2部分的进行，我们将逐步处理更大的系统，但是我们的目的仍然是展示可以直接表示体系结构的方法和图表。
+Then, in Part 3, we will turn to complex systems, where we will make use of the constituent ideas of architecture (such as form and function), but we will focus on architecture in a management context where specific diagram languages like OPM and SysML are not always appropriate.
+然后，在第3部分中，我们将转向复杂系统，在其中我们将使用架构的组成思想(如形式和功能)，但是我们将重点关注管理环境中的架构，在这种环境中，特定的图语言(如OPM和SysML)并不总是合适的。
+In order to allow the reader to reason from the concrete to the abstract, we will begin Part 2 with a discussion of the form of a system and then work toward function in Chapter 5 and the mapping of form to function to define architecture in Chapter 6.
+为了让读者从具体到抽象进行推理，我们将在第2部分开始讨论系统的形式，然后在第5章讨论功能，在第6章讨论形式到功能的映射来定义架构。
+This is the direction of reasoning in reverse engineering.
+这就是逆向工程中推理的方向。
+We just assume that the architecture exists and proceed to analyze it.
+我们只是假设架构存在并继续分析它。
+Learning analysis first creates the conditions for successful synthesis.
+学习分析首先为成功的综合创造条件。
+Chapter 7 adopts a forward engineering approach, examining how systems derive from a solution-neutral statement of function and arrive at a concept.
+第7章采用了一个正向工程方法，研究系统如何从一个解决方案中立的功能陈述中派生出来，并达到一个概念。
+Finally, in Chapter 8, we demonstrate how this concept flows to an architecture.
+最后，在第8章中，我们演示了这个概念是如何应用到架构中的。
+
+第4章 形式
+
+4.1 Introduction We begin Part 2 with Form.
+我们从表单开始第二部分。
+This chapter lays the groundwork for the analysis of architecture by first defining its most concrete aspect, form.
+本章通过首先定义其最具体的方面——形式，为架构的分析奠定了基础。
+We will discuss form as an idea, the organization of form by decomposition and hierarchy, and the representation of form.
+我们将讨论形式作为一种思想，通过分解和层次来组织形式，以及形式的表示。
+Establishing a clear understanding of form is the foundation for the analysis of architecture.
+建立对形式的清晰理解是建筑分析的基础。
+We begin Chapter 4 with a rigorous discussion of form in Sections 4.2 and 4.3 and then address formal relationships in Section 4.4.
+我们从第4章开始，在4.2节和4.3节中对形式进行了严格的讨论，然后在4.4节中讨论正式关系。
+The context that surrounds the form of the system is described in Section 4.5.
+围绕系统形式的上下文在第4.5节中描述。
+Section 4.6 reviews the main ideas of form again via an example of a software system, the bubblesort algorithm.
+第4.6节通过一个软件系统的例子，即bubblesort算法，再次回顾了form的主要思想。
+In each of the chapters in Part 2, we will begin with a list of questions that guide us in the analysis of form and suggest the outline of the chapter.
+在第二部分的每一章中，我们都将以一系列问题开始，这些问题将指导我们分析形式，并提出本章的大纲。
+Table 4.1 also contains the outcomes produced by answering the questions.
+表4.1还包含了回答这些问题所产生的结果。
+4.2 Form in Architecture Form It is surprisingly difficult to separate form from function.
+4.2形式在架构形式中，将形式与功能分离是非常困难的。
+In common speech, we refer to form with function words.
+在日常讲话中，我们用虚词来指代形式。
+Try describing a paper coffee cup, a pencil, or a spiral notebook without any reference to function.
+试着描述一个咖啡杯，一支铅笔，或者一个螺旋形的笔记本，不要提及任何功能。
+If you used the words handle, eraser, and binding, you were using words rooted in a function.
+如果使用了句柄、橡皮擦和绑定等词，那么就使用了以函数为根的词。
+To stay entirely in the form domain, we might use flat cardboard half-circle, rubber cylinder, and metal spiral.
+为了完全停留在形式领域，我们可以使用平面纸板半圆，橡胶圆筒，和金属螺旋。
+One objective of this chapter is to clearly distinguish form from function.
+本章的一个目的是明确区分形式和功能。
+Form is what has been or is eventually implemented.
+表单是已经实现或最终实现的。
+Form is eventually built, written, composed, manufactured, or assembled.
+形式最终是建造、书写、组成、制造或组装的。
+Form is about existence.
+形式关乎存在。
+As indicated by the definition in Box 4.1, the first test for form is that it exists.
+如4.1框中的定义所示，对form的第一个测试是它是否存在。
+Form is what the system is.
+系统就是形式。
+It is the concrete and often visible manifestation of the system.
+它是系统的具体的和经常可见的表现。
+The clause for some period of time is included in the definition to enable us to discuss the form of things that have existed in the past (analysis of historical systems) or will exist in the future (analysis of system designs).
+该条款在一段时间内被包含在定义中，使我们能够讨论过去存在(对历史系统的分析)或未来将存在(对系统设计的分析)的事物的形式。
+The second test for form is that it is instrumental in the execution of function.
+对形式的第二个测试是，它在功能的执行中是有用的。
+For this function to occur, there usually needs to be some instrument to facilitate the function, or to carry the function.
+为了实现这个函数，通常需要一些工具来促进这个函数，或者实现这个函数。
+Form is what is eventually
+形式是最终的结果
+Form is the physical or informational embodiment of a system that exists or has the potential for stable, unconditional existence, for some period of time, and is instrumental in the execution of function.
+形式是一个系统的物理或信息体现，该系统存在或有可能在一段时间内稳定地、无条件地存在，并在功能的执行中起辅助作用。
+Form includes the entities of form and the formal relationships among the entities.
+形式包括形式的实体和实体之间的形式关系。
+Form exists prior to the execution of function.
+形式存在于函数执行之前。
+Form is a product/system attribute.
+表单是产品/系统的属性。
+Consider the beach house shown in Figure 4.1.
+以图4.1所示的海滩别墅为例。
+What is the form?
+表格是什么?
+The form can be interpreted as the spaces in the house the grand room, the kitchen, and so on.
+这种形式可以解释为房子里的空间，大房间，厨房等等。
+The kitchen space exists and facilitates food preparation and conversation (function).
+厨房空间的存在促进了食物的准备和交谈(功能)。
+In the emergency instructions shown in Figure 4.2, the structure is that some of the individual pictures are in sequence (reinforced by the numbering), and then, at a higher level, some of the sequenced pictures are prefaced by other, smaller pictures or letters.
+在图4.2所示的紧急指令中，其结构是，一些单独的图片是按顺序排列的(通过编号加强)，然后，在较高的级别上，一些经过排序的图片以其他较小的图片或字母开头。
+Form includes the sum of the entities, which are the elements or chunks of form.
+表单包含实体的总和，这些实体是表单的元素或块。
+These are elements of the whole, and this is the whole part relationship for form.
+这些是整体的要素，这是形式的整体关系。
+Form also includes the relationship among the entities of form, which is often called the structure.
+形式还包括形式实体之间的关系，通常称为结构。
+Form is the entities of form plus the structure.
+形式是形式的实体加上结构。
+In the case of the beach house, the formal relationships are easily represented by the floor plan, which shows the spatial relationships among the spaces.
+在海滨别墅的案例中，平面很容易表现出正式的关系，它展示了各个空间之间的空间关系。
+In the emergency instructions, the structure is that some of the individual pictures are in sequence (reinforced by the numbering), and then, at a higher level, some of the sequenced pictures are prefaced by other, smaller pictures and are in blocks indicated by horizontal rules.
+在紧急指令中，结构是这样的:一些单独的图片是按顺序排列的(通过编号加强)，然后，在更高的层次上，一些经过排序的图片由其他较小的图片组成，并以水平规则表示。
+Form is a system attribute;
+表单是系统属性;
+it is an independent way in which to view or characterize the system.
+它是观察或描述系统的一种独立方式。
+Form is also part of the solution that the architect is proposing.
+形式也是建筑师提出的解决方案的一部分。
+Figure 4.1 (a) a beach house as an example of civil architecture (b) spy glass house.
+图4.1 (a)作为民用建筑范例的海滩住宅(b)间谍玻璃住宅。
+(source: (a) and (b) the sater Design collection, inc.
+(资料来源:(a)及(b)萨特设计收藏有限公司。
+Figure 4.2 an emergency instruction card as an example of informational architecture.
+图4.2一个应急指令卡作为信息架构的示例。
+(source: copyright cabin safety international ltd.) Each discipline has developed its own shorthand for representing form.
+每一门学科都发展出了自己的表示形式的简写。
+Form was first represented by words, such as the way national constitutions describe the form of government.
+形式首先是用词语来表示的，比如国家宪法描述政府形式的方式。
+Next, representational maps and drawings were developed: illustrations, schematics, drawings, three-dimensional views, and perspective diagrams.
+接下来，发展了具象的地图和图纸:插图、示意图、图纸、三维视图和透视图。
+These attempt to represent some sub-scale yet realistic image of the system.
+这些尝试代表一些亚尺度但真实的形象的系统。
+Later, symbolic representations were developed: equations
+后来，符号表示法得到了发展:方程式
+pseudocode, circuit diagrams, and the like.
+伪代码、电路图等。
+The symbols used in these diagrams have only abstract meaning.
+这些图表中使用的符号只有抽象的意义。
+Analytical Representation of Form;
+形式的分析表示;
+Objects We seek a way to represent the form of any system natural, evolved, built, mechanical, electrical, biological, or informational with the same set of semantically exact representations.
+对象我们寻求一种方式来表现任何系统的形式，自然的，进化的，建造的，机械的，电子的，生物的，或信息的同一套语义精确的表征。
+These facilitate analysis, communication across disciplines, and the capture of knowledge.
+这些有助于跨学科的分析、交流和知识的获取。
+The representation we adopt in this text closely follows Dori s Object Process Methodology (Chapter 3). Dori determined that systems can be represented with only two classes of abstractions: objects and processes (hence the name).
+我们在本文中采用的表示方法与Dori的对象过程方法(第3章)非常接近。Dori确定系统只能用两类抽象来表示:对象和过程(因此得名)。
+Together, objects and processes faithfully describe the system s structure, function and behavior in a single, coherent model in virtually any domain.
+在一起，对象和进程在一个单一的、一致的模型中忠实地描述了系统的结构、功能和行为，几乎在任何领域。
+[1] The definition of an object in Box 4.2 was deliberately phrased in such a way that it closely reflects the first part of the definition of form, so that objects could be used to represent form.
+在4.2框中，对象的定义被有意地表述为这样一种方式，它紧密地反映了形式定义的第一部分，因此对象可以用来表示形式。
+However, the definition of form (Box 4.1) contains the additional criteria that the form must be instrumental of function and must exist before function.
+然而，形式的定义(方框4.1)包含了附加的标准，即形式必须是功能的工具，必须先于功能而存在。
+Objects that do not meet these additional criteria are operands, as discussed in Chapter 5.
+不满足这些附加条件的对象是操作数，如第5章所述。
+Generally, the names of objects are nouns.
+物体的名称一般都是名词。
+Figure 4.1 shows a beach house that is an object, which is both physical and tangible.
+图4.1展示了一个海滩别墅，它是一个物体，既有形又有形。
+The rooms of the house are also objects.
+房子里的房间也是物件。
+In Figure 4.2, the instructional drawings are objects, as are the smaller drawings to the upper left of the boxes.
+在图4.2中，指导性的图形是对象，方框左上角的较小的图形也是对象。
+Objects can also be informational.
+对象也可以是信息性的。
+Dori defines an informational object as anything that can be comprehended intellectually, which implies that it exists.
+Dori将信息对象定义为任何可以被智力理解的事物，这意味着它存在。
+Informational objects include ideas, thoughts, arguments, instructions, conditions, and data.
+信息对象包括思想、思想、论据、指令、条件和数据。
+Domains such as control systems, software, mathematics, and policy make extensive use of informational objects.
+控制系统、软件、数学和策略等领域广泛使用了信息对象。
+One of the defining characteristics of objects is that they have characteristics or attributes that describe the object.
+对象的定义特征之一是它们具有描述对象的特征或属性。
+An object can have physical, electrical, or logical attributes.
+一个对象可以具有物理、电子或逻辑属性。
+Some of these attributes can be considered as states, in which an object can exist for some duration of time.
+其中一些属性可以视为状态，对象可以在状态中存在一段时间。
+A process can change an object s state.
+进程可以改变对象的状态。
+The combination of all states describes the possible configuration of state of the object.
+所有状态的组合描述了对象状态的可能配置。
+When our beach house is being built, its state of construction goes from not built to built.
+当我们的海滨别墅正在建造时，它的建设状态从没有建成到建成。
+When people arrive, its state of occupancy goes from unoccupied to occupied.
+当人们到达时，它的占用状态从无人占用变为有人占用。
+When the furnace runs, its state of temperature goes from cooler to warmer.
+当炉子运行时，它的温度状态从低到高。
+In this example, the attributes and corresponding states are construction (unbuilt/built), occupancy (unoccupied/occupied), and temperature (cool/warm).
+在这个示例中，属性和相应的状态是construction(未构建/构建)、occupancy(空闲/占用)和temperature(冷/暖)。
+The graphical representations for an object are adopted from Object Process Methodology (OPM), where objects are denoted with rectangles (Figure 4.3).
+对象的图形表示采用了对象处理方法(OPM)，其中对象用矩形表示(图4.3)。
+The representation on the left
+左边的表示
+Figure 4.3 three oPm representations of objects: a simple object, an object with states illustrated, and an object with an attribute and states explicitly illustrated through the is characterized by relationship.
+图4.3对象的三种oPm表示形式:一个简单对象、一个状态说明的对象、一个属性和状态通过关系说明的对象。
+simply defines an object, and the one in the center shows possible states of the object.
+简单地定义一个对象，中间的那个显示了对象的可能状态。
+On the right, the double triangle on the line from the object to the attribute is read as the relationship is characterized by.
+在右边，从对象到属性的那条线上的双三角形被读取为关系的特征。
+The lower box lists the attribute and possible states.
+下面的框列出了属性和可能的状态。
+Note that objects in SysML have different representations, depending on whether they are physical objects, human operators or users, or something else.
+请注意，SysML中的对象有不同的表示，这取决于它们是物理对象、人工操作符还是用户，还是其他东西。
+Decomposition of Form Decomposing entities into appropriate abstractions was discussed in Section 3.3.
+在第3.3节中讨论了将实体分解为适当的抽象。
+Decomposing form comes naturally to architects.
+对建筑师来说，分解形式是很自然的。
+Form is concrete, it decomposes easily, and the aggregation of form traces the decomposition in a simple way.
+形式是具体的，它易于分解，形式的聚集以一种简单的方式跟踪分解。
+Decomposition is represented in OPM by a graphical tree diagram, as shown in Figure 4.4.
+在OPM中分解用图形树形图表示，如图4.4所示。
+The black triangle is used to indicate decomposition.
+黑色三角形用于表示分解。
+This diagram shows that System 0 (the object at Level 0) decomposes into the objects at Level 1, which correspondingly aggregate into System 0.
+这个图显示了系统0(级别0的对象)分解为级别1的对象，这些对象相应地聚合为系统0。
+In summary: Form is a system attribute that includes the elements that exist and are instrumental in the execution of function.
+总而言之:形式是一种系统属性，它包含存在的元素，并在功能的执行中起到辅助作用。
+Form is implemented and eventually operated.
+表单被实现并最终操作。
+Form will be modeled as objects of form, plus the formal structure among them.
+形式将被建模为形式的对象，以及其中的正式结构。
+Objects are static entities that exist and have attributes;
+对象是存在并具有属性的静态实体;
+among these are states that can be changed by a process.
+其中的状态可以由流程更改。
+Form can be decomposed into smaller entities of form, which in turn aggregate into larger entities of form.
+形式可以分解为更小的形式实体，而这些实体又会聚合为更大的形式实体。
+4.3 Analysis of Form in Architecture
+With this background, let’s begin the analysis of the form of a real engineering system, the centrifugal pump of Figure 4.5. Box 4.3 contains an explanation of the principles of operation of this
+pump. This example was chosen as the reference case because it is “modular”; the parts are not
+
+Box 4.3 Insight: Centrifugal Pump How It Works A centrifugal pump works by increasing the energy of the fluid that passes through it.
+离心泵的工作原理离心泵的工作原理是增加流经它的流体的能量。
+The turning impeller does the work on the flow.
+转动的叶轮对流体起作用。
+Depending on the design of the pump, the increase in energy can be delivered either as an increase in velocity of the outlet flow or as an increase in static pressure.
+根据泵的设计，能量的增加可以通过增加出口流速或增加静压来传递。
+The flow enters the pump on the axis of rotation of the impeller through the hole in the center of the cover shown in Figure 4.5.
+如图4.5所示，流体沿叶轮的旋转轴通过泵盖中心的孔进入泵内。
+The impeller turns the flow radially and does work on the flow, increasing its velocity internal to the pump.
+叶轮沿径向转动流动，并对流动进行工作，增加流向泵内部的流动速度。
+The housing contains a passage that slows the velocity of the water, or diffuses the flow.
+外壳包含一个通道，以减缓水的速度，或扩散的流动。
+The newly gained energy is converted from kinetic energy into higher pressure.
+新获得的能量从动能转化为更高的压强。
+Mass is conserved, so the same amount of fluid exits the pump as enters it.
+质量是守恒的，所以从泵中流出的液体和进入泵的液体是一样多的。
+Energy is conserved, so the electrical power going into the electrical motor is reflected  in the increased pressure of the outlet mass flow.
+能量是守恒的，所以进入电机的电能反映在出口质量流的压力增加。
+
+absolutely discrete like the members of a team, nor are they integral like the parts of the heart.
+像团队的成员一样是绝对离散的，也不像心脏的组成部分。
+In addition, the pump has only nine parts.
+此外，泵只有9个部件。
+It is a simple system, judging on the basis of the guideline presented in Section 3.3 that we find atomic parts at Level 1.
+这是一个简单的系统，根据3.3节中给出的准则判断，我们在第1级找到了原子部分。
+We acknowledge that the pump is a simple, almost trivial example, and that applying the techniques of system architecture to such a simple system is like taking a sledge hammer to a thumb tack.
+我们承认，泵是一个简单的、几乎微不足道的示例，而将系统架构技术应用到这样一个简单的系统就像大锤敲大头针。
+However, we can learn a lot from a simple system before tackling a truly complex one.  
+然而，在处理一个真正复杂的系统之前，我们可以从一个简单的系统中学到很多东西。
+Defining the System We will use the questions in Table 4.1 to organize our discussion of form.
+定义系统我们将使用表4.1中的问题来组织我们关于表单的讨论。
+The first question asks us to identify the system and its form: What is the system?
+第一个问题要求我们识别系统和它的形式:系统是什么?
+The procedure to answer Question 4a is to examine the system and create an abstraction of form that conveys the important information and implies a boundary of the system that is consistent with the detailed boundary that will be drawn in answering Question 4e.
+回答问题4a的过程是检查系统，并创建一个表达重要信息和暗示系统边界的抽象形式，该边界与将在回答问题4e中绘制的详细边界相一致。
+Abstractions were discussed in Section 2.4.
+在第2.4节中讨论了抽象。
+For Question 4a in this case, we create the abstraction of form pump, which not only brings to the surface the idea of something that moves fluid but also hides all details of motors, impeller, and the like.
+在本例中，对于问题4a，我们创建了form pump的抽象概念，它不仅将流体运动的概念呈现在表面，还隐藏了马达、叶轮等的所有细节。
+We implicitly draw the system boundary around the parts listed in Figure 4.5, which separates the system from the context.
+我们隐式地在图4.5中列出的部件周围绘制系统边界，它将系统从上下文中分离出来。
+Outside the system, we presumably have the hoses that connect to the pump input or output, the mechanical support for the pump, and the controller and power supply for the motor.
+在系统之外，我们可能有连接到泵输入或输出的软管，泵的机械支撑，以及电机的控制器和电源。
+The outcome of this task is simply an object that represents the abstraction for the entire system, the object labeled Pump in Figure 4.6.
+此任务的结果只是一个对象，它表示整个系统的抽象，即图4.6中标记为Pump的对象。
+We could have chosen centrifugal pump as a more specific abstraction than pump for our system.
+对于我们的系统，我们可以选择离心泵作为一个比泵更具体的抽象。
+Other types of pumps include axial flow pumps and positive displacement pumps.
+其他类型的泵包括轴流泵和容积泵。
+
+Figure 4.6 shows the objects called pump and centrifugal pump connected by the OPM symbol for the specialization relationship (an unfilled triangle).
+图4.6显示了称为泵和离心泵的对象之间由OPM符号连接的专门化关系(一个未填充的三角形)。
+Specialization was introduced in Section 3.4 and is used extensively in design.
+在第3.4节中介绍了专门化，并在设计中广泛使用。
+Identifying the Entities of Form Continuing to Question 4b of Table 4.1, we now seek to identify the entities in the form domain called elements of form.
+继续表4.1中的问题4b，我们现在试图识别表单域中的实体，称为表单元素。
+The procedure to answer Question 4b is explained below by example.
+下面通过示例说明回答问题4b的过程。
+In brief, we will start with a reference parts list as the initial set of abstractions, decompose some elements further if necessary, combine or eliminate elements where possible, and use hierarchy to identify the most important elements of form.
+简而言之，我们将从作为初始抽象集的引用部件列表开始，必要时进一步分解一些元素，可能时合并或删除元素，并使用层次结构来标识表单中最重要的元素。
+The parts list for the pump is indicated by the numbered parts in Figure 4.5 and is a useful place to start creating abstractions.
+泵的部件列表由图4.5中编号的部件指示，这是开始创建抽象的一个有用的位置。
+For this simple pump system, we will use the parts list as the set of abstractions defining elements of form, with a few exceptions.
+对于这个简单的泵系统，除了少数例外，我们将使用parts列表作为定义表单元素的抽象集。
+The first is the motor, which actually has a non-rotating element and a rotating motor shaft.
+第一个是马达，它实际上有一个非旋转元件和一个旋转马达轴。
+Some elements connect to the motor and some connect to the shaft, and this difference is important.
+有些元件连接到电机，有些连接到轴，这种区别是很重要的。
+Calling all of this the motor would hide too much information.
+把所有这些都称为马达会隐藏太多的信息。
+Anticipating the internal function of the elements of form, one can guess that the shaft also is involved with different functions than the motor.
+考虑到形式元素的内部功能，我们可以猜测，轴也涉及不同的功能，而不是马达。
+Therefore, we create two elements to describe the motor and the motor shaft, producing the full list of entities in Figure 4.6.
+因此，我们创建了两个元素来描述电机和电机轴，生成了图4.6中实体的完整列表。
+To illustrate that this decomposition can be shown as a graph or as a list, we have included a list-like representation in Table 4.2.
+为了说明这种分解可以显示为图或列表，我们在表4.2中包含了一个类似列表的表示。
+In general, information about a system can be contained in a graph or list, and we will use the two interchangeably.
+一般来说，关于系统的信息可以包含在一个图或列表中，我们将交替使用这两者。
+A careful examination of Figure 4.5 reveals that there are five screws.
+仔细检查图4.5，发现有五颗螺钉。
+Yet in the decomposition of Figure 4.6, we identified only one abstraction, called screw.
+然而在图4.6的分解中，我们只确定了一个抽象，称为screw。
+Implicitly, we created a class called Screw and then identified five instances of the class.
+我们隐式地创建了一个名为Screw的类，然后确定了这个类的五个实例。
+The class/instance relationship was discussed in Section 3.4, and the OPM symbol was introduced in Table 3.2.
+第3.4节讨论了类/实例关系，表3.2介绍了OPM符号。
+
+It is not uncommon, in decomposing systems, to find entities that simply can be combined for convenience, because they are integrally part of delivering a single function.
+在分解系统的过程中，找到可以方便地组合在一起的实体并不少见，因为它们是交付单个功能的整体组成部分。
+For example, in the pump list of elements in Table 4.2, we could have combined the locking nut with the impeller, since the only function of the locking nut is to secure the impeller to the shaft.
+例如，在表4.2的泵元件列表中，我们可以将锁紧螺母与叶轮结合，因为锁紧螺母的唯一作用就是将叶轮固定在轴上。
+The Pump as a Medium-Complexity System If we briefly think of the pump as a medium-complexity system (in which we find atomic parts at Level 2), we can apply hierarchic reasoning, following the approach of Section 3.3.
+如果我们简单地把泵看作是一个中等复杂度的系统(在其中我们在第2级找到原子部分)，我们可以按照3.3节的方法应用层次推理。
+Remember that hierarchy is defined as a system in which grades are ranked one above the other because they have more scope, importance, performance, responsibility, or function.
+请记住，等级制度是一种系统，在这种系统中，等级是一个比另一个高的，因为它们有更大的范围、重要性、性能、职责或功能。
+Hierarchy can be applied to built systems.
+可以将层次结构应用于已构建的系统。
+A simple table showing hierarchy for the pump is shown in Table 4.3.
+表4.3中有一个简单的表显示了泵的层次结构。
+We identify five key parts: The cover and housing contain the fluid and provide interfaces;
+我们确定了五个关键部分:外壳和外壳包含流体并提供接口;
+the impeller does the work on the fluid;
+叶轮对流体进行工作;
+the motor drives the shaft and supports the housing;
+电机驱动轴并支撑壳体;
+and the motor shaft drives the impeller.
+电机轴驱动叶轮。
+We can also identify the fasteners as the least important elements, leaving the remaining three parts in the middle rank.
+我们还可以将紧固件标识为最不重要的元素，将其余三个部分放在中间位置。
+This table gives us a quite different impression than the graphical decomposition of Figure 4.6 and the list in Table 4.2.
+这个表给我们的印象与图4.6的图形分解和表4.2中的列表完全不同。
+Based on the information in Table 4.3, we might first try to reason about the five highest-grade objects, to understand them thoroughly before including the lower-priority elements.
+根据表4.3中的信息，我们可以先尝试对5个最高级的对象进行推理，以便在包含较低优先级的元素之前对它们进行透彻的理解。
+Figure 4.7 shows an OPM representation of a hierarchic decomposition that extends two levels down.
+图4.7显示了向下扩展两层的层次分解的OPM表示。
+There is no formal structure (other than decomposition) and no functional interaction implied by the diagram!
+图中没有正式的结构(除了分解)，也没有功能交互!
+Even though the pump has only ten entities of form, it is possible to convert its representation from a one-level decomposition (Figure 4.6) to a two-level decomposition, as shown in Figure 4.8.
+即使这个泵只有10个实体的形式，也可以将它的表示从单级分解(图4.6)转换为两级分解，如图4.8所示。
+
+The elements at Level 1 in Figure 4.8 are now not real parts but simply abstractions.
+图4.8中级别1的元素现在不是真实的部分，而是简单的抽象。
+In this case, the abstractions pump assembly and motor assembly were selected.
+在这种情况下，选择了抽象的泵总成和电机总成。
+These could have been chosen because the motor is highly integral and the other elements highly interconnected.
+这些是可以选择的，因为电机是高度集成的，其他元素高度互联。
+Or perhaps it was because the pump assembly has a distinct function (increase the pressure of water) and the motor has another distinct function (drive the pump).
+或者可能是因为泵组件有一个独特的功能(增加水的压力)和电机有另一个独特的功能(驱动泵)。
+The creation of Level 1 abstractions is not unique, as discussed in Section 3.3.
+第1级抽象的创建并不是唯一的，如3.3节所讨论的那样。
+For example, the Level 1 abstractions could have been rotating components (which would include the lock nut, impeller, water slinger, and motor shaft) and non-rotating components (the rest of the elements).
+例如，第1级抽象可能是旋转组件(包括锁紧螺母、叶轮、水吊和电机轴)和非旋转组件(其余的元素)。
+To summarize the approaches used to identify the entities of form of a medium-complexity system, consider the OPM diagram shown in Figure 4.9.
+为了总结用于识别中等复杂度系统形式实体的方法，请考虑图4.9中所示的OPM图。
+Starting at the top left, the more general idea of pump specializes (Section 3.4) to the more specific idea of centrifugal pump.
+从左上方开始，泵的一般概念(第3.4节)专用于离心泵的更具体的概念。
+Centrifugal pump decomposes through two levels of hierarchy (Section 3.3).
+离心泵分为两层(第3.3节)。
+At the first level, we have created the intermediate abstractions called pump assembly and motor assembly.
+在第一级，我们创建了中间抽象，称为泵组件和电机组件。
+These then decompose to ten elements of form.
+这些然后分解成十个元素的形式。
+One of these is in fact not a single object, but a class called Screw, of which there are actually several instances (Section 3.4).
+其中一个实际上不是一个单独的对象，而是一个名为Screw的类，它实际上有几个实例(第3.4节)。
+One of the other objects, the motor shaft, exhibits the attribute of state called spinning, which can have the states of yes (the shaft is turning) and no (it is not turning).
+另一个对象，电机轴，显示了称为旋转的状态属性，它可以有“是”(轴在转动)和“否”(轴不转动)的状态。
+In summary: Analyzing form requires creating an abstraction of form that conveys the important information, but not too much information, and implies a boundary of the system.
+总而言之:分析表单需要创建一个抽象的表单，该表单能够传达重要的信息，但不能包含太多的信息，并且暗示了系统的边界。
+The elements of form can be represented as a hierarchic decomposition a set of objects that represent the first- and potentially second-level abstractions of the decomposed system, which can be represented in either a graphical or a list format.
+表单元素可以表示为一个层次分解——一组对象，它们表示被分解系统的第一层和可能的第二层抽象，可以用图形或列表格式表示。
+4.4 Analysis of Formal Relationships in Architecture Formal Relationships In this section, we will focus on the relationships of form, which are sometimes called formal relationships or (more commonly) structure.
+在本节中，我们将重点关注形式的关系，有时称为形式关系或(更常见的)结构。
+Question 4c in Table 4.1 suggests that this is the next task in analysis.
+表4.1中的问题4c表明这是下一个分析任务。
+As defined in Box 4.4, structure is the set of formal relationships among the elements of form of a system.
+正如方框4.4所定义的，结构是系统的形式要素之间的形式关系的集合。
+Structure is not conveyed by Figure 4.9!
+图4.9没有传达结构!
+Structure is additional information.
+结构是附加信息。
+If you are merely given a random set of mechanical parts or lines of code (the set of objects of form of the system), you do not know how to assemble them.
+如果只是给你一组随机的机械部件或代码行(系统形式的对象的集合)，你不知道如何将它们组合起来。
+What is missing is information about the structure.
+缺少的是关于结构的信息。
+Structure shows where the elements of form are located and how they are connected.  
+结构显示了形式元素的位置和它们是如何连接的。
+After elements of form, formal relationships are the next most tangible aspects of a system.
+在形式元素之后，正式关系是系统的下一个最有形的方面。
+Structure is often instrumental in functional interactions.
+结构在功能的相互作用中经常起作用。
+If there are functional relationships among the elements of form, in most cases there must also be a carrier of these functional interactions.
+如果形式要素之间存在功能关系，那么在大多数情况下，也必须有一个载体来承载这些功能的相互作用。
+Formal relationships often carry the functional interactions.
+正式的关系往往承载着功能上的相互作用。
+If A supplies power to B (a functional interaction), there may be a connecting wire (the structure).
+如果A给B供电(功能交互)，可能会有连接线(结构)。
+If A provides an array to B (a functional interaction), there may be a link or shared address space (the structure).
+如果A向B提供一个数组(函数交互)，则可能存在一个链接或共享地址空间(结构)。
+Since functional interactions are crucial to emergence, and since functional interaction is often enabled by formal structure, understanding structure is essential to understanding the system.
+由于功能交互对于出现是至关重要的，而且功能交互通常是通过正式的结构实现的，因此理解结构对于理解系统是至关重要的。
+Structure is the set of relationships that exist and do not require change, exchange, or anything that happens along a timeline.
+结构是一组存在的关系，它们不需要更改、交换或在时间轴上发生的任何事情。
+At any instant of time, they just are.Like all of form, formal
+在任何时刻，它们都是。就像所有形式一样，正式
+relationships are about what exists, not what occurs.
+关系是存在的，而不是发生的。
+In our pump, the motor is connected to the housing a connection that simply exists.
+在我们的泵，电动机是连接到住房的一个简单的连接。
+Formal relationships can be changed.
+正式的关系是可以改变的。
+Elements can be connected, unconnected, or moved.
+元素可以连接、不连接或移动。
+Formal relationships often implicitly represent things that have happened in the past.
+正式的关系通常隐含着过去发生过的事情。
+The relationship A is next to B implies that at some time in the past, A was placed next to B. The relationship A is connected to B implies that at some earlier time, there occurred a joining process in which A was connected to B. The two main types of structural relationships are spatial/topological relationships and connections.
+A是B旁边的关系意味着在过去一段时间,一个被B A与B的关系意味着,一些早期的时候,发生一个加入的过程中有一个连接到B结构关系的两种主要类型的空间/拓扑关系和联系。
+In a circuit design, for example, the designer produces the layout drawing (Figure 4.10) that shows where components are located the spatial/topological view.
+例如，在电路设计中，设计者会生成布局图(图4.10)，显示组件在空间/拓扑视图中的位置。
+The designer also produces the circuit diagram (Figure 4.11) that shows how components are connected.
+设计人员还生成显示组件如何连接的电路图(图4.11)。
+Both are needed;
+两者都是需要的;
+from Figure 4.10 alone it is not possible to figure out what is connected, and from Figure 4.11 alone it is not possible to determine where things are located.
+单独从图4.10是不可能知道连接的是什么，单独从图4.11是不可能确定事物的位置。
+As will be discussed, there are also other types of structural relationships that are sometimes important to a system.
+正如将要讨论的，还有其他类型的结构关系，它们有时对系统很重要。
+Spatial/Topological Formal Relationships Spatial/topological relationships explain where things are: the location or placement of the objects of form.
+空间/拓扑形式关系空间/拓扑关系解释事物的位置:形式对象的位置或位置。
+These relationships imply only location and placement, not the ability to transmit anything between the objects.
+这些关系只意味着位置和位置，而不是物体之间传递任何东西的能力。
+In physical systems, spatial and topological relationships are largely issues of geometry, but in information systems, one must also consider the more abstract issues of space and topology, as we shall see in Section 4.6.
+在物理系统中，空间和拓扑关系主要是几何问题，但在信息系统中，我们还必须考虑更抽象的空间和拓扑问题，我们将在4.6节中看到。
+Spatial relationships capture absolute or relative location or orientation.
+空间关系捕捉绝对或相对的位置或方向。
+Above and below, ahead and behind, left and right, aligned and concentric, near to and far from all of these relationships convey relative location.
+上面和下面，前面和后面，左边和右边，对齐和同心圆，靠近和远离所有这些关系传达了相对的位置。
+Absolute location may be given with some reference, such as an Earth geodesic reference or a local reference system.
+给出绝对位置时可以参考一些参考，如地球测地线参考或局部参考系统。
+Topology is about placement and suggests relationships such as within, contained in, surrounded by, overlapping, adjacent, touching, outside of, or encircling.
+拓扑是关于放置和建议关系，如内部、包含在、被包围、重叠、邻近、接触、外部或包围。
+In practice, the differences between spatial and topological relationships are very subtle, and both can be considered part of one set of spatial/topological relationships.
+在实践中，空间关系和拓扑关系之间的差异非常微妙，两者都可以被认为是一组空间/拓扑关系的一部分。
+Spatial/topological relationships are often very important.
+空间/拓扑关系通常非常重要。
+For example, it may be important to know that the lungs are not only connected to the heart but also near it.
+例如，了解肺部不仅与心脏相连，而且离心脏很近，这一点可能很重要。
+At compilation, it is important to know where a certain code is located.
+在编译时，了解特定代码的位置是很重要的。
+In a factory, it may be important to know the relative locations of two workstations that exchange parts.
+在工厂中，了解交换部件的两个工作站的相对位置可能很重要。
+Optical elements have to be aligned to work properly.
+光学元件必须对准才能正常工作。
+The procedure for identifying the spatial/topological relationships (Question 4c of Table 4.1) is to examine each pairwise set of objects of form and ask, Is there an important spatial/topological relationship between these two objects?
+确定空间/拓扑关系(表4.1的问题4c)的过程是检查每一组成对的形式的对象，并问，这两个对象之间是否有重要的空间/拓扑关系?
+Thinking holistically, we recognize that there is a spatial relationship between every pair of objects.
+从整体上来看，我们认识到每一对物体之间都存在着空间关系。
+We must apply focus, and because we are trying to use structure to eventually understand functional interaction and emergence, the key question is the following: Is this spatial or topological relationship key to some important functional interaction or to the successful emergence of function and performance
+我们必须应用焦点，因为我们试图使用结构来最终理解功能交互和出现，关键问题如下:这种空间或拓扑关系是某些重要的功能交互的关键还是功能和表现的成功出现的关键
+Figure 4.10 spatial/topological representation of a circuit: location of components.
+图4.10电路的空间/拓扑表示:元件的位置。
+(source: Vectorass/fotolia) A typical mechanical engineering representation of spatial/topological information for an assembled system is shown in Figure 4.12 for the pump.
+(来源:Vectorass/fotolia)泵的空间/拓扑信息的典型机械工程表示如图4.12所示。
+From this three-view drawing, we can see approximately where elements are located, what touches what, and so on.
+从这个三视图中，我们可以大致看到元素的位置，什么接触了什么，等等。
+A more illustrative drawing is called the expanded view, an example
+一个更具说明性的图称为展开视图
+Figure 4.12 spatial/topological representation of a pump: Where components are located.
+图4.12泵的空间/拓扑表示:部件的位置。
+of which is shown in Figure 4.5.
+其中如图4.5所示。
+From this and several other types of drawings (such as section views), all of the important spatial/topological information can be extracted.
+从这张图和其他几种类型的图(比如剖面图)中，可以提取所有重要的空间/拓扑信息。
+Figure 4.11 shows a typical spatial/topological view of a circuit.
+图4.11显示了电路的典型空间/拓扑视图。
+Representing Formal Relationships with Graphs and Diagrams;
+用图形和图表表示形式关系;
+OPM We seek a generalized way to represent structural information for an architecture.
+OPM我们寻求一种广义的方法来表示一个架构的结构信息。
+As was suggested in Chapter 2, there are essentially two choices: We can represent structure with graphs and diagrams or with tables and matrix-like views.
+正如在第2章中所建议的，基本上有两种选择:我们可以用图形和图表来表示结构，或者用表和类似矩阵的视图来表示结构。
+Since both have their advantages and disadvantages, we will develop both approaches.
+由于这两种方法都有其优点和缺点，我们将开发这两种方法。
+Graph representations generally represent the objects of form, with structure indicated by various types of lines and arrows connecting the objects.
+图表示通常表示具有形式的对象，其结构由连接对象的各种类型的线和箭头表示。
+In some notational schemes, the arrows are semantic and express meaning.
+在一些符号格式中，箭头表示语义和意义。
+In others they are more informal.
+在另一些国家，他们更不正式。
+In this text, we will consistently use the OPM graphical representation of structure shown in Figure 4.13, which is a binary link generally shown as a single-headed arrow that runs from one object to another, with an accompanying label.
+在本文中，我们将始终使用图4.13所示的结构的OPM图形表示，它是一个二进制链接，通常显示为一个单头箭头，从一个对象运行到另一个对象，并附带一个标签。
+There is a forward version of the link see the link from object A to B with a label that describes the nature of the relationship in simple language.
+链接有一个转发版本，参见从对象a到B的链接，带有一个标签，用简单的语言描述了关系的性质。
+For example, examining Figure 4.5, we see that the housing surrounds the impeller but does not touch it.
+例如，检查图4.5，我们可以看到壳体围绕在叶轮周围，但并不接触叶轮。
+In Figure 4.13, this is shown by an arrow from housing to impeller with the label Surrounds so that one reads, the housing surrounds the impeller.
+在图4.13中，从外壳到叶轮用一个箭头表示，标签被包围着，这样就可以看到外壳包围着叶轮。
+The direction of the arrow from A to B is arbitrary and does not imply any exchange, interaction, or causality.
+从A到B的箭头方向是任意的，并不意味着任何交换、相互作用或因果关系。
+It is simply a relationship that exists.
+它只是一种存在的关系。
+Therefore, we could just as accurately have drawn the reverse, or backwards, link from B to A and labeled it Is within so that one would read the impeller is within the housing.
+因此，我们可以精确地画出反向的，或反向的，从B连接到A，并标记它在内部，这样就可以读出叶轮在外壳内。
+Even though different words are used to label the arrow, the relationship has the same meaning.
+尽管用不同的词来标注箭头，但关系具有相同的含义。
+Generally, we show the arrow in only one direction, and the other is implicit.
+通常，我们只在一个方向上显示箭头，而另一个是隐式的。
+Sometimes the same words can be used in both directions.
+有时同一个词可以用在两个方面。
+The cover is aligned with the motor shaft would reverse to the motor shaft is aligned with the cover.
+所述阀盖与所述电机轴对齐后，将所述电机轴与所述阀盖对齐。
+We are now ready to apply the procedure for identifying and diagramming important spatial/topological relationships of the pump, where we have restricted ourselves to the five important elements from the hierarchy of Table 4.3.
+现在，我们准备应用程序来识别和绘制泵的重要空间/拓扑关系图，在这里，我们将自己限制在表4.3的层次结构中的5个重要元素。
+To begin, consider the cover object.
+首先，考虑覆盖对象。
+It touches the housing and is aligned with the motor shaft (they are co-axial).
+它接触壳体和对准电机轴(他们是同轴的)。
+What may not be obvious is that the cover object must also be close to the impeller;
+可能不太明显的是，盖上的物体也必须靠近叶轮;
+the pump would not work if there were a large gap between the impeller and the cover.
+如果叶轮和泵盖之间有很大的间隙，泵就不能工作。
+In Figure 4.14, these relationships are represented by an arrow that runs from the cover to the housing and is labeled Touches ;
+在图4.14中，这些关系用一个箭头表示，箭头从盖子到外壳，并标记为“触摸”;
+another arrow that runs to impeller and is labeled Is close to ;
+另一个箭头，运行到叶轮和被标记是接近;
+and a third arrow that runs to the motor shaft and is labeled Is aligned with.
+和第三个箭头，该箭头运行到电机轴并被标记为与。
+We then proceed to the other elements of form, identifying important relationships between pairs, until Figure 4.14 is complete.
+然后我们继续处理表单的其他元素，确定对之间的重要关系，直到完成图4.14。
+A similar diagram showing the structure of the pump could be drawn in SysML, in particular using the block definition diagram and the internal block diagram.
+在SysML中可以画出水泵结构的类似图，特别是使用块定义图和内部块图。
+This is explained in more detail in Box 4.5
+在方框4.5中有更详细的解释
+Figure 4.14 simplified spatial/topological structure of a centrifugal pump: Graphical oPm
+图4.14简化的离心泵空间/拓扑结构:oPm图
+Box 4.5 Methods: Representing Form (Elements and Structure) in SysML What we call form (elements and structural relationships) is represented in SysML using blocks for the entities and several of the SysML relationships between the blocks.
+我们称为表单(元素和结构关系)的东西在SysML中使用实体的块和块之间的几个SysML关系来表示。
+However, the issue is that these same blocks and some of the relationships can sometimes represent function and functional interaction as well.
+然而，问题是这些相同的块和一些关系有时也可以表示函数和函数交互。
+Therefore, in representing what we call form (elements and structure) in SysML, a subset of the features of SysML are used selectively.
+因此，在SysML中表示我们所说的形式(元素和结构)时，会有选择地使用SysML特性的一个子集。
+There are several types of relationships in SysML that are used to represent what we call structure (Figure 4.15).
+SysML中有几种类型的关系用于表示我们所称的结构(图4.15)。
+Aggregation and composition are represented by a solid line with a diamond at the beginning of the line (the pump is composed of the motor, the impeller, and so on).
+聚集和组成用一条实线表示，线的开头有菱形(泵由电机、叶轮等组成)。
+Specialization/generalization is represented by a solid line with a triangle at the beginning of the line (for example, the centrifugal pump is a specialization of the generalization pump ).
+特殊化/一般化由一条实线表示，线的开头有一个三角形(例如，离心泵是一般化泵的一个特殊化)。
+General dependencies, represented by dashed lines with an arrow at the end of the line, and association, represented by a line with a label, can both be used to represent what
+一般的依赖关系(由线尾有箭头的虚线表示)和关联关系(由带标签的线表示)都可以用来表示什么
+we call structural relationships.
+我们称之为结构关系。
+Care must be taken, because dependencies and associations can also be used to express functional relationships.
+必须小心，因为依赖关系和关联也可以用于表示函数关系。
+Interface links and item flow are explicitly used to represent functional interactions.
+显式地使用接口链接和项流来表示功能交互。
+SysML has two diagrams primarily used to represent what we call structure.
+SysML有两个图，主要用来表示我们所说的结构。
+Block definition diagrams show the main elements of the system and the formal relationships among them, which may be aggregation, composition, association, dependency, or specialization relationships.
+块定义图显示了系统的主要元素和它们之间的正式关系，这些关系可能是聚合、组合、关联、依赖或专门化关系。
+Blocks can represent elements of the system and attributes of those elements.
+块可以表示系统的元素和这些元素的属性。
+In block definition diagrams, blocks may also have ports (inputs and outputs of a block) that indicate functional interaction the type of flow that goes through them, and their interfaces.
+在块定义图中，块还可能有端口(块的输入和输出)，这些端口指示功能交互，流过它们的流的类型，以及它们的接口。
+Internal block diagrams are used to show the internal structure of blocks, focusing in particular on instances of the system.
+内部框图用于显示块的内部结构，特别关注系统的实例。
+This includes setting block properties (e.g., set the dimensions of the impeller) and describing flow paths (e.g., illustrate how water passes through the pump).
+这包括设置块属性(例如，设置叶轮的尺寸)和描述流路(例如，说明水是如何通过泵的)。
+Note that the block properties can include what we call attributes of form, whereas the flow paths are part of functional interaction.
+请注意，块属性可以包括我们所说的表单属性，而流路径是功能交互的一部分。
+Representing Formal Relationships with Table and Matrix-like Views;
+用表和类似矩阵的视图表示形式关系;
+DSM An alternative representation of structure can be captured with table and matrix-like views, of which the Design Structure Matrix (DSM) is an example (Section 2.5 and Box 4.6).
+设计结构矩阵(DSM)是结构的另一种表示形式，可以通过表和类似矩阵的视图来表示，其中设计结构矩阵(DSM)就是一个例子(第2.5节和方框4.6)。
+One reads the DSM in Table 4.4 as Object A has relationship Forward 1 with Object B, and Object B has relationship Backwards 1 with Object A.
+我们可以将表4.4中的DSM理解为，对象A与对象B的关系为前向1，对象B与对象A的关系为后向1。
+DSM is an acronym that generally stands for Design Structure Matrix but sometimes stands for Decision Structure Matrix or Dependency Structure Matrix.
+DSM是一个缩写，通常表示设计结构矩阵，但有时也表示决策结构矩阵或依赖结构矩阵。
+A DSM is an N-Squared matrix that is used to map the connections between one element of a system and others.
+DSM是一个n方矩阵，用于映射系统的一个元素和其他元素之间的连接。
+It s called N-Squared because it is constructed with N rows and N columns, where N is the number of elements.
+它被称为N方因为它是由N行N列构成的，其中N是元素的数量。
+The normal convention, used in this text, is that one reads down the column to the relationship to the row heading, and that things flow from column heading to row heading.
+本文中使用的常规惯例是，读取列到行标题的关系，内容从列标题流到行标题。
+The types of relationships shown in a DSM can vary.
+在DSM中显示的关系类型可以有所不同。
+In this chapter we show spatial/ topological and connectivity relationships in DSMs, but elsewhere we use them to represent a variety of types of information.
+在本章中，我们将展示DSMs中的空间/拓扑和连接关系，但在其他地方，我们将使用它们来表示各种类型的信息。
+Table 4.5 shows the DSM representation for the simplified pump, which contains the same information as Figure 4.14.
+表4.5显示了简化泵的DSM表示，其中包含与图4.14相同的信息。
+Again, the cover touches the housing, is aligned with the motor shaft
+同样，盖子接触外壳，与电机轴对齐
+and is close to the impeller.
+靠近叶轮。
+The forward and backwards relationships are present;
+存在向前和向后的关系;
+the housing surrounds the impeller, and the impeller is within the housing.
+壳体包围叶轮，叶轮位于壳体内。
+Just like the directions of the arrows in the OPM diagram of Figure 4.14, the entries in this DSM do not imply direction or causality.
+与图4.14的OPM图中的箭头方向一样，本DSM中的条目并不意味着方向或因果关系。
+In particular, for structure the forward and backwards relationships must have the same semantic meaning.
+特别是，对于结构来说，向前和向后的关系必须具有相同的语义意义。
+We will use both OPM and DSM representations.
+我们将同时使用OPM和DSM表示。
+Each has advantages and disadvantages.
+每种都有优点和缺点。
+The graphical representation is normally easier to develop and visualize, but as the system gets more complex, the graphical view becomes cluttered.
+图形表示通常更容易开发和可视化，但当系统变得更复杂时，图形视图就会变得混乱。
+The matrix representation allows more information to be captured without clutter and can be operated on in computation, but it is harder to visualize.
+矩阵表示允许在没有混乱的情况下捕获更多的信息，并且可以在计算中操作，但是它很难可视化。
+Connectivity Formal Relationships A second type of formal relationship captures the idea of connectivity and answers the question What is connected, linked, or joined to what?
+连接性正式关系第二种类型的正式关系抓住了连接性的概念，并回答了什么是连接的、连接的或与什么连接的问题?
+In network systems such as trusses, circuits, and chemical processing plants, connectivity is the most important formal relationships to understand, because it explicitly creates the ability to transfer or exchange something between the connected objects of form.
+在桁架、电路和化学处理工厂等网络系统中，连通性是需要理解的最重要的形式关系，因为它明确地创造了在连接的形式物体之间转移或交换某种东西的能力。
+Connectivity relationships are often instruments of functional interaction, so they directly support the emergence of function and performance, as is examined in Chapter 6.
+连接关系通常是功能交互的工具，因此它们直接支持功能和性能的出现，如第6章所述。
+Connectivity and special/topological relationships are quite different in principle.
+连接性和特殊/拓扑关系在原则上是完全不同的。
+Two elements can be adjacent but not connected (two houses in a neighborhood), and two elements can have unspecified location but be connected (a computer and a server).
+两个元素可以是相邻的但没有连接(一个社区中的两个房子)，两个元素可以有未指定的位置但被连接(一台计算机和一台服务器)。
+In practice, the difference between spatial/topological structure and connectivity structure is usually evident if the
+在实际应用中，空间拓扑结构与连接结构之间的差异通常是明显的
+connectivity refers to electrical, chemical, thermal, or biological connections.
+连通性指的是电的、化学的、热的或生物的连接。
+In mechanical systems, because things must be adjacent to be connected, the spatial/topological structure and connectivity structure tend to be less distinct.
+在机械系统中，由于事物必须是相邻连接的，空间/拓扑结构和连通性结构往往不太明显。
+Connectivity relationships actually encode information about how the objects were implemented: assembled, manufactured, coded, or written.
+连接关系实际上编码了关于如何实现对象的信息:组装、制造、编码或编写。
+If two things are connected now, there was a process of connecting them in the past.
+如果两件事现在联系在一起，那么在过去就有一个将它们联系起来的过程。
+But the connection currently exists, and therefore it is a relationship of form.
+但这种联系是存在的，因此它是一种形式的关系。
+In software systems, compilation of one object with another is a type of connection due to implementation structure.
+在软件系统中，由于实现结构的关系，一个对象与另一个对象的编译是一种连接类型。
+Generally in software, connectivity is more subtle.
+通常在软件中，连通性更加微妙。
+If data or commands are passed, there must exist somewhere a connection point to pass them.
+如果要传递数据或命令，必须在某处存在一个连接点来传递它们。
+These connections are commonly more transient and hidden deep within the compiled version of code and the operating system, which assigns common addresses (sometimes called pointers) to information that is shared.
+这些连接通常是暂时的，隐藏在编译版本的代码和操作系统中，操作系统为共享的信息分配公共地址(有时称为指针)。
+In object-oriented programming, two objects may contain a reference to a common third object, defining a structural relationship.
+在面向对象编程中，两个对象可能包含对公共第三个对象的引用，该对象定义了一个结构关系。
+Structure in software systems is discussed in more depth in Section 4.5.
+软件系统的结构将在4.5节中更深入地讨论。
+There are a few classes of functional interactions that do not require an explicit formal connection.
+有一些类的功能交互不需要显式的正式连接。
+The most common of these is interaction through electrical forces and the electromagnetic spectrum, which includes visible and radio frequencies, as well as heat transfer through black body radiation.
+其中最常见的是通过电力和电磁波谱的相互作用，包括可见光和无线电频率，以及通过黑体辐射的热传递。
+Of course, gravitational interactions also do not require an explicit connection.
+当然，引力相互作用也不需要明确的联系。
+There is a class of interactions associated with the ballistic flow of particles and continua, such as a fluid jet or a thrown baseball.
+有一类相互作用与粒子和连续物的弹道流有关，如流体射流或投掷的棒球。
+Here mass, momentum, and energy are exchanged without any explicit interconnect other than space.
+在这里，质量、动量和能量的交换除了空间之外没有任何显式的联系。
+The procedure used to answer Question 4c of Table 4.1 and to determine connectivity relationships is similar to that used to identify spatial/topological relationships.
+用于回答表4.1中的问题4c和确定连接关系的过程与用于确定空间/拓扑关系的过程相似。
+We examine each pairwise set of objects of form, and ask, Is this connectivity relationship key to some important functional interaction or to the successful emergence of function and performance?
+我们检查每一组成对的形式对象，并问，这种连接关系是某些重要的功能交互的关键，还是功能和性能的成功出现的关键?
+Connectivity is usually more evident and less subject to interpretation than special/topological structure.
+连接性通常比特殊/拓扑结构更明显，更不容易解释。
+In identifying connections, one has to consider whether the connector itself must be modeled as an element of form or, conversely, can be abstracted away.
+在识别连接时，必须考虑连接器本身是否必须被建模为一个表单元素，或者反过来，是否可以被抽象出来。
+In the example of the circulatory system in Chapter 2, we successfully thought about the heart, lungs, and capillaries without explicitly mentioning the veins and arteries that connect them.
+在第二章循环系统的例子中，我们成功地想到了心脏、肺和毛细血管，而没有明确地提及连接它们的静脉和动脉。
+In general, one first attempts to abstract away the connectors, simply to minimize the number of objects that are being considered.
+一般来说，首先尝试抽象连接器，只是为了最小化正在考虑的对象的数量。
+An exception to this rule is the connector at a system interface.
+这个规则的一个例外是系统接口上的连接器。
+Such interfaces are sufficiently important to the system, and such a common source of problems, that modeling the interface as a separate object is often appropriate, as is discussed in Chapter 6.
+这些接口对系统非常重要，而且是问题的常见来源，因此将接口建模为一个单独的对象通常是合适的，如第6章所讨论的。
+A typical mechanical engineering representation of connectivity is the expanded view of the pump in Figure 4.5.
+连接性的典型机械工程表示是图4.5中泵的展开视图。
+The connectivity structure for the simplified pump is shown in Figure 4.16.
+简化后的泵连通性结构如图4.16所示。
+Now the cover presses against the housing, which is a kind of mechanical connection.
+现在盖子压在外壳上，这是一种机械连接。
+The devices that cause the pressing are the screws, which have been abstracted out of this simplified model.
+造成挤压的装置是螺钉，它已经从这个简化模型中抽象出来。
+The impeller has a similar kind of press fit, due to its being slid onto a shaft.
+叶轮有类似的压配合，因为它被滑到轴上。
+The relationship between the motor shaft and the motor is quite complex;
+电机轴与电机的关系比较复杂;
+the shaft is contained within the motor and is supported on bearings that allow rotation.
+轴包含在电机中，支承在允许旋转的轴承上。
+Here it makes most sense to label the connectivity relationship with the type of the connector: bearings.
+这里最有意义的是用连接器的类型标记连接关系:轴承。
+Comparison of Figure 4.16 with Figure 4.14 shows fewer connections than spatial/topologic relationships.
+对比图4.16和图4.14，可以发现连接比空间/拓扑关系少。
+The spatial/topological relationships in Figure 4.14 that are associated with touching reappear in Figure 4.16 as a connectivity relationship.
+图4.14中与触摸相关的空间/拓扑关系在图4.16中以连通关系的形式重新出现。
+However, those associated with pure topology (such as alignment, within, and encircles) are not reflected in Figure 4.16.
+但是，那些与纯拓扑(如对齐、内部和包围)相关的内容没有反映在图4.16中。
+In mechanical systems, the distinction between the spatial relationship touching and the connectivity pressing is subtle.
+在机械系统中，空间关系的接触和连通性的压制之间的区别是微妙的。
+One implies only location, and the other also conveys the ability to transmit load.
+一个只表示位置，另一个也表示传输负载的能力。
+If we had chosen a mechanical example in which the two objects were glued together, then the difference between touching (spatial) and glued (connectivity) would be more evident.
+如果我们选择一个两个物体粘在一起的力学例子，那么接触(空间)和粘在一起(连通性)之间的区别就会更明显。
+The DSM representation of the connectivity structure of the simplified pump is shown in Table 4.6.
+简化泵连通性结构的DSM表示如表4.6所示。
+Once again, it contains the same information as the graphical representation in Figure 4.16.
+同样，它包含与图4.16中的图形表示相同的信息。
+There is no implication that anything is exchanged;
+没有任何交换的暗示;
+these connections just exist.
+这些联系是存在的。
+Therefore, the matrix is symmetric, except for the phrases Slid onto and Had slid onto,   which are necessary so that the DSM will make sense when read from the column heading to the row heading: The impeller slid onto the shaft, whereas The shaft had slid onto the impeller.
+因此，矩阵是对称的，除了短语“滑上”和“已经滑上”，这是必要的，使DSM将有意义时，从列标题读到行标题:叶轮滑到轴，而轴滑到叶轮。
+As a practical matter, the spatial/topological and connectivity relationships are often combined into one representation of structure.
+作为一个实际问题，空间/拓扑关系和连接关系经常被组合成一个结构的表示。
+Table 4.7 shows a summary of the structure of the
+表4.7显示了控件的结构摘要
+system, where the details have been abstracted to just the existence of a spatial (S) or a connectivity relationship (C) among the elements.
+在系统中，细节被抽象为元素之间存在空间上的(S)或连接关系(C)。
+Other Formal Relationships In addition to spatial/topological relationships and connectivity, there are other types of formal relationships that simply exist.
+除了空间/拓扑关系和连通性，还有其他类型的形式关系存在。
+The procedure for identifying these is the same: Examine pairwise sets of objects, and determine whether there is a relationship of these types that has an important role in enabling functional interaction and emergence.
+识别它们的过程是相同的:检查成对的对象集，并确定这些类型之间是否存在一种关系，这种关系在实现功能性交互和出现方面起着重要作用。
+aDDreSS The address of something is where it can be found.
+aDDreSS某物的地址是可以找到它的地方。
+It is an encoded form of the spatial location, but it is common enough to be considered a separate type of formal relationship, because address can also be virtual.
+它是空间位置的编码形式，但它足够常见，可以被视为一种单独的正式关系类型，因为地址也可以是虚拟的。
+In software, in particular, one makes extensive use of the address of registers and the like.
+特别是在软件中，人们广泛使用寄存器等的地址。
+A shared address is a connection through which data can be exchanged.
+共享地址是一个可以交换数据的连接。
+SeQuenCe The static sequence of entities is a type of formal relationship.
+实体的静态序列是一种形式关系。
+If we know that A is always after B, then this establishes a formal relationship.
+如果我们知道A总是在B之后，那么这就建立了一个正式的关系。
+For example, in imperative software languages, the writing of a statement 2 after statement 1 implies that 2 is executed after 1;
+例如，在命令式软件语言中，在语句1之后编写语句2意味着在1之后执行2;
+this is not necessarily true in declarative languages.
+这在声明性语言中不一定是真的。
+This is a functional statement.
+这是一个函数语句。
+However, the fact that 2 follows 1 in the coding is true in both cases, which is a formal statement.
+然而，编码中2在1之后的事实在这两种情况下都是正确的，这是一个正式的陈述。
+MeMberSHiP Being a member of some group or class can be considered a type of formal relationship: A is a member of group 1.
+成为某个团体或班级的一员可以被认为是一种正式关系:a是第一组的成员。
+Membership is an abstraction that signifies being in a group.
+成员关系是一种抽象，表示属于一个组。
+It may lead to interaction and responsibility in a group, but it may not.
+它可能会导致团队的互动和责任，但也可能不会。
+OwnerSHiP If you own something, it is yours.
+如果你拥有某物，它就是你的。
+Like membership, ownership is an abstraction both useful and common.
+与成员关系一样，所有权是一种既有用又常见的抽象。
+What really separates my land from your land, or my money from your money?
+我的地与你的地有什么分别呢?我的钱与你的钱有什么分别呢?
+Only that it was sometime in the past purchased by me or granted to me.
+只知道它是在过去的某个时候被我买下来的，或者被授予给我的。
+But once I own it, ownership is a static formal relationship between the owner and the owned item.
+但是一旦我拥有了它，所有权就是所有者和被拥有物品之间的一种静态的正式关系。
+HuMan relaTiOnSHiPS Another type of relationship exists among humans: the bonds between people and the attitudes they hold toward one another.
+人与人之间存在着另一种关系:人与人之间的联系以及他们对彼此的态度。
+Knowledge of another person s abilities, trust in another person, and liking of her or him these are bonds among people.
+了解另一个人的能力，信任另一个人，喜欢她或他，这些是人与人之间的纽带。
+Somewhat uniquely, human relationships are not necessarily reciprocal.
+从某种意义上说，人类的关系并不一定是互惠的。
+For example, you may trust a political figure who has no explicit knowledge of you at all.
+例如，你可以信任一个完全不了解你的政治人物。
+All formal relationships are static at any given time, but they can change.
+所有的正式关系在任何时候都是静态的，但是它们可以改变。
+Spatial location can be changed by moving things.
+空间位置可以通过移动物体来改变。
+Connection can be made and broken, as when a lamp is plugged into an outlet.
+可以建立连接，也可以断开连接，就像把灯插入插座一样。
+Addresses can be changed by reassignment.
+地址可以通过重新分配来改变。
+Sequence can be changed by reordering.
+序列可以通过重新排序来改变。
+Membership in a club exists, but the members can quit.
+俱乐部的会员资格是存在的，但会员可以退出。
+Ownership is changed by gift giving or sales.
+所有权会因送礼或销售而改变。
+And the most fickle of all formal relationships are human bonds, which can deteriorate in a second.
+在所有正式的关系中，最易变的是人与人之间的关系，这种关系可能会在瞬间恶化。
+In summary: Form consists of objects and structure the elements of form and their formal relationship.
+综上所述:形式由对象和结构构成，形式的要素及其形式关系。
+Both are present in a system, and both must be considered in analysis.
+两者都存在于一个系统中，在分析时都必须加以考虑。
+There are three broad types of formal relationships: Connection (relationships that create the formal connection over which functional interaction can take place) Location and placement (including spatial/topological relations, address, and sequence) Intangible (membership, ownership, human relationship, and so on) Formal relationships inform and influence the nature of the functional interaction and the emergence of function and performance.
+有三大类型的正式关系:联系(关系创建的正式连接功能相互作用可以发生)位置和位置(包括空间/拓扑关系、地址和序列)无形(会员,所有权、人际关系、等等)正式通知的关系和影响力的本质功能交互和功能和性能的出现。
+Formal relationships are static in that they exist (although they can be changed).
+正式关系是静态的，因为它们存在(尽管它们可以改变)。
+
+ 4.5 Formal Context 
+
+The Accompanying Systems Whole Product System, and System Boundary Another way to analyze and understand systems is by taking increasingly broader or more holistic views of the system and its context.
+4.5形式环境伴随的系统、整个产品系统和系统边界分析和理解系统的另一种方法是对系统及其环境采取越来越广泛或更全面的观点。
+This is an application of the Principle of Holism (see Box 2.5).
+这是整体论原理的应用(见方框2.5)。
+We will see that it is useful to take two increasingly holistic views of a system, which we will call the whole product system and the use context.
+我们将看到，对一个系统采取两种日益全面的观点是有用的，我们将称之为整个产品系统和使用上下文。
+Expanding outward from the product/system, the first level of context we encounter includes the other objects that are not part of the product/system but are essential for the system to deliver value.
+从产品/系统向外扩展，我们遇到的第一级上下文包括其他对象，它们不是产品/系统的一部分，但对于系统交付价值来说是必不可少的。
+We call these the accompanying systems.
+我们称之为伴随系统。
+The sum of the product/system and the accompanying systems is called the whole product system.
+产品/系统和伴随系统的总和称为整个产品系统。
+The product/system is separated from the accompanying systems by the system boundary (Section 2.4).
+产品/系统与伴随系统之间以系统边界分开(第2.4节)。
+What are the accompanying systems and therefore the whole product/system (Question 4d of Table 4.1)?
+伴随的系统是什么，因此是整个产品/系统(表4.1的问题4d)?
+It is vital for the architect to understand and model the accompanying systems, because they may play an important role in emergence.
+对于架构师来说，理解并建模伴随的系统是至关重要的，因为它们可能在出现中扮演重要的角色。
+They must be present, connected, and working for the product/system to deliver value.
+他们必须在场，相互联系，并为产品/系统工作以交付价值。
+There must be well-defined interfaces to these systems at the system boundary, whose existence is described by the answer to Question 4e.
+在系统边界上，这些系统必须有明确定义的接口，其存在性由问题4e的答案描述。
+The procedure for addressing Questions 4d and 4e of Table 4.1 is to look holistically at the objects of form that are near the system or are connected to it and ask, Are these essential to the delivery of product/system value?
+解决表4.1中问题4d和4e的过程是整体地审视系统附近或与系统相连的形式对象，并问，这些对产品/系统价值的交付是否至关重要?
+If so, then the abstractions of form are created for the elements of the accompanying systems, and the formal structure between the system and the accompanying systems is identified.
+如果是这样，那么将为伴随系统的元素创建形式的抽象，并确定系统和伴随系统之间的正式结构。
+Applying this procedure to the pump in Figure 4.5, we can reason that at a minimum, there must be elements that transport fluid to and away from the pump: the inflow and outflow hoses.
+将这一程序应用到图4.5中的泵上，我们可以推断，至少必须有将流体输送到泵内外的元件:流入和流出软管。
+The entire assembly must be structurally supported by a pump support, and the motor must be
+整个组装必须在结构上由泵支撑，电机必须是
+powered and controlled.
+驱动和控制。
+The pump whole product system, including these four accompanying systems, is shown in Figure 4.17.
+泵的整个产品系统，包括这四个伴随系统，如图4.17所示。
+Most often there is an operator involved in delivering value, and it is good practice to include the operator in diagrams such as Figure 4.17 to remind the architect of the importance of considering human interactions with the system.
+在大多数情况下，有一个操作人员参与交付价值，在图4.17中包括该操作人员是一个很好的实践，以提醒架构师考虑与系统交互的重要性。
+The dashed line is the boundary that surrounds the product/system.
+虚线是围绕产品/系统的边界。
+It is good practice to draw the product/system boundary clearly, to reduce ambiguity and explicitly identify interfaces.
+清晰地绘制产品/系统边界是一种很好的做法，以减少不确定性并明确地识别接口。
+No structural information is shown in the decomposition view of Figure 4.17.
+在图4.17的分解视图中没有显示结构信息。
+This is best presented in diagrams like the connectivity structure in Figure 4.18.
+这在图4.18中的连接结构中表现得最好。
+Now one can clearly see the connection between the principal objects of form of the pump and the accompanying systems, and the interfaces at the system boundary.
+现在可以清楚地看到泵的主要形态对象和伴随系统之间的联系，以及系统边界的界面。
+The Use Context Expanding one more step outward, we find the next level of context, the use context.
+使用上下文向外扩展了一步，我们找到了下一个层次的上下文，使用上下文。
+The whole product system fits within this use context, which includes the other objects that are normally present when the whole product system operates but are not necessary for it to deliver value.
+整个产品系统适合这个使用上下文，它包括其他对象，这些对象通常在整个产品系统运行时出现，但对交付价值来说不是必需的。
+The use context is important because it informs the function of the product/system.
+使用上下文很重要，因为它通知产品/系统的功能。
+It gives place to the whole product system, and it gives us information on the environment in which the system operates and informs design.
+它让位于整个产品系统，它为我们提供系统运行环境的信息，并为设计提供信息。
+In analysis, the architect may have to speculate on the use
+在分析中，架构师可能不得不对使用进行推测
+context, because it is rarely documented in system descriptions.
+上下文，因为它很少被记录在系统描述中。
+The procedure for answering Question 4f of Table 4.1 is to ask, What elements of context that are not already in the whole product system form our understanding of use and design?
+回答表4.1中的问题4f的过程是问，在整个产品系统中还没有形成我们对使用和设计的理解的上下文元素是什么?
+Applying this idea to the centrifugal pump, we will have to speculate, because the drawings we have available do not contain any hint about use context.
+将这个想法应用到离心泵上，我们将不得不推测，因为我们现有的图纸不包含任何使用上下文的暗示。
+We can guess that the pump might be an industrial sump pump for salt water removal or part of a home dishwasher.
+我们可以猜测，泵可能是一个工业污水池泵，以去除咸水或部分家庭洗碗机。
+The system might have different requirements based on these use contexts.
+基于这些使用上下文，系统可能有不同的需求。
+The need for a clear understanding of the whole product system, informed by the use context, is driven by the accountability and responsibility of the architect.
+架构师的责任和职责驱动了对整个产品系统的清晰理解，并由使用环境提供信息。
+Even though the architect is responsible only for the product/system, it is inevitable that the architect will be held accountable for the function of the whole product system. 
+即使架构师只对产品/系统负责，也不可避免地要对整个产品系统的功能负责。
+If it does not work, the architect will likely be accountable regardless.
+如果它不起作用，架构师很可能会对此负责。
+Just as it is important for an architect to understand about two levels down in decomposition, it is important for him or her to understand about two levels out in context the whole product system and the use context.
+就像架构师理解分解中的两个层次一样，理解整个产品系统和使用环境中的两个层次也很重要。
+Imagine that the inflow hose for our pump is supplied by a third party.
+假设我们泵的进水软管是由第三方提供的。
+If the hose does not connect well to the expensive new pump, it is much more likely that the pump supplier will be held accountable for the bad interface than the hose supplier.
+如果软管不能很好地连接到昂贵的新泵上，泵供应商比软管供应商更有可能为不良接口承担责任。
+In summary: The whole product system consists of the product/system and the accompanying systems that are necessary to deliver value (Question 4d of Table 4.1).     
+总而言之:整个产品系统由产品/系统和伴随系统组成，它们是交付价值所必需的(表4.1的问题4d)。
+The system boundary runs between the system and the accompanying systems, and each crossing of the boundary indicates an interface that should be controlled (Question 4e of Table 4.1).
+系统边界位于系统与伴随系统之间，边界的每一次跨越都表示一个需要控制的接口(表4.1问题4e)。
+The use context includes the objects that are normally present when the whole product  system operates but are not essential for the delivery of value (Question 4f of Table 4.1).
+使用上下文包括通常在整个产品系统运行时出现的对象，但这些对象对于价值的交付并不重要(表4.1的问题4f)。
+Use context establishes place, informs function, and influences design.
+使用上下文来建立场所，告知功能，并影响设计。
+
+4.6 Form in Software Systems
+
+The Software System: Informational Form and Duality In this section, we will review the procedure of analyzing the form of a simple system by looking at a software system, bubblesort.
+在本节中，我们将通过研究一个名为bubblesort的软件系统来回顾分析一个简单系统的形式的过程。
+Like the pump, this is a far more simple system than the tools of architecture are intended for, but it will bring out some important observations.
+与泵一样，这是一个远比架构工具所期望的简单得多的系统，但它将带来一些重要的观察结果。
+Figure 4.19 shows pseudocode for the standard bubblesort algorithm that sorts an array from its smallest to its largest entry by successively switching the location of adjacent entries if they are not in ascending order.
+图4.19显示了标准bubblesort算法的伪代码，该算法将数组从最小项排序到最大项，如果相邻项不是升序排列，则依次切换它们的位置。
+We will analyze the architecture guided by the six questions presented in Table 4.1.
+我们将根据表4.1中的六个问题对架构进行分析。
+Question 4a is What is the system?
+问题4a是系统是什么?
+In this case, it is obvious that the system is the pseudocode listed in Figure 4.19.
+在本例中，系统显然是图4.19中列出的伪代码。
+But what is the object of form that represents this system?
+但是代表这个系统的形式对象是什么呢?
+This requires us to think about what a software object is.
+这要求我们思考软件对象是什么。
+Note that this is not the software object found in object-oriented programming, even though they share the same nomenclature.
+请注意，这不是在面向对象编程中找到的软件对象，尽管它们共享相同的命名法。
+Box 4.1 defined form as the physical or informational embodiment of a system that exists . . .
+框4.1定义形式为存在的系统的物理或信息体现。
+and is instrumental in the execution of function . . .
+并在功能的执行中起到辅助作用…
+[and that] exists prior to the
+[而且它]先于
+execution of function.
+执行的函数。
+Therefore, in software, the code (or pseudocode) is the form: It exists, it exists prior to the execution of function, and it is instrumental of function.
+因此，在软件中，代码(或伪代码)是形式:它存在，它存在于功能执行之前，它是功能的工具。
+It is implemented (written).
+它是实现的(写出来的)。
+When it is operated, this form is interpreted as an instruction that, when executed, leads to function.
+当它被操作时，这个表单被解释为一条指令，当执行时，它会产生功能。
+The passenger emergency instruction card (Figure 4.2) is a metaphor for software code.
+乘客应急指令卡(图4.2)是软件代码的隐喻。
+It had a set of objects (pictures, etc.) that exist, that have been implemented, and that, when operated, are interpreted by humans as instructions and lead to function.
+它有一组对象(图片等)，这些对象存在，已经实现，当操作时，被人类解释为指令和功能。
+There is a subtle difference between defining abstractions of software and information  systems and defining those of a physical system, in that information itself is an abstraction.
+在定义软件和信息系统的抽象和定义物理系统的抽象之间有一个微妙的区别，因为信息本身就是一个抽象。
+Informational form must always be stored or encoded in some physical form, and the two are a duality.
+信息形式必须总是以某种物理形式存储或编码，这两者是一种二元性。
+As suggested in Box 4.7 on the Principle of Dualism, informational form must always be represented by physical form.
+根据二元论的原则，如框4.7所示，信息的形式必须总是由物理形式来表示。
+Poems are in print;
+诗歌已经出版;
+thoughts are encoded in neural patterns;
+思想编码在神经模式中;
+DVD movies are optical markings encoded on a surface;
+DVD电影是在表面上编码的光学标记;
+and images are composed of pixels.
+图像是由像素组成的。
+In
+在
+Dualism in philosophy, mind/body, free will/determinism, idealism/materialism appear as contradictory only because of underdeveloped formulation of the concepts involved.   
+哲学中的二元论、精神/身体、自由意志/决定论、唯心主义/唯物主义之所以出现矛盾，仅仅是因为概念的表述不够完善。
+hegel s dialectic, Science of Logic (1812 1816) All built systems inherently and simultaneously exist in the physical domain and the informational domain.
+黑格尔的辩证法、逻辑学(1812 - 1816)内在地、同时地存在于物理领域和信息领域。
+It is sometimes useful to explicitly consider both the physical and the informational views of a system.
+有时明确地考虑系统的物理视图和信息视图是有用的。
+Dualism holds that things can be usefully considered in two domains simultaneously in this case, physical and informational domains.
+二元论认为事物可以在物理和信息两个领域同时考虑。
+Systems that we usefully think of as information systems are just abstractions of physical objects that store and process the information.
+我们通常认为是信息系统的系统只是存储和处理信息的物理对象的抽象。
+Systems that we think of as physical store all the information about their form, but not necessarily about their function.
+我们认为是物理系统的系统存储了关于其形式的所有信息，但不一定是关于其功能的信息。
+all cases, information is encoded in some physical form.
+在所有情况下，信息都以某种物理形式编码。
+When we speak about information, it is patterns in physical form that can be encoded and decoded by the user.
+当我们谈到信息时，它是可以被用户编码和解码的物理形式的模式。
+Formal Entities and Relationships in Software Continuing in Table 4.1, Question 4b is What are the principal elements of form?
+软件中的正式实体和关系继续在表4.1中，问题4b是什么是形式的主要元素?
+Now that we understand that the code is form, the likely elements are obvious: the lines of pseudocode.
+既然我们理解了代码是形式，可能的元素就很明显了:伪代码行。
+Alternatively, we could abstract together the procedure/end procedure, the if/end if, the for j/end of j loop, and the for i/end of i loop and identify eight important elements.
+或者，我们可以将过程/end过程、if/end if、for j/end of j循环和for i/end of i循环抽象在一起，并确定8个重要元素。
+Decomposing the lines of code further does not provide additional useful information about the system.
+进一步分解代码行不会提供关于系统的其他有用信息。
+There are certainly details that are important, such as command semantics, order of variables, and naming conventions.
+当然还有一些重要的细节，比如命令语义、变量的顺序和命名约定。
+This information is best treated as a detail of an object, much as the details of the impeller of the pump were important to its performance, but not to its architecture.
+这些信息最好作为一个对象的细节来处理，就像泵的叶轮的细节对它的性能很重要，但对它的架构不重要一样。
+Question 4c of Table 4.2 is What is the formal structure?
+表4.2的问题4c是什么是正式结构?
+The procedure for determining formal relationships that is recommended in Section 4.3 is to examine each pairwise set of objects and determine whether there is a spatial/topological or a connectivity relationship between them.
+第4.3节中推荐的确定形式关系的程序是检查每一组成对的对象，并确定它们之间是否存在空间/拓扑关系或连接关系。
+For software, we need to consider the idea of spatial/topological relationships more generally.
+对于软件，我们需要更普遍地考虑空间/拓扑关系的概念。
+The structure of objects in software code is implicit and is suggested by (optional) indentations, code conventions, and language syntax.
+软件代码中对象的结构是隐式的，由(可选的)缩进、代码约定和语言语法建议。
+The most important element of spatial/topological structure in imperative languages is sequence what lines of code are executed before what other lines of code.
+命令式语言中空间/拓扑结构最重要的元素是顺序:哪些行代码在哪些行代码之前执行。
+For example in Figure 4.19 it is apparent that lines 5 7 are in a sequence.
+例如在图4.19中，第5行和第7行显然是一个序列。
+Also, they are within the conditional if statement, which is within the j loop, and so forth.
+同样，它们在条件if语句中，也在j循环中，等等。
+Figure 4.20 shows the structural relationships for lines 4 8 explicitly.
+图4.20显式地显示了第4行和第8行之间的结构关系。
+The precedes or follows sequential spatial/topological relationship informs the transfer of control during execution.
+顺序空间/拓扑关系的前面或后面通知执行期间的控制转移。
+Likewise, the contains or within relationship informs th
+同样，包含或在关系内通知th
+execution of all the lines that are contained within the section of code, if the conditional test is met.
+如果条件测试满足，则执行代码段中包含的所有行。
+In such imperative pseudocode, the spatial/topological structure informs the eventual flow of control, or at least the part that is strictly associated with structure.
+在这种命令式伪代码中，空间/拓扑结构通知控制的最终流，或者至少是与结构严格相关的部分。
+The DSM tabular view of the spatial/topological structure of the bubblesort code is shown in Table 4.8.
+bubblesort代码的空间/拓扑结构的DSM表格视图见表4.8。
+The grey section indicates the lines that were shown in Figure 4.20.
+灰色部分表示图4.20中所示的线。
+This matrix makes explicit what lines are preceded by what other lines of code, as well as lines that are contained within the paired lines such as if/end if.
+这个矩阵显示了哪些行前面有哪些代码行，以及包含在配对行(如if/end if)中的行。
+The DSM indicates that there are no spatial/topological relationships with the two objects outside of the procedure that is, the compiler and calling routine.
+DSM表明，与过程之外的两个对象(即编译器和调用例程)没有空间/拓扑关系。
+The connectivity structural relationships for software are associated with the connections that will carry the functional interaction: the exchange of data or variables. 
+软件的连接结构关系与将承载功能交互的连接相关联:数据或变量的交换。
+As an example, the connectivity DSM for bubblesort is shown in Table 4.9.
+例如，bubblesort的连通性DSM如表4.9所示。
+Here the entries are used to indicate the variable shared: the array, length of the array, temporary, and the indices for the i and j loops.
+这里的条目用于表示共享的变量:数组、数组的长度、临时以及i和j循环的索引。
+Comparing Tables 4.8 and 4.9 for the spatial/topological and connectivity structural relationships of the bubblesort procedure, we see less similarity between the two than in the corresponding arrays for the pump in Tables 4.5 and 4.6.
+比较表4.8和4.9中bubblesort过程的空间/拓扑和连通性结构关系，我们可以看到，与表4.5和4.6中泵的对应数组相比，两者之间的相似性更少。
+In general, it is possible to make spatial/topological and connectivity structure more distinct in information systems than in physical systems.
+一般来说，在信息系统中使空间/拓扑结构和连接结构比在物理系统中更加明显是可能的。
+Software Whole Product Systems, Boundaries, and Use Context Table 4.1 next suggests Question 4d: What are the accompanying systems?
+软件整个产品系统，边界，和使用上下文表4.1接下来建议问题4d:伴随的系统是什么?
+and What is the whole product system?
+那么整个产品系统是什么呢?
+Recall that the whole product system contains the accompanying systems
+回想一下，整个产品系统包含相应的系统
+that are essential to deliver the product/system value.
+对交付产品/系统价值至关重要的。
+In the case of the bubblesort, value is delivered as a sorted array.
+在bubblesort的情况下，值作为排序后的数组传递。
+The additional accompanying systems in the whole product system therefore are at least the calling routine and the compiler that compiles the source code into executable instructions.
+因此，整个产品系统中附加的系统至少是调用例程和将源代码编译成可执行指令的编译器。
+Following on from there, the accompanying systems would be the processor that executes the instructions, and the input and output devices to enter the arrays.
+从那里开始，伴随的系统将是执行指令的处理器，以及进入阵列的输入和输出设备。
+Ultimately, there are also the power supply, network, operator, and so forth.
+最后，还有电源、网络、运营商等等。
+For simplicity, we will limit our discussion of the accompanying systems to the compiler and calling routine, as shown by the objects listed beyond the dashed line (system boundary, Question 4e) in Tables 4.8 and 4.9.
+为了简单起见，我们将把附带系统的讨论限制在编译器和调用例程上，如表4.8和4.9中虚线以外列出的对象(系统边界，问题4e)所示。
+Examining these tables reveals the interfaces in the off-diagonal blocks.
+检查这些表可以发现非对角块中的接口。
+Although there are no important spatial/topological interfaces, there are important connectivity interfaces.
+虽然没有重要的空间/拓扑界面，但有重要的连通性界面。
+There must be a connection that allows the array and array length to be shared between the calling routine and bubblesort.
+必须有允许在调用例程和bubblesort之间共享数组和数组长度的连接。
+In addition, there must be a connection that enables the compiler to view the code and create the appropriate machine-level instructions.
+此外，必须有一个连接，使编译器能够查看代码并创建适当的机器级指令。
+Finally, Question 4f of Table 4.1 is What is the use context?
+最后，表4.1的问题4f是使用上下文是什么?
+From the information we have, this would be difficult to say.
+根据我们所掌握的资料，这很难说。
+It could be an instructional module for students, a library application, or a piece of embedded system-critical software.
+它可以是学生的教学模块、图书馆应用程序或嵌入式系统关键软件的一部分。
+The requirements for quality assurance, reliability, and maintainability would be different in these cases.
+在这些情况下，对质量保证、可靠性和可维护性的需求会有所不同。
+In summary: The objects of form for a software system are the code, which (when operated) will be interpreted as instructions.
+总而言之:软件系统的形式对象是代码，它(在运行时)将被解释为指令。
+The software form can be decomposed into modules, procedures, and eventually (if desired) lines of code.
+软件形式可以分解为模块、过程和(如果需要的话)代码行。
+The structure of software consists of spatial/topological structural relationships that inform control flow during execution, and connectivity structure, which is the instrumental connection that allows data and variable flow during execution.
+软件的结构包括在执行过程中告知控制流的空间/拓扑结构关系和连接结构，连接结构是在执行过程中允许数据和可变流的工具连接。
+The whole product system for software includes the software code, the accompanying system (compiler, calling routine, processor, system software, input and output, and so on) and the use context systems that inform requirements and operations.
+软件的整个产品系统包括软件代码、伴随系统(编译器、调用例程、处理器、系统软件、输入和输出等等)和通知需求和操作的使用上下文系统。
+4.7 Summary Form is a system attribute that is the physical/informational embodiment of a system that exists or has the potential to exist and is instrumental of function.
+4.7摘要形式是系统属性，是已存在或有可能存在的系统的物理/信息体现，是功能的工具。
+Form can be decomposed into objects of form, and those objects have formal relationships or structure.
+形式可以分解为形式对象，这些对象具有形式关系或结构。
+Form is eventually implemented and operated.
+表单最终实现和操作。
+The form of the system combines with other accompanying systems (with which it interfaces at its boundary) to create the whole product system that generates value.
+系统的形式与其他伴随系统相结合(在其边界与之相连)，从而创造出产生价值的整个产品系统。
+A complete description of form includes the formal objects of the system, their structure, the accompanying systems, the interfaces, and the use context.
+表单的完整描述包括系统的形式化对象、它们的结构、伴随的系统、接口和使用上下文。
+In this chapter, we took the approach of reverse engineering.
+在本章中，我们采用了逆向工程的方法。
+We started the analysis with the more concrete system attribute of form and deferred the less concrete system attribute of function to the next chapter.
+我们从较为具体的形式系统属性开始分析，将较为具体的功能系统属性推迟到下一章。
+In Table 4.1, we defined six questions to guide the analysis of form, along with procedures that might be useful in addressing the questions.
+在表4.1中，我们定义了六个问题来指导对表单的分析，以及可能有助于解决这些问题的步骤。
+We applied these procedures to two simple systems, a mechanical pump and bubblesort, and found that they were helpful in guiding the analysis of these systems.
+我们将这些方法应用于机械泵和气泡泵这两个简单的系统，发现它们有助于指导这些系统的分析。
+
